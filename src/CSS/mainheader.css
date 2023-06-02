@@ -1,0 +1,429 @@
+:root {
+  --blue: #dba39a;
+  --lightblue: #fff5e4;
+  --gray: #333;
+}
+body {
+  background: #f5ebe0;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.header {
+  background: url("/public/img/img2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 720px;
+  position: relative;
+  /* border-radius: 0 0 100px 100px; */
+}
+.headerGroup {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 0;
+}
+.Luckyday {
+  height: 100px;
+  font-size: 1.8rem;
+  margin-left: 10%;
+  letter-spacing: 0.3rem;
+  animation: main-logo 1.2s ease-in-out forwards;
+  color: white; /* 텍스트 색상 설정 */
+  font-weight: bold;
+}
+.link {
+  color: white;
+  font-size: 0.9rem;
+  margin: 1.5rem 10rem;
+  text-decoration: none;
+  animation: main-logo 1.2s ease-in-out forwards;
+}
+.link:hover {
+  color: white;
+  font-size: 0.9rem;
+  margin: 1.5rem 10rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button.white {
+  --background: #fff;
+  --text: #000000;
+  --shadow: 0 2px 8px -1px rgba(18, 22, 33, 0.04);
+  --shadow-hover: 0 4px 20px -2px rgba(18, 22, 33, 0.12);
+}
+.button.fast {
+  --duration: 0.32s;
+}
+
+.button {
+  --background: #f5ebe0;
+  --text: #fff;
+  --font-size: 19px;
+  --duration: 0.44s;
+  --move-hover: -4px;
+  --shadow: 0 2px 8px -1px #f5ebe0;
+  --shadow-hover: 0 4px 20px -2px #dba39a;
+  --font-shadow: var(--font-size);
+  width: 130px;
+  padding: 16px 32px;
+  font-weight: 500;
+  line-height: var(--font-size);
+  border-radius: 22px;
+  display: block;
+  outline: none;
+  text-decoration: none;
+  font-size: var(--font-size);
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  background-color: var(--lightblue);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transform: translateY(var(--y)) translateZ(0);
+  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+}
+.button div {
+  display: flex;
+  overflow: hidden;
+  text-shadow: 0 var(--font-shadow) 0 var(--text);
+}
+.button div span {
+  display: block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-style: normal;
+  transition: transform var(--duration) ease;
+  transform: translateY(var(--m)) translateZ(0);
+}
+.button div span:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.button div span:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.button div span:nth-child(3) {
+  transition-delay: 0.15s;
+}
+.button div span:nth-child(4) {
+  transition-delay: 0.2s;
+}
+.button div span:nth-child(5) {
+  transition-delay: 0.25s;
+}
+.button div span:nth-child(6) {
+  transition-delay: 0.3s;
+}
+.button div span:nth-child(7) {
+  transition-delay: 0.35s;
+}
+.button div span:nth-child(8) {
+  transition-delay: 0.4s;
+}
+.button div span:nth-child(9) {
+  transition-delay: 0.45s;
+}
+.button div span:nth-child(10) {
+  transition-delay: 0.5s;
+}
+.button div span:nth-child(11) {
+  transition-delay: 0.55s;
+}
+.button:hover {
+  --y: var(--move-hover);
+  --shadow: var(--shadow-hover);
+  cursor: pointer;
+}
+.button:hover span {
+  --m: calc(var(--font-size) * -1);
+}
+.button.reverse {
+  --font-shadow: calc(var(--font-size) * -1);
+}
+.button.reverse:hover span {
+  --m: calc(var(--font-size));
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/************************************************/
+/*main화면 문구*/
+.luckydayInfoTextGroup {
+  width: 60%;
+  margin: 0 auto;
+  animation: main-logo 1.2s ease-in-out forwards;
+}
+.luckydayInfoText {
+  display: block;
+  font-size: 5rem;
+  letter-spacing: 0.7rem;
+  font-weight: 900;
+  margin: 3% 0;
+}
+.luckydayInfoText_1 {
+  font-family: "GmarketSansMedium";
+  display: block;
+  margin-left: 2%;
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  font-weight: 900;
+}
+.luckydayInfoText_2 {
+  font-family: "GmarketSansMedium";
+  display: block;
+  font-size: 1.2rem;
+  letter-spacing: 0.3rem;
+  font-weight: 900;
+  margin: 1% 2%;
+}
+/*******************************************************/
+.scrolldown {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  z-index: 100;
+  text-align: center;
+  transform: translateX(-50%);
+}
+.scrolldown span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+.box_scroll {
+  position: relative;
+  margin: 10px auto 0;
+  width: 60px;
+  height: 60px;
+  /* background-color: #f5ebe0; */
+  border-radius: 500px;
+}
+.iconScroll {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 23px;
+  height: 34px;
+  border: 3px solid #ffe8d2;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+}
+.iconScroll:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 5px;
+  height: 7px;
+  background: #ffe8d2;
+  margin-left: -2.5px;
+  top: 5px;
+  border-radius: 50px;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: scroll;
+  animation-name: scroll;
+}
+@keyframes scroll {
+  0% {
+  }
+  100% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(14px);
+  }
+}
+/*******************************************************/
+/*container*/
+.container {
+  justify-content: space-between;
+  display: flex;
+}
+.container img {
+  margin: 3%;
+  min-height: 400px; /* 최소한의 높이 설정 */
+  border-radius: 20px;
+  float: left;
+  animation: slide-up 1.2s ease-in-out forwards;
+}
+.containerBoxText {
+  display: block;
+  letter-spacing: 0.7rem;
+  font-weight: 900;
+  margin-left: 5%;
+}
+/*******************************************************/
+
+/*******************************************************/
+/*애니메이션*/
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes main-logo {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*스크롤 시, 서서히 fade out*/
+.fade-out {
+  opacity: 0;
+  animation-name: fadeOut;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+.fade-in {
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main-menu-button {
+  z-index: 4;
+  display: grid;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 6%;
+  animation: menubtn 1.2s ease-in-out forwards;
+}
+.menu-icon {
+  fill: #ffffff;
+}
+.menu-icon:hover {
+  cursor: pointer;
+}
+.menu-icon:active {
+  cursor: pointer;
+}
+.menu-background {
+  position: absolute;
+  z-index: 2;
+  aspect-ratio: 1 / 1;
+  background: #07030a;
+  opacity: 0;
+  transition: 0.6s;
+  margin: 0;
+  top: 0; /* 수정된 부분 */
+  right: 0;
+}
+body.open .menu-background {
+  width: 11%;
+  height: 720px;
+  opacity: 0.8;
+}
+body.open .menuGroup {
+  opacity: 1;
+  visibility: visible;
+}
+.menuGroup {
+  z-index: 3;
+  position: absolute;
+  margin-right: 4%;
+  align-items: center;
+  transition: 0.05s;
+  top: 17%;
+  right: 0;
+}
+
+.menuGroup nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 100px;
+}
+.menuGroup .menulink {
+  position: relative;
+  color: #f9f9f9;
+  font-size: 23px;
+  padding: 20px 0 20px;
+  text-decoration: none;
+  opacity: 0;
+  transition: 0.4s;
+}
+.menuGroup .menulink::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -26px;
+  translate: 0 -50%;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  opacity: 0;
+  rotate: 45deg;
+  transition: 0.3s;
+}
+.menuGroup .menulink:hover::after {
+  opacity: 1;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    translate: -30px 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+body.open .menuGroup .menulink {
+  opacity: 1;
+  animation: appear 0.35s backwards;
+}
+@keyframes menubtn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

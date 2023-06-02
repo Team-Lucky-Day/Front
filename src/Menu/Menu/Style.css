@@ -1,0 +1,155 @@
+.btnMenu {
+  text-align: left;
+  margin-left: 1rem;
+  margin-top: 50px;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+}
+
+.b_div {
+  text-align: left;
+  width: 50%;
+}
+
+.backGround {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.title {
+  /* background-color:#dba39a; */
+  text-align: center;
+  color: #000000;
+  font-family: "Ubuntu";
+}
+
+.tabMenu {
+  background-color: rgba(250, 250, 250, 0.1);
+  color: black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  margin-top: 10px;
+  margin: 0 10px;
+}
+.submenu {
+  /* //   기본 Tabmenu 에 대한 CSS를 구현 */
+  background-color: rgba(77, 74, 77, 0.1);
+  margin: 0 10px;
+  display: flex;
+  /* justify-content: space-between;
+        width: 380px;
+        heigth: 30px; */
+  width: calc(100% / 3);
+  padding: 10px;
+  font-size: px;
+  transition: 0.5s;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.focused {
+  /* //    선택된 Tabmenu 에만 적용되는 CSS를 구현 */
+  color: rgb(21, 20, 20);
+  background-image: url(/public/img/cafe.jpg);
+  background-size: cover; /* 이미지를 요소에 맞게 조절 */
+  background-position: center; /* 이미지를 요소 중앙에 위치 */
+}
+
+& div.desc {
+  text-align: center;
+}
+
+.content {
+  background-color: #fdf5e6;
+  height: 85%;
+  margin: 0 10px;
+}
+
+.containerMenu {
+  /* 글자폰트 */
+
+  /* 모달창 크기 */
+  width: 300px;
+  height: 250px;
+  text-align: center;
+
+  /* 최상단 위치 */
+  z-index: 500;
+
+  /* 중앙 배치 */
+  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
+  /* translate는 본인의 크기 기준으로 작동한다. */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 모달창 디자인 */
+  background-color: white;
+  border-style: solid;
+  border-color: gray;
+
+  /* border: 1px solid black; */
+  border-radius: 8px;
+}
+
+/* 모달창 내부 X버튼 */
+
+.btnMenu {
+  background-color: var(--#F5EBE0);
+  background-image: linear-gradient(
+    90deg,
+    var(--blue) 0%,
+    var(--lightblue) 74%
+  );
+  border-radius: 7px;
+  border: 0px solid var(--blue);
+  color: #1a120b;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  padding: 0.2rem 2rem;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  margin: 2px;
+}
+
+.text1 {
+  /* 글자폰트 */
+  font-family: "Ubuntu";
+  font-size: small;
+}
+
+.cart {
+  background-color: #ffdfdc;
+  border-radius: 7px;
+  width: 300px;
+  height: auto;
+  margin-top: 80px;
+  margin-right: 50px;
+
+  text-align: left;
+  float: right;
+  font-family: "Ubuntu";
+  font-size: small;
+}
+.cartText1 {
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: "large";
+  margin-bottom: 10px;
+}
+.cartText2 {
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: "small";
+  margin-bottom: 10px;
+}

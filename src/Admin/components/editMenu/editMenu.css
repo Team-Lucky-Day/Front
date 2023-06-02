@@ -1,0 +1,67 @@
+.menuEditTitle{
+    font-size:32px;
+    font-weight: 600;
+}
+.editMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.editTabButtons{
+    display: flex;
+    gap: 10px;
+}
+.editTabButtons button{
+    padding: 8px 16px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+}
+.editTabButtons button.active{
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.coffeeTnD{
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    margin-bottom: 30px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.coffeeTnD .coffee-title{
+    flex-grow: 1;
+}
+
+.beverageTnD{
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    margin-bottom: 30px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.beverageTnD .beverage-title{
+    flex-grow: 1;
+}
+
+
+.addButton{
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    margin-bottom: 30px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.addButton:hover{
+    background-color:#F3C5C5;
+
+}
