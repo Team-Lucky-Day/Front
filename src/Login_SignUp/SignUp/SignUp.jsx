@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../CSS/container.css";
+import "../../CSS/modal.css";
 
 import SignUpInput from "./SignUpInput";
+import Swal from "sweetalert2";
 
 const SignUp = (props) => {
   const inputPlaceholder = [
@@ -28,6 +30,15 @@ const SignUp = (props) => {
   const handleCardCheckboxChange = (e) => {
     setShowCardInputs(e.target.checked);
     setScrollAnimation(e.target.checked);
+  };
+  const handleButtonClick = () => {
+    Swal.fire({
+      icon: "success",
+      title: "",
+      text: "회원가입되셨습니다.",customClass: {
+        confirmButton: 'btn-color'
+      }
+    });
   };
   return (
     <div
@@ -118,7 +129,12 @@ const SignUp = (props) => {
             </div>
           )}
         </div>
-        <button className="btn">Sign Up</button>
+        <button
+          className="btn swal2-confirm swal2-styled"
+          onClick={handleButtonClick}
+        >
+          Sign Up
+        </button>
       </div>
     </div>
   );

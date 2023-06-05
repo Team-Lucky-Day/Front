@@ -1,0 +1,46 @@
+:root {
+  /* COLORS */
+  --white: #e9e9e9;
+  --gray: #333;
+  --blue: #dba39a;
+  --lightblue: #fff5e4;
+
+  /* RADII */
+  --button-radius: 0.7rem;
+
+  /* SIZES */
+  --max-width: 758px;
+  --max-height: 500px;
+
+  font-size: 17px;
+}
+.btn-color {
+  background: #f6dcc6 !important;
+  color: black !important;
+  outline: none !important;
+  padding: 0.9rem 3rem !important;
+  border-radius: 18px !important;
+  font-family: "GmarketSansMedium" !important;
+}
+.btn-color:focus {
+  box-shadow: none !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-icon).swal2-success {
+  border-color: #f6dcc6 !important;
+  color: #f6dcc6 !important;
+}
+.swal2-success-ring {
+  border: 0.25em solid rgba(228, 200, 128, 0.3) !important;
+}
+.swal2-success.swal2-icon-show .swal2-success-circular-line-right {
+  animation: swal2-rotate-success-circular-line 4.25s ease-in;
+}
+.swal2-success [class^="swal2-success-line"] {
+  background-color: rgba(228, 200, 128, 0.3) !important;
+}
+.swal2-html-container {
+  font-weight: bold !important;
+  font-family: "GmarketSansMedium";
+  letter-spacing: 2px;
+}

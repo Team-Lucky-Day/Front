@@ -5,6 +5,7 @@ import AuthPage from "./Login_SignUp/AuthPage";
 import FindPw from "./Login_SignUp/Login/FindPw";
 import AppAdmin from "./Admin/App";
 import Menu from "./Menu/App";
+import FavoritesMenu from "./Favorites_Menu/FavoritesMenu";
 
 function App() {
   return (
@@ -15,11 +16,10 @@ function App() {
       <Route path="/Login" element={<AuthPage />} />
 
       <Route path="/Seat" />
-      <Route path="/FavoritesMenu" />
+      <Route path="/FavoritesMenu" element={<FavoritesMenu />} />
       <Route path="/FindPw" element={<FindPw />} />
-      {/* <Route path="/Menu" element={<Menu />} />
-      <Route path="/Seat" element={<Seat />} />
-      <Route path="/FavoritesMenu" element={<FavoritesMenu />} /> */}
+      <Route path="/Menu" element={<Menu />} />
+      {/* <Route path="/Seat" element={<Seat />} /> */}
     </Routes>
   );
 }

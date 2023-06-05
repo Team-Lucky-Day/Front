@@ -1,0 +1,115 @@
+.favorites-page-explanation {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0 1rem 0;
+  align-items: center;
+}
+.favorites-page-explanation-hr {
+  width: 10%;
+  border: 0.333rem solid #e4cdb2;
+  background-color: #e4cdb2;
+}
+.favorites-page-explanation-info {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 2rem;
+}
+.favorites-page-explanation-detail {
+  text-align: center;
+  font-family: "GmarketSansMedium";
+  font-size: 0.888rem;
+  letter-spacing: 0.4rem;
+}
+.category-container {
+  display: flex;
+  width: 60%;
+  justify-content: flex-start;
+  margin: 1rem auto;
+}
+.favorites-category-title {
+  padding: 0.7rem 0;
+  margin-right: 1.7rem;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.4rem;
+  border-bottom: 0.3rem solid #e4cdb2;
+}
+.favoritesMenu-container {
+  width: 70%;
+  margin: 1.7rem auto;
+  padding-bottom: 2rem;
+}
+.favorites-component {
+  margin: 2rem;
+  width: 12rem;
+  margin: 0 auto;
+}
+.favorites-img {
+  width: 12rem;
+  height: 12rem;
+  margin: 2rem 0;
+  border-radius: 2rem;
+  object-fit: contain;
+}
+.favorites-title {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  font-family: "GmarketSansMedium";
+}
+.favorites-titleEng {
+  color: darkgray;
+  letter-spacing: 0.05rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.slick-list {
+  bottom: 2rem;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+/**************************/
+/*모달 창*/
+.ReactModal__Content .ReactModal__Content--after-open {
+  position: absolute;
+  inset: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+}
+.modal-h2 {
+  font-family: "GmarketSansMedium";
+  letter-spacing: 1rem;
+  text-align: center;
+}
+.modal-btn {
+  background-color: white;
+  border: 0px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgb(122, 122, 122);
+}
+.modal-btn :hover {
+  cursor: pointer;
+  color: darkgray;
+}
+.modal-payment {
+  margin: 5rem 0 1rem 0;
+  text-align: center;
+}
+.modal-payment button {
+  font-family: "GmarketSansMedium";
+  letter-spacing: 0.5rem;
+  font-size: 0.8rem;
+}

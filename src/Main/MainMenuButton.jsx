@@ -19,6 +19,10 @@ const MainMenuButton = () => {
       href: "/Admin",
       text: "Admin",
     },
+    favorites: {
+      href: "/FavoritesMenu",
+      text: "Favorites",
+    },
   };
   const toggleMenu = () => {
     document.body.classList.toggle("open");
@@ -43,6 +47,10 @@ const MainMenuButton = () => {
         <MainMenu href={linkProps.about.href} text={linkProps.about.text} />
         <MainMenu href={linkProps.login.href} text={linkProps.login.text} />
         <MainMenu href={linkProps.admin.href} text={linkProps.admin.text} />
+        <MainMenu
+          href={linkProps.favorites.href}
+          text={linkProps.favorites.text}
+        />
       </div>
     </>
   );

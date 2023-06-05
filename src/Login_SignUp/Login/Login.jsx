@@ -3,6 +3,7 @@ import "../../CSS/container.css";
 import ForgotYourPw from "./ForgotYourPw";
 import SocialLogin from "./KakaoLogin/SocialLogin";
 const Login = (props) => {
+  
   return (
     <div className="container__form container--signin">
       <div className="form" id="form2">
@@ -10,7 +11,9 @@ const Login = (props) => {
         <input type="text" placeholder="Username" className="input" />
         <input type="password" placeholder="Password" className="input" />
         <ForgotYourPw />
-        <button className="btn">Login</button>
+        <button className="btn">
+          Login
+        </button>
         <div className="divider">
           <span>or</span>
         </div>
