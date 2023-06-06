@@ -10,7 +10,7 @@ import FavoritesComponent from "./FavoritesComponent";
 import FavoritesCategory from "./FavoritesCategory";
 import "../CSS/favorites.css";
 const FavoriteMenu = ({ user }) => {
-  const username = "염진희";
+  const username = "염진희"; //임시
   const settings = {
     arrows: false,
     dots: true,
