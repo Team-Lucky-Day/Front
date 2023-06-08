@@ -8,6 +8,8 @@
 
 #### `yarn add @fortawesome/react-fontawesome --save-dev`
 
+##### 필요하면
+
 ###### `yarn add @fortawesome/free-brands-svg-icons --save-dev`
 
 ###### `yarn add @fortawesome/free-regular-svg-icons --save-dev`
@@ -65,6 +67,8 @@
 #### `npm install @fortawesome/free-solid-svg-icons --save-dev`
 
 #### `npm install @fortawesome/react-fontawesome --save-dev`
+
+##### 필요하면
 
 ###### `npm install @fortawesome/free-brands-svg-icons --save-dev`
 
