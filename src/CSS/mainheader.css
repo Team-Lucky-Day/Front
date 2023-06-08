@@ -22,16 +22,20 @@ body {
   text-align: center;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2% 0;
 }
 .Luckyday {
   height: 100px;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-left: 10%;
   letter-spacing: 0.3rem;
   animation: main-logo 1.2s ease-in-out forwards;
   color: white; /* 텍스트 색상 설정 */
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .link {
   color: white;
@@ -329,7 +333,7 @@ html {
   display: grid;
   background-repeat: no-repeat;
   background-position: center;
-  margin-right: 6%;
+  margin-right: 7%;
   animation: menubtn 1.2s ease-in-out forwards;
 }
 .menu-icon {
@@ -353,7 +357,7 @@ html {
   right: 0;
 }
 body.open .menu-background {
-  width: 11%;
+  width: 13%;
   height: 720px;
   opacity: 0.8;
 }
@@ -364,7 +368,7 @@ body.open .menuGroup {
 .menuGroup {
   z-index: 3;
   position: absolute;
-  margin-right: 4%;
+  margin-right: 3%;
   align-items: center;
   transition: 0.05s;
   top: 17%;
