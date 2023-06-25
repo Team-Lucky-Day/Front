@@ -10,7 +10,7 @@ import FavoritesComponent from "./FavoritesComponent";
 import FavoritesCategory from "./FavoritesCategory";
 import "../CSS/favorites.css";
 const FavoriteMenu = ({ user }) => {
-  const username = "염진희"; //임시
+  const username = "염진희";
   const settings = {
     arrows: false,
     dots: true,
@@ -129,10 +129,10 @@ const FavoriteMenu = ({ user }) => {
         <br />
         여기서도 주문해보세요
       </div>
-      <div className="category-container">
+      <div className="favorites-category-container">
         <FavoritesCategory favoritesCategory="Coffee" />
       </div>
-      <div className="favoritesMenu-container">
+      <div className="favorites-Menu-container">
         <Slider {...settings}>
           <FavoritesComponent {...favorites.coffee.card1} cardclass="coffee" />
           <FavoritesComponent {...favorites.coffee.card2} cardclass="coffee" />
@@ -141,10 +141,10 @@ const FavoriteMenu = ({ user }) => {
           <FavoritesComponent {...favorites.coffee.card5} cardclass="coffee" />
         </Slider>
       </div>
-      <div className="category-container">
+      <div className="favorites-category-container">
         <FavoritesCategory favoritesCategory="Beverage" />
       </div>
-      <div className="favoritesMenu-container">
+      <div className="favorites-Menu-container">
         <Slider {...settings}>
           <FavoritesComponent
             {...favorites.Beverage.card1}
@@ -168,10 +168,10 @@ const FavoriteMenu = ({ user }) => {
           />
         </Slider>
       </div>
-      <div className="category-container">
+      <div className="favorites-category-container">
         <FavoritesCategory favoritesCategory="Dessert" />
       </div>
-      <div className="favoritesMenu-container">
+      <div className="favorites-Menu-container">
         <Slider {...settings}>
           <FavoritesComponent
             {...favorites.Dessert.card1}

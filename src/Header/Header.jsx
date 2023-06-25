@@ -4,8 +4,8 @@ import "../CSS/header.css";
 const Header = () => {
   return (
     <>
-      <Link to="/" className="link">
-        <div className="title">Lucky Day</div>
+      <Link to="/" className="header-link">
+        <div className="header-title">Lucky Day</div>
       </Link>
     </>
   );

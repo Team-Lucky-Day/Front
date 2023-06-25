@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../CSS/mainheader.css";
-
 const MainHeaderBtn = ({ text }) => {
   const handleButtonClick = () => {
     const buttons = document.querySelectorAll(".button");
@@ -18,8 +16,11 @@ const MainHeaderBtn = ({ text }) => {
 
   return (
     <>
-      <Link to="/Login" className="link">
-        <div className="button fast white" onClick={handleButtonClick}>
+      <Link to="/Login" className="main-link">
+        <div
+          className="main-button main-fast main-white"
+          onClick={handleButtonClick}
+        >
           <div>{slicedText}</div>
         </div>
       </Link>

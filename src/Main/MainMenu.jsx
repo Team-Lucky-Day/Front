@@ -3,7 +3,7 @@ const MainMenu = ({ href,text }) => {
   return (
     <>
       <nav>
-        <a href={href} className="menulink">{text}</a>
+        <a href={href} className="main-menulink">{text}</a>
       </nav>
     </>
   );

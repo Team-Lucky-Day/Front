@@ -15,7 +15,6 @@ const SignUpInput = ({ type, className, value, placeholder, onChange }) => {
       <input
         type={type}
         className={className}
-        value={value}
         placeholder={placeholder}
         onChange={onChange}
         id="password-input"

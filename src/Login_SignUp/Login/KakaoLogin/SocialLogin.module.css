@@ -1,0 +1,49 @@
+.social_login button {
+  float: left;
+  padding: 10px 0 10px 30px;
+  width: 100%;
+  margin-bottom: 15px;
+  display: block;
+  border: 1px solid #c2c7d0;
+  border-radius: 5px;
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.social_login .kakaoLogo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 22px;
+  border-right: 1px solid #c2c7d0;
+  padding: 2px 5px;
+  height: 100%;
+  line-height: 40px;
+}
+.social_login button.kakao {
+  background-color: #fee500;
+}
+.social_login button.github {
+  background-color: #333;
+}
+.social_login button.github::before {
+  content: "\f09b";
+  font-family: fontAwesome;
+}
+.social_login button.kakao::before,
+.social_login button.github::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 22px;
+  border-right: 1px solid #c2c7d0;
+  padding: 0 5px;
+  height: 100%;
+  line-height: 40px;
+}
+.sign-in-up input[type="submit"]:hover,
+.social_login button:hover {
+  opacity: 0.5;
+}

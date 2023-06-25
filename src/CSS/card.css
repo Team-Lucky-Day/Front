@@ -1,4 +1,5 @@
-.cardcomponent {
+/*Card.jsx*/
+.main-cardcomponent {
   width: 100%;
   height: 100%;
   margin-top: 4%;
@@ -6,12 +7,12 @@
   align-items: center;
   justify-content: center;
 }
-.wrapper {
+.main-wrapper {
   display: flex;
   width: 90%;
   justify-content: space-around;
 }
-.card {
+.main-card {
   width: 300px;
   height: 360px;
   border-radius: 15px;
@@ -23,28 +24,26 @@
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
-.card1 {
+.main-card1 {
   background-image: url(/public/img/main_img1.jpg);
 }
-
-.card2 {
+.main-card2 {
   background-image: url(/public/img/main_img2.jpg);
 }
-
-.card3 {
+.main-card3 {
   background-image: url(/public/img/main_img3.jpg);
 }
-.card:hover {
+.main-card:hover {
   transform: translateY(20px);
 }
-.card:hover:before {
+.main-card:hover:before {
   opacity: 1;
 }
-.card:hover .cardText {
+.main-card:hover .main-cardText {
   opacity: 1;
   transform: translateY(0px);
 }
-.card:before {
+.main-card:before {
   content: "";
   position: absolute;
   top: 0;
@@ -58,7 +57,7 @@
   transition: 0.5s;
   opacity: 0;
 }
-.cardImg {
+.main-cardImg {
   background-color: aqua;
   width: 100%;
   height: 100%;
@@ -69,7 +68,7 @@
   left: 0;
   border-radius: 15px;
 }
-.card img {
+.main-card img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -80,7 +79,8 @@
   left: 0;
   border-radius: 15px;
 }
-.cardText {
+/*MainContainer.jsx*/
+.main-cardText {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   position: relative;
   padding: 10% 3%;
@@ -90,17 +90,18 @@
   transform: translateY(30px);
   transition: 0.5s;
 }
-.card .cardText h1 {
+.main-card .main-cardText h1 {
   margin: 0px;
   letter-spacing: 0.15rem;
 }
-.card .cardText p {
+.main-card .main-cardText p {
   letter-spacing: 0.2px;
   font-size: 15px;
   margin-top: 1rem;
   line-height: 150%;
+  font-family: "Ubuntu";
 }
-.card .cardText button {
+.main-card .main-cardText button {
   padding: 0.6rem;
   margin-top: 1.6rem;
   outline: none;
@@ -112,6 +113,80 @@
   cursor: pointer;
   transition: 0.4s ease;
 }
-.card .cardText button:hover {
+.main-card .main-cardText button:hover {
   background: #ffeccb;
+}
+/*****************************************/
+/*미디어쿼리*/
+@media (max-width: 1220px) {
+  body.open .menu-background {
+    width: 15%;
+    height: 720px;
+    opacity: 0.8;
+  }
+  .menu-background {
+    position: absolute;
+    z-index: 2;
+    aspect-ratio: 1 / 1;
+    background: #07030a;
+    opacity: 0;
+    transition: 0.6s;
+    margin: 0;
+    top: 0;
+    right: 0;
+  }
+  .card {
+    width: 70%;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    padding: 1.5rem;
+    background: white;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.4s ease-out;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  }
+  .cardText {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    position: relative;
+    padding: 5% 3%;
+    z-index: 3;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+  }
+}
+
+@media (max-width: 1070px) {
+  .wrapper {
+    display: flex;
+    width: 90%;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 70%;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    padding: 1.5rem;
+    background: white;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.4s ease-out;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  }
+  .cardText {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    position: relative;
+    padding: 5% 3%;
+    z-index: 3;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+  }
 }

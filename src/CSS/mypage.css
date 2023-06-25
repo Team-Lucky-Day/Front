@@ -1,0 +1,463 @@
+.mypageMenuBar {
+  background-color: #e9d5bc;
+  border-radius: 0 3rem 0 0;
+  padding: 2rem;
+  width: 250px;
+  height: 508px;
+}
+.mypageMenuBarContainer {
+  margin: 2rem 1rem;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.mypageMenuBarContainer:hover {
+  font-weight: 800;
+  cursor: pointer;
+}
+.container--signup {
+  left: 0;
+  opacity: 1 !important;
+  width: 50%;
+  z-index: 1;
+}
+.mypage-form {
+  background-color: #b3b597;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 3rem;
+  text-align: center;
+}
+.mypage-form__title {
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 1rem;
+  background-color: #c5b9ad;
+}
+.mypageMenuBarContainerMain,
+.mypageMenuBarMyMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #c5b9ad;
+  border-radius: 2rem 2rem 0 0;
+  width: 1150px;
+  height: 459px;
+  padding: 1rem 0;
+  font-family: "Ubuntu";
+}
+.mypageMenuBarContainerMain .div,
+.mypageMenuBarMyMenu > div {
+  align-items: center;
+}
+h3 {
+  color: rgb(62, 45, 27);
+  font-family: "GmarketSansMedium";
+}
+.personalInfoImg {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 50%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  margin-left: 20%;
+}
+.mypageMenuBarContainer {
+  font-family: "GmarketSansMedium";
+}
+.mypageMenuBarContainerMainInput {
+  overflow-y: scroll;
+  padding: 10px;
+  height: 200px;
+  padding: 0 1rem;
+  width: 200px;
+}
+.mypage-input {
+  background-color: #fff;
+  border: none;
+  padding: 0.9rem 0.9rem;
+  margin: 0.5rem 0;
+  width: 90%;
+  border-radius: 10px;
+  font-size: 0.881rem;
+}
+/* 아래의 모든 코드는 영역::코드로 사용 */
+.mypageMenuBarContainerMainInput::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
+}
+
+.mypageMenuBarContainerMainInput::-webkit-scrollbar-thumb {
+  background: #e9e7e7; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.mypageMenuBarContainerMainInput::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /*스크롤바 뒷 배경 색상*/
+}
+.mypage-personalInfo-button {
+  margin-top: 2rem;
+  width: 100%;
+  height: 2.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+  border: 0px;
+  border-radius: 10px;
+  font-family: "GmarketSansMedium";
+}
+.mypage-personalInfo-button:hover {
+  color: #3c3c3c;
+  background: #8f8479;
+  font-weight: bold;
+  cursor: pointer;
+}
+.mypageMenuBarWithdrawal button {
+  margin-top: 2rem;
+  width: 100%;
+  height: 2.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 0.4rem;
+  border: 0px;
+  border-radius: 10px;
+  font-family: "GmarketSansMedium";
+}
+.withdrawalCheck {
+  text-decoration: underline;
+}
+
+.mypageMenuBarContainerMain select {
+  width: 14rem;
+  height: 1.8rem;
+  margin: 0.5rem 0 0.5rem 0;
+  border: 2px solid #dededb;
+  border-radius: 7px;
+}
+
+.mypageMenuBarContainerMain select:hover {
+  cursor: pointer;
+}
+.mypageMenuBarpersonal h3,
+.mypageMenuBarContainerMain {
+  font-family: "GmarketSansMedium";
+}
+
+.mypage-body {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.2rem auto;
+}
+.apexcharts-title-text {
+  font-size: 1.1rem;
+}
+.receiptMain {
+  height: 370px;
+}
+.receiptHeader {
+  font-size: 0.8rem;
+  text-align: right;
+  margin-bottom: 1rem;
+}
+.receiptBody {
+}
+.receiptTable {
+  width: 1000px;
+}
+.receiptTable-thead {
+  align-items: center;
+  justify-content: space-around;
+  letter-spacing: 0.3rem;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+.receiptTable-thead td {
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  text-align: center;
+  font-family: "GmarketSansMedium";
+}
+.receiptTable-tbody-tr {
+  align-items: center;
+  justify-content: space-around;
+  letter-spacing: 0.3rem;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+.receiptTable-tbody-tr td {
+  border-bottom: 1px solid gray;
+  font-weight: 500;
+  padding: 1.3rem 1rem;
+  font-family: "GmarketSansMedium";
+}
+.receiptTable-td-1 {
+  text-align: left;
+  width: 1%;
+  text-align: center;
+}
+.receiptTable-td-2 {
+  width: 10%;
+  text-align: center;
+}
+.receiptTable-td-3 {
+  width: 10%;
+  text-align: center;
+}
+.receiptTable-td-3 button {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s;
+  font-size: 0.8rem;
+  background-color: rgb(255, 244, 243);
+  color: #3c3c3c;
+  font-family: "GmarketSansMedium";
+}
+.receiptTable-td-3 button:hover {
+  color: #3c3c3c;
+  background: #8f8479;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal-overlay {
+  width: 99.9%;
+  height: 99.8%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.receiptdetail-wrap {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 400px;
+  height: 500px;
+  position: relative;
+  top: 1.8rem;
+  padding: 2rem;
+}
+.receiptdetail-head {
+  padding-left: 10px;
+  display: inline;
+  text-shadow: 1px 1px 2px gray;
+  width: 100%;
+}
+.receiptdetail-head-logo {
+  font-weight: bold;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 1.8rem;
+  padding-bottom: 2rem;
+}
+.receiptdetail-head-detail {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed rgb(153, 153, 153);
+}
+.receiptdetail-body-header-detail-name {
+  font-weight: bold;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  border-bottom: 2px dashed rgb(153, 153, 153);
+  margin: 0 0 1rem 0;
+}
+.close-area {
+  margin-top: 1rem;
+}
+.close-area button {
+  display: inline;
+  float: right;
+  padding-right: 10px;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px gray;
+  color: rgb(0, 0, 0);
+  padding: 0.1rem 0.5rem;
+  font-family: "GmarketSansMedium";
+}
+.close-area button:hover {
+  cursor: pointer;
+}
+.content {
+  margin-top: 20px;
+  padding: 0px 10px;
+  text-shadow: 1px 1px 2px gray;
+  color: white;
+}
+.receiptdetail-body-header-detail-menu {
+  width: 100%;
+}
+.receiptdetail-body-header-detail-menu tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.receiptdetail-body-header-detail-menu tr td {
+  font-size: 0.8rem;
+  flex-basis: 15%;
+  font-family: "GmarketSansMedium";
+}
+.receiptdetail-body-header-detail-menu tr td:first-child {
+  flex-basis: 50%; /* 첫 번째 td의 너비 조정 */
+}
+.receiptdetail-body-header-detail-sumPrice {
+  margin: 1rem 0;
+  border-top: 2px dashed rgb(153, 153, 153);
+  border-bottom: 2px dashed rgb(153, 153, 153);
+}
+.receiptdetail-body-header-detail-menu tr:last-child td {
+  padding: 0.4rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.receiptMypageCustomerCenterMain-Header {
+  font-family: "GmarketSansMedium";
+  letter-spacing: 0.1rem;
+  background-color: #8f847942;
+  font-size: 0.88rem;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+  border-radius: 1.5rem;
+}
+.receiptMypageCustomerCenterMain-Body {
+  overflow-y: scroll;
+  padding: 10px;
+  height: 300px;
+  width: 900px;
+}
+/* 아래의 모든 코드는 영역::코드로 사용 */
+.receiptMypageCustomerCenterMain-Body::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
+}
+
+.receiptMypageCustomerCenterMain-Body::-webkit-scrollbar-thumb {
+  background: #e9e7e7; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.receiptMypageCustomerCenterMain-Body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /*스크롤바 뒷 배경 색상*/
+}
+.receiptMypageCustomerCenterMain-Body-table {
+  align-items: center;
+  margin: 0 auto;
+}
+.receiptMypageCustomerCenterMain-Body-table tr {
+  vertical-align: middle;
+}
+.receiptMypageCustomerCenterMain-Body-table tr td {
+  border-bottom: 2px solid #a9a097;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  margin: 2rem 0;
+  flex-basis: 50%;
+  padding: 1rem 2rem;
+  align-items: center;
+  font-family: "GmarketSansMedium";
+}
+.receiptMypageCustomerCenterMain-Body-table-input {
+  background-color: #fff;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  margin: 0.5rem 0;
+  width: 50%;
+  border-radius: 10px;
+  font-size: 0.881rem;
+  font-family: "GmarketSansMedium";
+}
+.receiptMypageCustomerCenterMain-Body-table-textarea {
+  background-color: #fff;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-family: "GmarketSansMedium";
+}
+.receiptMypageCustomerCenterMain-Body-table-select {
+  width: 14rem;
+  height: 1.8rem;
+  border: 2px solid #dededb;
+  border-radius: 7px;
+  font-family: "GmarketSansMedium";
+}
+.receiptMypageCustomerCenterMain-Body-submit {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.receiptMypageCustomerCenterMain-Body-submit button {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s;
+  font-size: 0.7rem;
+  background-color: rgb(255, 244, 243);
+  color: #3c3c3c;
+  align-items: center;
+  font-family: "GmarketSansMedium";
+  font-size: 0.8rem;
+}
+.receiptMypageCustomerCenterMain-Body-submit button:hover {
+  color: #3c3c3c;
+  background: #8f8479;
+  font-weight: bold;
+  cursor: pointer;
+}
+.mypageMenuBarWithdrawalButton {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s;
+  font-size: 0.7rem;
+  background-color: rgb(255, 244, 243);
+  color: #3c3c3c;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.mypageMenuBarWithdrawalButton:hover {
+  color: #3c3c3c;
+  background: #8f8479;
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -77,13 +77,13 @@ const FavoritesComponent = ({
         contentLabel="Example Modal"
         shouldCloseOnOverlayClick={false}
       >
-        <h2 className="modal-h2" ref={(_subtitle) => (subtitle = _subtitle)}>
+        <h2 className="favorites-modal-h2" ref={(_subtitle) => (subtitle = _subtitle)}>
           결제창
         </h2>
-        <button className="modal-btn" onClick={closeModal}>
+        <button className="favorites-modal-btn" onClick={closeModal}>
           <FontAwesomeIcon icon={faXmark} size="2x" />
         </button>
-        <div className="modal-payment">
+        <div className="favorites-modal-payment">
           <button
             className="btn swal2-confirm swal2-styled"
             onClick={handleButtonClick}

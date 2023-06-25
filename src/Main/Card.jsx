@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardComponent from "./CardComponent";
 
 import "../CSS/card.css";
 const Card = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    // Check login status from localStorage
+    const isLoggedInStorage = localStorage.getItem("isLoggedIn");
+    if (isLoggedInStorage && isLoggedInStorage === "true") {
+      setIsLoggedIn(true);
+    }
+  }, []);
   const cardComponentText = {
     card1: {
       cardtextheader: "Menu",
@@ -48,11 +56,17 @@ const Card = () => {
     },
   };
   return (
-    <div className="cardcomponent">
-      <div className="wrapper">
-        <CardComponent {...cardComponentText.card1} cardclass="card1" />
-        <CardComponent {...cardComponentText.card2} cardclass="card2" />
-        <CardComponent {...cardComponentText.card3} cardclass="card3" />
+    <div className="main-cardcomponent">
+      <div className="main-wrapper">
+        {isLoggedIn ? (
+          <>
+            <CardComponent {...cardComponentText.card1} cardclass="card1" />
+            <CardComponent {...cardComponentText.card2} cardclass="card2" />
+            <CardComponent {...cardComponentText.card3} cardclass="card3" />
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

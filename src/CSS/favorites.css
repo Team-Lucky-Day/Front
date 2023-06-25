@@ -22,7 +22,7 @@
   font-size: 0.888rem;
   letter-spacing: 0.4rem;
 }
-.category-container {
+.favorites-category-container {
   display: flex;
   width: 60%;
   justify-content: flex-start;
@@ -36,7 +36,7 @@
   letter-spacing: 0.4rem;
   border-bottom: 0.3rem solid #e4cdb2;
 }
-.favoritesMenu-container {
+.favorites-Menu-container {
   width: 70%;
   margin: 1.7rem auto;
   padding-bottom: 2rem;
@@ -87,12 +87,12 @@
   outline: none;
   padding: 20px;
 }
-.modal-h2 {
+.favorites-modal-h2 {
   font-family: "GmarketSansMedium";
   letter-spacing: 1rem;
   text-align: center;
 }
-.modal-btn {
+.favorites-modal-btn {
   background-color: white;
   border: 0px;
   position: absolute;
@@ -100,15 +100,15 @@
   right: 1rem;
   color: rgb(122, 122, 122);
 }
-.modal-btn :hover {
+.favorites-modal-btn :hover {
   cursor: pointer;
   color: darkgray;
 }
-.modal-payment {
+.favorites-modal-payment {
   margin: 5rem 0 1rem 0;
   text-align: center;
 }
-.modal-payment button {
+.favorites-modal-payment button {
   font-family: "GmarketSansMedium";
   letter-spacing: 0.5rem;
   font-size: 0.8rem;

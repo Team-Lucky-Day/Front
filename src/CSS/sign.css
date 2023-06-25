@@ -23,7 +23,9 @@ label {
   font-weight: bold;
   margin-top: 10px;
 }
-
+form input {
+  font-family: "Ubuntu";
+}
 input {
   padding: 10px;
   margin-bottom: 15px;

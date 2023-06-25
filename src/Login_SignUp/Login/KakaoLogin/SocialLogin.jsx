@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../CSS/SocialLogin.css";
 const Rest_api_key = "381590a49ad13906a4df97ebbc42d353"; //REST API KEY
 const redirect_uri = "http://localhost:3000/auth"; //Redirect URI
@@ -8,13 +8,18 @@ const handleLogin = () => {
   window.location.href = kakaoURL;
 };
 const SocialLogin = (props) => {
-  // const code = new URL(window.location.href).searchParams.get("code");
-
   return (
     <div>
       <>
         <div className="social_login">
-          <button className="kakao">
+          <button
+            className="kakao"
+            onClick={() =>
+              window.open(
+                "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=a1b987111dbb4e0250bf964e8d93b269&redirect_uri=http://localhost:8080/auth/kakao/callback"
+              )
+            }
+          >
             <div className="kakaoLogo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

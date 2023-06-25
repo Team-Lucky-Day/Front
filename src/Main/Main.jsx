@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { animateScroll as scroll } from "react-scroll";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import MainMenuButton from "./MainMenuButton";
-import "../CSS/mainheader.css";
-import MainContainer from "./CardComponent";
+import "../CSS/main.css";
 import Card from "./Card";
 import LuckydayInfoText from "./LuckydayInfoText";
 import Footer from "../Footer/Footer";
@@ -15,7 +13,6 @@ const Main = () => {
     });
   }, []);
 
-  const text = "Login";
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
 
   useEffect(() => {
@@ -48,26 +45,25 @@ const Main = () => {
   return (
     <>
       <div
-        className={`header fadeRight ${
-          isScrollVisible ? "fade-in" : "fade-out"
+        className={`main-header fadeRight ${
+          isScrollVisible ? "main-fade-in" : "main-fade-out"
         }`}
         data-aos="fade-up"
       >
         {isHeaderVisible && (
-          <div className="headerGroup">
-            <div className="Luckyday">LuckyDay</div>
+          <div className="main-headerGroup">
+            <div className="main-Luckyday">LuckyDay</div>
             <MainMenuButton />
           </div>
         )}
 
-        <div className="scrolldown">
+        <div className="main-scrolldown">
           <span>SCROLL DOWN</span>
-          <div className="box_scroll">
-            <div className="iconScroll"></div>
+          <div className="main-box_scroll">
+            <div className="main-iconScroll"></div>
           </div>
         </div>
         {isHeaderVisible && <LuckydayInfoText />}
-        {/*MainHeaderBtn의 className={`${mainstyle.button} ${mainstyle.fast} ${mainstyle.white} */}
       </div>
 
       <Card />
