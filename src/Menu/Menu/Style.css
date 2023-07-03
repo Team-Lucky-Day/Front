@@ -1,3 +1,6 @@
+*{
+  margin-top: 0px;
+}
 .btnMenu {
   text-align: left;
   margin-left: 1rem;
@@ -5,13 +8,16 @@
 }
 
 .img {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
 }
 
 .b_div {
-  text-align: left;
-  width: 50%;
+  /* text-align: left; */
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 10px;
+  /* width: 40%; */
 }
 
 .backGround {
@@ -69,6 +75,8 @@
   background-color: #fdf5e6;
   height: 85%;
   margin: 0 10px;
+  display: flex;
+  /* align-items: ; */
 }
 
 .containerMenu {
@@ -99,6 +107,11 @@
   border-radius: 8px;
 }
 
+.mini_title{
+  font-weight: bold;
+  color: #000000;
+}
+
 /* 모달창 내부 X버튼 */
 
 .btnMenu {
@@ -125,6 +138,7 @@
   /* 글자폰트 */
   font-family: "Ubuntu";
   font-size: small;
+  color: #000000;
 }
 
 .cart {
@@ -132,11 +146,11 @@
   border-radius: 7px;
   width: 300px;
   height: auto;
-  margin-top: 80px;
-  margin-right: 50px;
+  /* margin-top: 80px; */
+  /* margin-right: 50px; */
 
-  text-align: left;
-  float: right;
+  /* text-align: left; */
+  /* float: right; */
   font-family: "Ubuntu";
   font-size: small;
 }

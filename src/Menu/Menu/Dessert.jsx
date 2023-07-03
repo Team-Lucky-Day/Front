@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import './Style.css'
 
-export default function Dessert() {
+export default function Dessert(props) {
 
     const [isModalOpen, setIsModalOpen] = useState('modalId');
 
@@ -17,7 +17,7 @@ export default function Dessert() {
     return (
         <>
             <div>
-                <div className="b_div">
+                {/* <div className="b_div">
                     <button onClick={() => openModal('d_modal1')} type="button" className="btnMenu" id="btn_d1">
                         < img src="img/d1.jpg" className="img" alt="Dessert" /></button>
                         {setIsModalOpen === 'd_modald1'}
@@ -61,7 +61,6 @@ export default function Dessert() {
 
                 </div>
 
-
                 <div className="b_div">
                     <button onClick={() => openModal('d_modal4')} type="button" className="btnMenu" id="btn_d4">
                         < img src="img/d4.jpg" className="img" alt="Dessert" /></button>
@@ -90,7 +89,36 @@ export default function Dessert() {
             </div>
           )}
 
+                </div> */}
+
+                <div className="b_div">
+                {props.dessertInfo.map( (dessertInfo, index) => (
+                  <div>
+                    <button
+                    onClick={() => openModal(index)}
+                    type="button"
+                    className="btnMenu"
+                    id="btn_b3"
+                    >
+                      <img src={`data:img/jpeg;base64,${dessertInfo.imageBytes}`} className="img" alt={dessertInfo.name} />
+                    </button>
+                    {isModalOpen === index && (
+                      <div className="containerMenu">
+                        <img src={`data:img/jpeg;base64,${dessertInfo.imageBytes}`} className="img" alt={dessertInfo.name} />
+                      <p className="mini_title">{dessertInfo.name}</p>
+                      <p>
+                        <text className="text1">{dessertInfo.content}</text>
+                      </p>
+                      <button className="btnMenu" onClick={closeModal}>
+                        닫기
+                      </button>
+                      <button className="btnMenu">Keep</button>
                 </div>
+              )}
+                  </div>
+                ))}
+                </div>
+                
             </div>
         </>)
 

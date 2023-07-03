@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Style.css";
 
-export default function Beverage() {
+export default function Beverage(props) {
   const [isModalOpen, setIsModalOpen] = useState("modalId");
 
   const openModal = (modalId) => {
@@ -16,7 +16,40 @@ export default function Beverage() {
   return (
     <>
       <div>
+      
         <div className="b_div">
+          {props.beverageInfo.map( (beverageInfo, index) => (
+            <div>
+              <button 
+                onClick={() => openModal(index)}
+                type="button"
+                className="btnMenu"
+                id="btn_b3"
+              >
+                <img src={`data:img/jpeg;base64,${beverageInfo.imageBytes}`} className="img" alt={beverageInfo.name} />
+              </button>
+              {isModalOpen === index && (
+                <div className="containerMenu">
+                  <img src={`data:img/jpeg;base64,${beverageInfo.imageBytes}`} className="img" alt={beverageInfo.name} />
+                <p className="mini_title">{beverageInfo.name}</p>
+                <p>
+                  <text className="text1">{beverageInfo.content}</text>
+                </p>
+                <button className="btnMenu" onClick={closeModal}>
+                  닫기
+                </button>
+                <button className="btnMenu">Keep</button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        
+      </div>
+    </>
+  );
+}
+{/* <div className="b_div">
           <button
             onClick={() => openModal("b_modal1")}
             type="button"
@@ -135,8 +168,4 @@ export default function Beverage() {
               <button className="btnMenu">Keep</button>
             </div>
           )}
-        </div>
-      </div>
-    </>
-  );
-}
+        </div> */}

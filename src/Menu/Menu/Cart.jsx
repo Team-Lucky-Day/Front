@@ -13,6 +13,7 @@ function Cart(){
     }
 
     return(
+      
         <div className='cart'>
             <h1 className='cartText1'>CART</h1>
             {cartItems.length === 0 ? (
