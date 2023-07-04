@@ -16,7 +16,7 @@
   /* text-align: left; */
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  grid-gap: 10px;
+  grid-gap: 25px;
   /* width: 40%; */
 }
 
@@ -42,7 +42,7 @@
   align-items: center;
   list-style: none;
   margin-top: 10px;
-  margin: 0 10px;
+  margin: 0 0px;
 }
 .submenu {
   /* //   기본 Tabmenu 에 대한 CSS를 구현 */
@@ -71,12 +71,24 @@
   text-align: center;
 }
 
-.content {
+.menuContent {
   background-color: #fdf5e6;
   height: 85%;
-  margin: 0 10px;
+  /* margin: 0 0px; */
   display: flex;
-  /* align-items: ; */
+  /* align-items: start; */
+  justify-content: space-around;
+}
+
+.menuContent .flexContent{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flexContent > div:first-child{
+  height: 100%;
+  display: f;
 }
 
 .containerMenu {

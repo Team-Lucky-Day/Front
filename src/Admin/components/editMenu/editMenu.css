@@ -1,67 +1,182 @@
 .menuEditTitle{
-    font-size:32px;
-    font-weight: 600;
+    font-size:40px;
+    font-weight: 800;
+    margin: 15px 20px;
 }
+
 .editMenu{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+
+
+.coffeeUl{
+    position: relative;
+    top: 20px;
+}
+
+.desertUl{
+    position: relative;
+    top: 50px;
+}
+
+.beverageUl{
+    position: relative;
+    top: 50px;
+}
+
+.newCoffeeButton{
+    background-color: var(--#F5EBE0);
+    background-image: linear-gradient(
+      90deg,
+      var(--blue) 0%,
+      var(--lightblue) 74%
+    );
+    border-radius: 18px;
+    border: 0px solid var(--blue);
+    color: #1a120b;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: bold;
+    position: relative;
+    left: 265%;
+    letter-spacing: 0.1rem;
+    padding: 0.5rem 3rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.newBeverageButton{
+    background-color: var(--#F5EBE0);
+    background-image: linear-gradient(
+      90deg,
+      var(--blue) 0%,
+      var(--lightblue) 74%
+    );
+    border-radius: 18px;
+    border: 0px solid var(--blue);
+    color: #1a120b;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: bold;
+    position: relative;
+    top: 30px;
+    left: 265%;
+    letter-spacing: 0.1rem;
+    padding: 0.5rem 3rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.newDesertButton{
+      background-color: var(--#F5EBE0);
+    background-image: linear-gradient(
+      90deg,
+      var(--blue) 0%,
+      var(--lightblue) 74%
+    );
+    border-radius: 18px;
+    border: 0px solid var(--blue);
+    color: #1a120b;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: bold;
+    position: relative;
+    top: 30px;
+    left: 265%;
+    letter-spacing: 0.1rem;
+    padding: 0.5rem 3rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+.menuModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+.formSubmit{
+    width: 300px;
+    margin: auto;
+}
+
+.formSubmit input{
+    margin: 5px 0;
+    height: 30px;
+    width: 40%;
+    font-size: 15px;
+}
+
+.formSubmit textarea{
+    width: 80%;
+    height: 60px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
 .editTabButtons{
+    /* position: relative; */
+    /* left: 400px; */
     display: flex;
     gap: 10px;
+    margin-bottom: 20px;
 }
 .editTabButtons button{
     padding: 8px 16px;
+    position: relative;
+    top: 10px;
     background-color: #ccc;
-    border: none;
+    border: none;   
     cursor: pointer;
 }
-.editTabButtons button.active{
-    background-color: #ff0000;
-    color: #fff;
-}
 
-.coffeeTnD{
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    margin-bottom: 30px;
-    padding: 5px;
-    border: 1px solid gray;
-    border-radius: 5px;
+.editTabButtons :hover{
+    background-color: #F3C5C5;
 }
-
-.coffeeTnD .coffee-title{
-    flex-grow: 1;
+.editTabContent{
+    margin-left: 15px;
 }
-
-.beverageTnD{
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    margin-bottom: 30px;
-    padding: 5px;
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-
-.beverageTnD .beverage-title{
-    flex-grow: 1;
-}
-
 
 .addButton{
     display: flex;
     align-items: center;
-    margin: 30px;
-    margin-bottom: 30px;
+    margin: 20px 0;
     padding: 5px;
-    border: 1px solid gray;
     border-radius: 5px;
+    height: 30px;
+    background-color:#b4b4b4;
+    color: white;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+
 }
 
 .addButton:hover{
-    background-color:#F3C5C5;
+    background-color:#f3c5c5;
+}
 
+.menuImageDiv{
+    /* border: 1px solid black; */
+    width: auto;
+}
+
+.menuImage{
+    width: 150px;
+    height: 150px;
+}
+
+.menu_container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 25px;
 }

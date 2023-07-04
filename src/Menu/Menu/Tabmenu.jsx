@@ -9,7 +9,6 @@ import axios from "axios"
 // import Modal from "./Modal";
 
 export const Tab = () => {
-  const [menuImgList, setMenuImgList] = useState([]);
   const [coffeeInfo, setCoffeeInfo] = useState([]);
   const [beverageInfo, setBeverageInfo] = useState([]);
   const [dessertInfo, setDessertInfo] = useState([]);
@@ -22,7 +21,6 @@ export const Tab = () => {
     const getMenuImg = async () => {
       const response = await axios.get('http://localhost:8080/admin/menuList')
       console.log("응답 데이터 : ", response.data)
-      setMenuImgList(response.data);
 
       const categoryCoffee = [];
       const categoryBeverage = [];
@@ -99,8 +97,10 @@ export const Tab = () => {
             ))}
           </div>
 
-          <div className="content">
-            <div>{menuArr[currentTab].content}</div>
+          <div className="menuContent">
+            <div className="flexContent">
+              {menuArr[currentTab].content}
+            </div>
             <Cart />
           </div>
         </div>
