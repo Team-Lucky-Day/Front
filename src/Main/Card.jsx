@@ -3,14 +3,9 @@ import CardComponent from "./CardComponent";
 
 import "../CSS/card.css";
 const Card = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() => {
-    // Check login status from localStorage
-    const isLoggedInStorage = localStorage.getItem("isLoggedIn");
-    if (isLoggedInStorage && isLoggedInStorage === "true") {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const getValue = localStorage.getItem("authorization");
+  console.log(getValue);
+
   const cardComponentText = {
     card1: {
       cardtextheader: "Menu",
@@ -58,7 +53,7 @@ const Card = () => {
   return (
     <div className="main-cardcomponent">
       <div className="main-wrapper">
-        {isLoggedIn ? (
+        {getValue ? (
           <>
             <CardComponent {...cardComponentText.card1} cardclass="card1" />
             <CardComponent {...cardComponentText.card2} cardclass="card2" />

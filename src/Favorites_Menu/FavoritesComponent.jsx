@@ -58,6 +58,13 @@ const FavoritesComponent = ({
       },
     });
   };
+  const openNewWindow = () => {
+    window.open(
+      "/Payment",
+      "_blank",
+      "top=180, left=420, width=700, height=500, status=no, menubar=no,scrollbars=no"
+    );
+  };
   return (
     <div className="favorites-component">
       <img
@@ -77,7 +84,10 @@ const FavoritesComponent = ({
         contentLabel="Example Modal"
         shouldCloseOnOverlayClick={false}
       >
-        <h2 className="favorites-modal-h2" ref={(_subtitle) => (subtitle = _subtitle)}>
+        <h2
+          className="favorites-modal-h2"
+          ref={(_subtitle) => (subtitle = _subtitle)}
+        >
           결제창
         </h2>
         <button className="favorites-modal-btn" onClick={closeModal}>
@@ -86,7 +96,7 @@ const FavoritesComponent = ({
         <div className="favorites-modal-payment">
           <button
             className="btn swal2-confirm swal2-styled"
-            onClick={handleButtonClick}
+            onClick={openNewWindow}
           >
             결제하기
           </button>

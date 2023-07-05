@@ -15,19 +15,6 @@
   font-size: 17px;
 }
 
-body {
-  align-items: center;
-  background-color: #f5ebe0;
-  /* background: url("https://c3web.cdn3.cafe24.com/korea/220928/04-Cafe%20Oriente.jpg"); */
-  /* /* background-attachment: fixed; */
-  background-position: center;
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  display: grid; */
-  height: 80vh;
-  place-items: center;
-}
-
 .form__title {
   font-weight: 600;
   margin: 0;

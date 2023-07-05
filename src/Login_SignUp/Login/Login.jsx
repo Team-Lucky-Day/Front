@@ -9,14 +9,14 @@ import { useNavigate } from "react-router-dom";
 const Login = (props) => {
   const inputPlaceholder = ["Id", "Password"];
   const [inputs, setInputs] = useState(Array(2).fill(""));
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isTokenCheck, setIsTokenCheck] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     // 로그인 상태 확인
-    const isLoggedInStorage = localStorage.getItem("isLoggedIn");
-    if (isLoggedInStorage && isLoggedInStorage === "true") {
-      setIsLoggedIn(true);
+    const isLoggedInStorage = localStorage.getItem("authorization");
+    if (isLoggedInStorage && isLoggedInStorage !== null) {
+      setIsTokenCheck(true);
     }
   }, []);
 
@@ -46,11 +46,12 @@ const Login = (props) => {
             confirmButton: "btn-color",
           },
         });
+
         console.log("요청이 성공했습니다!");
 
+        const data = `Bearer ${response.data}`;
         // 로그인 성공 시 localStorage에 데이터 저장
-        localStorage.setItem("isLoggedIn", "true");
-        setIsLoggedIn(true);
+        localStorage.setItem("authorization", data);
 
         navigate("/");
       })
@@ -68,40 +69,9 @@ const Login = (props) => {
   };
 
   const handleLogout = () => {
-    axios({
-      url: "http://localhost:8080/user/logout",
-      method: "post",
-      baseURL: "http://localhost:3000/Logout",
-    })
-      .then(function (response) {
-        // 성공적인 응답 (200 OK)
-        console.log(response.data);
-        Swal.fire({
-          icon: "success",
-          title: "",
-          customClass: {
-            confirmButton: "btn-color",
-          },
-        });
-        console.log("요청이 성공했습니다!");
-
-        // 로그아웃 시 localStorage 데이터 삭제
-        localStorage.removeItem("isLoggedIn");
-        setIsLoggedIn(false);
-
-        navigate("/");
-      })
-      .catch(function (response) {
-        Swal.fire({
-          icon: "warning",
-          title: "",
-          text: "로그아웃에 실패했습니다.",
-          customClass: {
-            confirmButton: "btn-color",
-          },
-        });
-        console.log("요청이 실패했습니다. 상태 코드:", response.status);
-      });
+    // 로그아웃 시 localStorage 데이터 삭제
+    localStorage.removeItem("authorization");
+    navigate("/");
   };
 
   return (
@@ -125,15 +95,9 @@ const Login = (props) => {
           />
         </React.Fragment>
         <ForgotYourPw />
-        {isLoggedIn ? (
-          <button className="btn" onClick={handleLogout}>
-            Logout
-          </button>
-        ) : (
-          <button className="btn" onClick={handleLogin}>
-            Login
-          </button>
-        )}
+        <button className="btn" onClick={handleLogin}>
+          Login
+        </button>
         <div className="divider">
           <span>or</span>
         </div>

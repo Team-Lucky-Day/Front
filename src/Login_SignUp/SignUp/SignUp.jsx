@@ -39,22 +39,55 @@ const SignUp = (props) => {
   };
   const navigate = useNavigate();
   const idoverlapCheck = (e) => {
-    Swal.fire({
-      icon: "error",
-      title: "",
-      text: "이미 존재하는 아이디입니다.",
-      customClass: {
-        confirmButton: "btn-color",
+    axios({
+      url: "http://localhost:8080/user/IDcheck",
+      method: "post",
+      data: {
+        u_name: inputs[0],
+        u_id: inputs[1],
+        u_email: inputs[2],
+        u_pw: inputs[2],
+        u_phone: inputs[3],
       },
-    });
+      baseURL: "http://localhost:3000/Login",
+    })
+      .then(function (response) {
+        console.log(axios.data);
+        Swal.fire({
+          icon: "success",
+          title: "",
+          text: "사용가능 한 아이디입니다.",
+          customClass: {
+            confirmButton: "btn-color",
+          },
+        });
+        console.log("요청이 성공했습니다!");
+        navigate("/Login");
+      })
+      .catch(function (response) {
+        Swal.fire({
+          icon: "warning",
+          title: "",
+          text: "이미 존재하는 아이디입니다.",
+          customClass: {
+            confirmButton: "btn-color",
+          },
+        });
+        console.log("요청이 실패했습니다. 상태 코드:", response.status);
+      });
   };
   const handleButtonClick = () => {
-    const passwordCheck = (e) => {
-      if (inputs[2] !== inputPlaceholder[5]) {
-        console.log(`pwCheckerror`);
-      } else {
-      }
-    };
+    if (inputs[2] !== inputPlaceholder[5]) {
+      Swal.fire({
+        icon: "warning",
+        title: "",
+        text: "비밀번호가 일치하지않습니다.",
+        customClass: {
+          confirmButton: "btn-color",
+        },
+      });
+    } else {
+    }
 
     axios({
       url: "http://localhost:8080/user/signup",
@@ -63,8 +96,8 @@ const SignUp = (props) => {
         u_name: inputs[0],
         u_id: inputs[1],
         u_email: inputs[2],
-        u_pw: inputs[2],
-        u_phone: inputs[3],
+        u_pw: inputs[3],
+        u_phone: inputs[5],
       },
       baseURL: "http://localhost:3000/Login",
     })
@@ -119,7 +152,6 @@ const SignUp = (props) => {
                 <React.Fragment key={index}>
                   <div className="idContainer">
                     <SignUpInput
-                      type="password" // 패스워드 입력 타입
                       className="id"
                       value={inputs[index]}
                       placeholder={inputPlaceholder[index]}
@@ -132,7 +164,8 @@ const SignUp = (props) => {
                 </React.Fragment>
               );
             }
-            if (index === 2 || index === 3) {
+
+            if (index === 3 || index === 4) {
               // Password 관련 input일 경우
               return (
                 <React.Fragment key={index}>

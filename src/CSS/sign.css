@@ -50,3 +50,9 @@ p {
   text-align: center;
   margin-top: 20px;
 }
+.registration-complete {
+  /* Add your desired styles for the registration complete state */
+  border: 2px solid green;
+  background-color: lightgreen;
+  /* Add more styles as needed */
+}
