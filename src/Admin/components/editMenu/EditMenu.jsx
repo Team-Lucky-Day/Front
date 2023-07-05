@@ -9,10 +9,11 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
 
     // <-------------------------------------------------->
     const [editTab, editActiveTab] = useState(0);//상태값 관리
-    const [coffeeTitle, setCoffeeTitle] = useState(''   );
+
+    const [coffeeTitle, setCoffeeTitle] = useState('');
     const [coffeeDetail, setCoffeeDetail] = useState('');
     const [coffeePrice, setCoffeePrice] = useState('');
-
+    const [imgFile, setImgFile] = useState(null);
 
 // <-------------------------------------------------->
     const [beverageTitle, setBeverageTitle] = useState('');
@@ -51,18 +52,24 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
     const submitCoffeeMenu = (event) => {
         event.preventDefault();
 
+        const formData = new FormData();
+        
+        formData.append("category", "coffee");
+        formData.append("name", coffeeTitle);
+        formData.append("content", coffeeDetail);
+        formData.append("price", coffeePrice);
+        formData.append("image", imgFile);
 
         console.log("음료 이름 : "+coffeeTitle)
         console.log("음료 설명 : "+coffeeDetail)
         console.log("음료 설명 : "+coffeePrice)
         //Post 요청
-        axios.post('http://localhost:8080/admin/menu',
-        {
-            category : "coffee",
-            name : coffeeTitle,
-            content : coffeeDetail,
-            price : coffeePrice
-        })
+        axios.post('http://localhost:8080/admin/menu', 
+        formData, {
+            headers : {"Content-Type": "multipart/form-data",
+            },
+        }
+        )
             .then( response => {
                 alert("메뉴 추가 성공");
                 console.log(response.data);
@@ -162,7 +169,9 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
                                     onChange={e => setCoffeeDetail(e.target.value)} 
                                     />
                                 <br />
-
+                                <input 
+                                type="file"
+                                onChange={e => setImgFile(e.target.files[0])} />
                             
                                 <button className="addButton" type="submit">메뉴 추가</button>
                                     

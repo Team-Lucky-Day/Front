@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./userInfo.css";
-import swImg from "./img/swImg.jpg"
-import jyImg from "./img/jyImg.jpg"
-import syImg from "./img/syImg.jpg"
-import sbImg from "./img/sbImg.jpg"
-import jhImg from "./img/jhImg.jpg"
-import isImg from "./img/isImg.jpg"
+//import swImg from "./img/swImg.jpg"
+// import jyImg from "./img/jyImg.jpg"
+// import syImg from "./img/syImg.jpg"
+// import sbImg from "./img/sbImg.jpg"
+// import jhImg from "./img/jhImg.jpg"
+// import isImg from "./img/isImg.jpg"
 import ManIcon from '@mui/icons-material/Man';
-import WomanIcon from '@mui/icons-material/Woman';
+// import WomanIcon from '@mui/icons-material/Woman';
 import Swal from "sweetalert2";
+import axios from "axios";
+import { Details } from "@material-ui/icons";
+
+
 export default function UserInfo() {
+    const [data, setData] = useState([]);
+
+    // axios 통신
+    useEffect(() => {
+        axios.get('http://localhost:8080/admin/users')
+            .then(response => {
+                setData(response.data);
+                //    console.log(JSON.stringify(data))
+            });
+    }, []);
+
+
+
+
+
+    // 유저 정보 삭제 메서드
     const handleDeleteUser = (name) => {
+
         Swal.fire({
             icon: 'warning',
             title: '삭제',
@@ -18,11 +39,22 @@ export default function UserInfo() {
             showCancelButton: true,
             confirmButtonText: '삭제',
             cancelButtonText: '취소',
-        }).then((res) => {
+        }).then((res) => {//확인 버튼 클릭한 이후
             if (res.isConfirmed) {
+                console.log(name)
                 // 삭제 요청 처리
-                alert(`${name}이(가) 삭제되었습니다.`);
-            } else {
+
+                axios.delete('http://localhost:8080/admin/users/delete/' + name)
+                    .then(response => {
+                        alert(name + '님이 삭제되었습니다.');
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.error("에러메세지 => ", error);
+                        alert('삭제에 실패했습니다.')
+                    })
+
+            } else {// 취소버튼을 눌렀을 때
                 // 취소
                 alert('취소되었습니다.');
             }
@@ -35,64 +67,44 @@ export default function UserInfo() {
             <ul className="userList">
 
                 {/* 정석원 */}
-                <li className="userListItem">
-                    <img src={swImg} alt="" className="userImg" />
-                    <div className="userName">
-                        <span className="userInfoName">Jeong Seokwon<ManIcon /></span>
-                        <span className="userInfoMajor">Computer</span>
-                    </div>
-                    <button className="userEditButton" onClick={() => handleDeleteUser('정석원')}>Delete</button>
-                </li>
+                {/* {data.map(item => (
+                    <li className="userListItem">
+                        <img src={swImg} alt="" className="userImg" />
+                        <div className="userName">
+                            <span className="userInfoName">UserName<ManIcon /></span>
+                            <span className="userInfoMajor" key={item}>{item}</span>
+                        </div>
+                        <button className="userEditButton" onClick={() => handleDeleteUser({item})}>Delete</button>
+                    </li>
+                ))} */}
 
-                {/* 주재영 */}
-                <li className="userListItem">
-                    <img src={jyImg} alt="" className="userImg" />
-                    <div className="userName">
-                        <span className="userInfoName">Joo Jaeyoung<ManIcon /></span>
-                        <span className="userInfoMajor">Computer</span>
-                    </div>
-                    <button className="userEditButton" onClick={() => handleDeleteUser('주재영')}>Delete</button>
-                </li>
 
-                {/* 이소용 */}
-                <li className="userListItem">
-                    <img src={syImg} alt="" className="userImg" />
-                    <div className="userName">
-                        <span className="userInfoName">Lee Soyong<ManIcon /></span>
-                        <span className="userInfoMajor">Computer</span>
-                    </div>
-                    <button className="userEditButton" onClick={() => handleDeleteUser('이소용')}>Delete</button>
-                </li>
+<table className="UserTable">
+  <thead>
+    <tr>
+      <th className="userName">Name</th>
+      <th className="userInfoItem">Phone</th>
+      <th className="userInfoEmail">Email</th>
+      <th className="userInfoCardNumber">Card Number</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {data.map((userName, index) => (
+      <tr key={userName}>
+        <td className="userNameList">{userName}</td>
+        <td className="userInfoItem">01055555555d</td>
+        <td className="userInfoEmail">hanahahn@gmail.com</td>
+        <td className="userInfoCardNumber">123456789456126545</td>
+        <td>
+          <button className="userEditButton" onClick={() => handleDeleteUser(userName)}>Delete</button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
-                {/* 이수빈 */}
-                <li className="userListItem">
-                    <img src={sbImg} alt="" className="userImg" />
-                    <div className="userName">
-                        <span className="userInfoName">Lee Soobin<ManIcon /></span>
-                        <span className="userInfoMajor">Sport</span>
-                    </div>
-                    <button className="userEditButton" onClick={() => handleDeleteUser('이수빈')}>Delete</button>
-                </li>
-
-                {/* 박인서 */}
-                <li className="userListItem">
-                    <img src={isImg} alt="" className="userImg" />
-                    <div className="userName">
-                        <span className="userInfoName">Park Inseo<WomanIcon /></span>
-                        <span className="userInfoMajor">Computer</span>
-                    </div>
-                    <button className="userEditButton" onClick={() => handleDeleteUser('박인서')}>Delete</button>
-                </li>
-
-                {/* 염진희 */}
-                <li className="userListItem">
-                    <img src={jhImg} alt="" className="userImg" />
-                    <div className="userName">
-                        <span className="userInfoName">Yeom Jinhee<WomanIcon /></span>
-                        <span className="userInfoMajor">Computer</span>
-                    </div>
-                    <button className="userEditButton" onClick={() => handleDeleteUser('염진희')}>Delete</button>
-                </li>
+            
             </ul>
         </div>
 
