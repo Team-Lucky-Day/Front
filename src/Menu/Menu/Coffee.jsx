@@ -58,7 +58,7 @@ export default function Coffee(props) {
                     price: `${coffeeInfo.price}` 
                     })}>
                       Keep
-                      </button>
+              </button>
             </div>
           )}
           </div>

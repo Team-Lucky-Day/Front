@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./editMenu.css";
 
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양한 기능을 사용하게 해주는 라이브러리
 
@@ -39,6 +40,8 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
             }
         };
         
+
+
         getMenuList();
      }, []);
 
@@ -63,10 +66,16 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
         console.log("음료 이름 : "+coffeeTitle)
         console.log("음료 설명 : "+coffeeDetail)
         console.log("음료 설명 : "+coffeePrice)
+
+        const token = localStorage.getItem("authorization");
+        console.log("토큰 : ", token)
         //Post 요청
         axios.post('http://localhost:8080/admin/menu', 
         formData, {
-            headers : {"Content-Type": "multipart/form-data",
+            headers : {
+                "Content-Type": "multipart/form-data",
+                Authorization : token
+
             },
         }
         )
@@ -123,8 +132,71 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
         
     }
 
+// <----------------------< Modal Open/Close >------------------------->
+    const [isModalOpen, setIsModalOpen] = useState('');
+
+    const [imageBytes, setImageBytes] = useState("");
+    const [menuName, setMenuName] = useState("");
+    const [menuContent, setMenuContent] = useState("");
+    const [menuPrice, setMenuPrice] = useState("");
+
+    const openModal = (menuInfo) =>{
+        setImageBytes(menuInfo.imageBytes);
+        setMenuName(menuInfo.name);
+        setMenuContent(menuInfo.content);
+        setMenuPrice(menuInfo.price);
+        setIsModalOpen(true);
+
+    }
+    const closeModal = () => {
+        setIsModalOpen(false);
+    }
+// <---------------------< 메뉴 수정 및 삭제 >-------------------------->
+    const editMenu = (event) => {
+        alert("메뉴가 수정되었습니다.")
+    }
+
+    const deleteMenu = () => {
+
+        Swal.fire({
+            icon: 'warning',
+            title: '삭제',
+            text: `${menuName}을(를) 삭제하시겠습니까?`,
+            showCancelButton: true,
+            confirmButtonText: '삭제',
+            cancelButtonText: '취소',
+        }).then((res) => {//확인 버튼 클릭한 이후
+            if (res.isConfirmed) {
+                // 삭제 요청 처리
+
+                axios.delete('http://localhost:8080/admin/menu/delete/' + menuName)
+                    .then(response => {
+                        console.log(response.status);
+                        if(response.status === 200){
+                            Swal.fire(
+                                '삭제완료!',
+                                '메뉴가 성공적으로 삭제되었습니다.',
+                                'success'
+                            ).then((res) => {
+                                window.location.reload();
+                            })
+                        }
+                    })
+                    .catch(error => {
+                        console.error("에러메세지 => ", error);
+                        alert('삭제에 실패했습니다.')
+                    })
+
+            } else {// 취소버튼을 눌렀을 때
+                // 취소
+                alert('삭제 취소.');
+            }
+        });
+    }
+// <-----------------------< Return >------------------------>
+
     return (
-        <div className="editMenu">
+        <div className="editMenuContent">
             <span className="menuEditTitle">메뉴 수정</span>
             <div className="editMenu">
                 <div className="editTabButtons">
@@ -234,18 +306,75 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
             <div className="menuList">
                 <h1>메뉴 리스트</h1>
                 <div className="menu_container">
-                {menuList.map( menu => (
-                    <div key={menu.code} >
+                {menuList.map( (menu) => (
+                    <div 
+                    key={menu.code} 
+                    onClick={() => openModal(menu)}
+                    className="list"
+                    >
                         <p>Category : {menu.category}</p>
                         <p>상품명: {menu.name}</p>
                         <p>설명 : {menu.content}</p>
                         <p>가격 : {menu.price}</p>
                         <div className="menuImageDiv">
-                            <img src={`data:img/jpeg;base64,${menu.imageBytes}`} className="menuImage" alt={menu.name} />
+                            <img 
+                            src={`data:img/jpeg;base64,${menu.imageBytes}`} 
+                            className="menuImage" 
+                            alt={menu.name}
+                            />
                         </div>
                         <br />
                     </div>
                 ))}
+                {/* Modal */}
+                    {isModalOpen && (
+                        <div className="modal">
+                            
+                            <div className="modal_content">
+                                <div id="image">
+                                    <img
+                                    src={`data:image/jpeg;base64,${imageBytes}`}
+                                    alt="example_image"
+                                    className="menuImage"
+                                    />
+                                </div>
+                                <hr />
+                                <div className="editContent" id="editImage">
+                                    <span> 이미지 </span>
+                                    <input type="file" />
+                                </div>
+                                <hr />
+                                <div className="editContent" id="editName">
+                                    <span>상품명 : </span>
+                                    <input 
+                                    type="text"
+                                    value={menuName} />
+                                </div>
+                                <hr />
+                                <div className="editContent" id="editPrice">
+                                    <span>가격 : </span>
+                                    <input 
+                                    type="text" 
+                                    value={menuPrice}/>
+                                </div>
+                                <hr />
+                                <div className="editContent" id="editDetail">
+                                    <span>상품 설명</span>
+                                    <textarea 
+                                    value={menuContent}
+                                    cols="30" 
+                                    rows="10"></textarea>
+                                </div>
+                                <div id="menu_DeleteEdit">
+                                    <button onClick={editMenu}>수정하기</button>
+                                    <button onClick={deleteMenu}>메뉴 삭제</button>
+                                </div>
+                                <button 
+                                onClick={closeModal}
+                                className="closeModalBtn">닫기</button>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
