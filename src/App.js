@@ -7,6 +7,7 @@ import Menu from "./Menu/App";
 import FavoritesMenu from "./Favorites_Menu/FavoritesMenu";
 import Mypage from "./Mypage/Mypage";
 import Admin from "./Admin/App";
+import Payment from "./Payment/Payment";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/FindPw" element={<FindPw />} />
       <Route path="/Menu" element={<Menu />} />
       <Route path="/Mypage" element={<Mypage />} />
+      <Route path="/Payment" element={<Payment />} />
       <Route path="/Admin" element={<Admin />} />
     </Routes>
   );
