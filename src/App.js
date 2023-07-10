@@ -7,6 +7,7 @@ import Menu from "./Menu/App";
 import FavoritesMenu from "./Favorites_Menu/FavoritesMenu";
 import Mypage from "./Mypage/Mypage";
 import Admin from "./Admin/App";
+import AdminLogin from "./Admin/AdminLogin";
 import Payment from "./Payment/Payment";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/Menu" element={<Menu />} />
       <Route path="/Mypage" element={<Mypage />} />
       <Route path="/Payment" element={<Payment />} />
+      <Route path="/AdminLogin" element={<AdminLogin />} />
       <Route path="/Admin" element={<Admin />} />
     </Routes>
   );

@@ -253,7 +253,7 @@
   width: 70%;
   background-color: #b3b4b6;
   position: absolute;
-  top: 68.3%;
+  top: 64%;
   left: 15%;
 }
 .divider span {
@@ -324,4 +324,39 @@
 .checkbox-wrapper {
   text-align: start;
   margin-top: 15px;
+}
+
+.container_adminLogin{
+    margin: 13rem;
+    display: flex;
+    flex-direction: column;
+}
+.adminLogin_input{
+  background-color: #fff;
+  border: none;
+  padding: 0.9rem 0.9rem;
+  margin: 0.5rem 0;
+  width: 30%;
+  border-radius: 10px;
+  font-size: 0.881rem;
+  margin: 1rem auto;
+}
+.adminLogin_btn {
+  width:30%;
+  background-color: var(--#F5EBE0);
+  background-image: linear-gradient(
+    90deg,
+    var(--blue) 0%,
+    var(--lightblue) 74%
+  );
+  border-radius: 18px;
+  border: 0px solid var(--blue);
+  color: #1a120b;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  padding: 0.9rem 0.9rem;
+  text-transform: uppercase;
+  margin: 1rem auto;
 }

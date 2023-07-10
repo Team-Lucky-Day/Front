@@ -5,8 +5,14 @@ import "./app.css";
 import UserInfo from "./components/userInfo/UserInfo";
 import SeatChange from "./components/seatChange/SeatChange";
 import EditMenu from "./components/editMenu/EditMenu";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  
+
+
   // useState 훅을 사용하여 activeTab 상태와 setActiveTab 상태를 초기화
   // activeTab은 현재 선택된 탭의 인덱스를 나타내며, setActiveTab은 선택된 탭을 업데이트하는 함수
   const [activeTab, setActiveTab] = useState(0);
