@@ -13,14 +13,27 @@ import axios from "axios";
 import { Details } from "@material-ui/icons";
 
 export default function UserInfo() {
-  const [data, setData] = useState([]);
+  const [admin, setAdmin] = useState([]);
 
   // axios 통신
   useEffect(() => {
-    axios.get("http://localhost:8080/admin/users").then((response) => {
-      setData(response.data);
-      //    console.log(JSON.stringify(data))
-    });
+    const data = localStorage.getItem("authorization");
+    console.log(data);
+    axios({
+      url: "http://localhost:8080/admin/users",
+      method: "post",
+      baseURL: "http://localhost:3000/admin",
+      headers: { Authorization: data },
+    })
+      .then(function (response) {
+        // 성공적인 응답 (200 OK)
+        console.log("요청이 성공했습니다!");
+        console.log(response.data);
+        setAdmin(response.data);
+      })
+      .catch(function (response) {
+        console.log("요청이 실패했습니다. 상태 코드:", response.status);
+      });
   }, []);
 
   // 유저 정보 삭제 메서드
@@ -61,7 +74,7 @@ export default function UserInfo() {
       <span className="userListTitle">Cafe User Member</span>
       <ul className="userList">
         {/* 정석원 */}
-        {/* {data.map(item => (
+        {/* {admin.map(item => (
                     <li className="userListItem">
                         <img src={swImg} alt="" className="userImg" />
                         <div className="userName">
@@ -83,7 +96,7 @@ export default function UserInfo() {
             </tr>
           </thead>
           <tbody>
-            {data.map((userName, index) => (
+            {admin.map((userName, index) => (
               <tr key={userName}>
                 <td className="userNameList">{userName}</td>
                 <td className="userInfoItem">01055555555d</td>

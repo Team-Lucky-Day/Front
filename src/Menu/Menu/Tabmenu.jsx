@@ -79,9 +79,6 @@ export const Tab = () => {
     <>
       <div>
         <div className="backGround">
-          <a href="/">
-            <h1 className="title">Lucky Day</h1>
-          </a>
 
           <div className="tabMenu">
               {/* // 아래 하드코딩된 내용 대신에, map을 이용한 반복으로 코드를 수정
