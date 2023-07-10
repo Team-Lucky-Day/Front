@@ -79,11 +79,10 @@ export const Tab = () => {
     <>
       <div>
         <div className="backGround">
-
           <div className="tabMenu">
-              {/* // 아래 하드코딩된 내용 대신에, map을 이용한 반복으로 코드를 수정
+            {/* // 아래 하드코딩된 내용 대신에, map을 이용한 반복으로 코드를 수정
           // li 엘리먼트의 class명의 경우 선택된 tab 은 'submenu focused', 나머지 2개의 tab은 'submenu'  */}
-              {/* <li className="submenu">{menuArr[0].name}</li>
+            {/* <li className="submenu">{menuArr[0].name}</li>
             <li className="submenu">{menuArr[1].name}</li>
             <li className="submenu">{menuArr[2].name}</li> */}
             {menuArr.map((el, index) => (
@@ -95,9 +94,10 @@ export const Tab = () => {
               </li>
             ))}
           </div>
-
-          <div className="content">
-            <div>{menuArr[currentTab].content}</div>
+          <div className="content-Body">
+            <div className="content">
+              <div>{menuArr[currentTab].content}</div>
+            </div>
             <Cart />
           </div>
         </div>

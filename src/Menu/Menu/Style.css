@@ -42,6 +42,7 @@
   list-style: none;
   margin-top: 10px;
   margin: 0 10px;
+  width: 75%;
 }
 .submenu {
   /* //   기본 Tabmenu 에 대한 CSS를 구현 */
@@ -50,9 +51,12 @@
   display: flex;
   width: calc(100% / 3);
   padding: 10px;
+  transition: 0.9s;
   border-radius: 10px 10px 0px 0px;
 }
-
+.submenu:hover{
+  cursor: pointer;
+}
 .focused {
   /* 선택된 Tabmenu 에만 적용되는 CSS를 구현 */
   color: rgb(21, 20, 20);
@@ -61,15 +65,47 @@
   background-position: center; /* 이미지를 요소 중앙에 위치 */
 }
 
+
 & div.desc {
   text-align: center;
 }
 
 .content {
   background-color: rgba(77, 74, 77, 0.1);
-  height: 85%;
+  height: 33.7rem;
   margin: 0 20px;
   display: flex;
+  width: 73.7%;
+}
+.content-Body{
+  display: flex;
+}
+
+.cart {
+  background-color: rgba(77, 74, 77, 0.1);
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  width: 300px;
+  height: 85.8%;
+  right: 1rem;
+  font-family: "Ubuntu";
+  font-size: small;
+  position: absolute;
+  top: 5.9rem;
+  right: 2rem;
+}
+.cartText1 {
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: "large";
+  margin-bottom: 10px;
+}
+.cartText2 {
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: "small";
+  margin-bottom: 10px;
 }
 
 .containerMenu {
@@ -132,31 +168,4 @@
   font-family: "Ubuntu";
   font-size: small;
   color: #000000;
-}
-
-.cart {
-  background-color: #ffdfdc;
-  border-radius: 7px;
-  width: 300px;
-  height: auto;
-  /* margin-top: 80px; */
-  /* margin-right: 50px; */
-
-  /* text-align: left; */
-  /* float: right; */
-  font-family: "Ubuntu";
-  font-size: small;
-}
-.cartText1 {
-  margin-top: 10px;
-  text-align: center;
-  font-family: "Ubuntu";
-  font-size: "large";
-  margin-bottom: 10px;
-}
-.cartText2 {
-  text-align: center;
-  font-family: "Ubuntu";
-  font-size: "small";
-  margin-bottom: 10px;
 }
