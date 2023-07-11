@@ -5,9 +5,6 @@ import "./app.css";
 import UserInfo from "./components/userInfo/UserInfo";
 import SeatChange from "./components/seatChange/SeatChange";
 import EditMenu from "./components/editMenu/EditMenu";
-import Swal from "sweetalert2";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function App() {
   

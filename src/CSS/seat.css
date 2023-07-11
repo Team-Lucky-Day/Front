@@ -1,0 +1,280 @@
+.seatEditTitle{
+  font-size: 32px;
+  font-weight: 600;
+}
+.btnseat.active {
+  background-color: #ff0000;
+}
+.seatContainer{
+  position: fixed;
+}
+.btnseat1 {
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  margin: 30px;
+  position: relative;
+  height: 150px;
+  left: 60px;
+  width: 110px;
+  background-color: #ccc;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;  }
+
+.btnseat2 {
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  margin: 30px;
+  position: relative;
+  top: 200px;
+  height: 150px;
+  left: -110px;
+  width: 110px;
+  background-color: #ccc;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;  }
+
+.btnseat3 {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  position: relative;
+  top: -20px;
+  left: -100px;
+  height: 80px;
+  width: 80px;
+  background-color: #ccc;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  }
+  
+  .btnseat4{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: -20px;
+    left: -50px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btnseat5{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: -20px;
+    left: 0px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btnseat6{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 100px;
+    left: -370px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btnseat7{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 100px;
+    left: -320px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btnseat8{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 100px;
+    left: -270px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btnseat9{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 220px;
+    left: -640px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btnseat10{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 220px;
+    left: -590px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btnseat11{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 220px;
+    left: -540px;
+    height: 80px;
+    width: 80px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btnseat12{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: -140px;
+    left: 650px;
+    height: 50px;
+    width: 60px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btnseat13{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: -65px;
+    left:580px;
+    height: 50px;
+    width: 60px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btnseat14{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 10px;
+    left: 510px;
+    height: 50px;
+    width: 60px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btnseat15{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    top: 90px;
+    left: 440px;
+    height: 50px;
+    width: 60px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .orderTable{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: absolute;
+    top:550px;
+    left: 500px;
+    height: 50px;
+    width: 500px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .adminEntrance{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    position: absolute;
+    top: 250px;;
+    left: 1200px;
+    height: 200px;
+    width: 100px;
+    background-color: #ccc;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1080px) {
+    .seatContainer {
+      display: none;
+    }
+  }

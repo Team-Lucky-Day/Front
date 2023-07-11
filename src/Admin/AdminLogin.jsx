@@ -4,8 +4,10 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
+import Header from "../Header/Header";
+
 const AdminLogin = (props) => {
-  const inputPlaceholder = ["Admin Id", "Admin Password"];
+  const inputPlaceholder = ["Admin Password"];
   const [isTokenCheck, setIsTokenCheck] = useState(false);
   const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ const AdminLogin = (props) => {
   const [inputs, setInputs] = useState(["", ""]);
   const password = inputs;
   const handleLogin = () => {
-    const password = inputs[1];
+    const password = inputs[0];
 
     axios({
       url: "http://localhost:8080/admin/login",
@@ -71,26 +73,22 @@ const AdminLogin = (props) => {
   };
 
   return (
+    <div>
+      <Header/>
     <div className="container_adminLogin">
       <React.Fragment>
         <input
-          type="text"
+          type="password"
           placeholder={inputPlaceholder[0]}
           className="adminLogin_input"
           value={inputs[0]}
           onChange={(e) => handleInputChange(0, e.target.value)}
         />
-        <input
-          type="password"
-          placeholder={inputPlaceholder[1]}
-          className="adminLogin_input"
-          value={inputs[1]}
-          onChange={(e) => handleInputChange(1, e.target.value)}
-        />
       </React.Fragment>
       <button className="adminLogin_btn" onClick={handleLogin}>
         Login
       </button>
+    </div>
     </div>
   );
 };
