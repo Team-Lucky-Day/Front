@@ -1,11 +1,10 @@
 .userInfo {
-  margin: 0 10%;
+  margin: 10px 10px;
 }
 .userListTitle {
   font-size: 32px;
   font-weight: 600;
   position:relative;
-  left:-10%;
 }
 
 .userImg {
@@ -21,17 +20,10 @@
   list-style: none;
 }
 
-.userNameList {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px;
-  font-size: 30px;
-}
 
 .userName {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .userInfoName {
@@ -59,8 +51,11 @@
   font-size: 17px;
 }
 
-.UserTable{
-  border-spacing: 20px;
+.UserInfo-userTable{
+  /* border-spacing: 20px; */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 .userEditButton {
   background-color: var(--#F5EBE0);
@@ -79,4 +74,12 @@
   padding: 0.6rem 3rem;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+}
+
+#UserInfo-userInfoListHead td{
+  text-align: center;
+}
+
+.UserInfo-userInfoListContent td{
+  text-align: center;
 }

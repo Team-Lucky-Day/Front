@@ -1,7 +1,7 @@
 *{
   margin-top: 0px;
 }
-.btnMenu {
+.Menu-btnMenu {
   text-align: left;
   margin-left: 1rem;
   margin-top: 50px;
@@ -12,7 +12,7 @@
   height: 130px;
 }
 
-.b_div {
+.Menu-b_div {
   /* text-align: left; */
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -20,20 +20,20 @@
   /* width: 40%; */
 }
 
-.backGround {
+.Menu-backGround {
   width: 100%;
   height: 100vh;
   background-color: #ffffff;
 }
 
-.title {
+.Menu-title {
   /* background-color:#dba39a; */
   text-align: center;
   color: #000000;
   font-family: "Ubuntu";
 }
 
-.tabMenu {
+.Menu-tabMenu {
   background-color: rgba(250, 250, 250, 0.1);
   color: black;
   font-weight: bold;
@@ -71,7 +71,7 @@
   text-align: center;
 }
 
-.content {
+.Menu-content {
   background-color: #fdf5e6;
   height: 85%;
   margin: 0 10px;
@@ -79,7 +79,7 @@
   /* align-items: ; */
 }
 
-.containerMenu {
+.Menu-containerMenu {
   /* 글자폰트 */
 
   /* 모달창 크기 */
@@ -107,7 +107,7 @@
   border-radius: 8px;
 }
 
-.mini_title{
+.Menu-mini_title{
   font-weight: bold;
   color: #000000;
 }
@@ -134,14 +134,14 @@
   margin: 2px;
 }
 
-.text1 {
+.Menu-text1 {
   /* 글자폰트 */
   font-family: "Ubuntu";
   font-size: small;
   color: #000000;
 }
 
-.cart {
+.Menu-cart {
   background-color: #ffdfdc;
   border-radius: 7px;
   width: 300px;
@@ -154,14 +154,14 @@
   font-family: "Ubuntu";
   font-size: small;
 }
-.cartText1 {
+.Menu-cartText1 {
   margin-top: 10px;
   text-align: center;
   font-family: "Ubuntu";
   font-size: "large";
   margin-bottom: 10px;
 }
-.cartText2 {
+.Menu-cartText2 {
   text-align: center;
   font-family: "Ubuntu";
   font-size: "small";

@@ -91,28 +91,28 @@ export default function Dessert(props) {
 
                 </div> */}
 
-                <div className="b_div">
+                <div className="Menu-b_div">
                 {props.dessertInfo.map( (dessertInfo, index) => (
                   <div>
                     <button
                     onClick={() => openModal(index)}
                     type="button"
-                    className="btnMenu"
+                    className="Menu-btnMenu"
                     id="btn_b3"
                     >
                       <img src={`data:img/jpeg;base64,${dessertInfo.imageBytes}`} className="img" alt={dessertInfo.name} />
                     </button>
                     {isModalOpen === index && (
-                      <div className="containerMenu">
+                      <div className="Menu-containerMenu">
                         <img src={`data:img/jpeg;base64,${dessertInfo.imageBytes}`} className="img" alt={dessertInfo.name} />
-                      <p className="mini_title">{dessertInfo.name}</p>
+                      <p className="Menu-mini_title">{dessertInfo.name}</p>
                       <p>
-                        <text className="text1">{dessertInfo.content}</text>
+                        <text className="Menu-text1">{dessertInfo.content}</text>
                       </p>
-                      <button className="btnMenu" onClick={closeModal}>
+                      <button className="Menu-btnMenu" onClick={closeModal}>
                         닫기
                       </button>
-                      <button className="btnMenu">Keep</button>
+                      <button className="Menu-btnMenu">Keep</button>
                 </div>
               )}
                   </div>

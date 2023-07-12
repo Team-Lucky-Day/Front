@@ -21,7 +21,6 @@ export default function UserInfo() {
         axios.get('http://localhost:8080/admin/users')
             .then(response => {
                 setData(response.data);
-                //    console.log(JSON.stringify(data))
             });
     }, []);
 
@@ -79,23 +78,23 @@ export default function UserInfo() {
                 ))} */}
 
 
-<table className="UserTable">
+<table className="UserInfo-userTable">
   <thead>
-    <tr>
-      <th className="userName">Name</th>
-      <th className="userInfoItem">Phone</th>
-      <th className="userInfoEmail">Email</th>
-      <th className="userInfoCardNumber">Card Number</th>
-      <th>Delete</th>
+    <tr id="UserInfo-userInfoListHead">
+      <td className="hUserName">Name</td>
+      <td className="hUserInfoItem">Phone</td>
+      <td className="hUserInfoEmail">Email</td>
+      <td className="hUserInfoCardNumber">Card Number</td>
+      <td>Delete</td>
     </tr>
   </thead>
   <tbody>
     {data.map((userName, index) => (
-      <tr key={userName}>
-        <td className="userNameList">{userName}</td>
-        <td className="userInfoItem">01055555555d</td>
-        <td className="userInfoEmail">hanahahn@gmail.com</td>
-        <td className="userInfoCardNumber">123456789456126545</td>
+      <tr key={userName} className="UserInfo-userInfoListContent">
+        <td className="userNameList"><span>{userName.u_name}</span></td>
+        <td className="userInfoItem"><span>{userName.u_phone}</span></td>
+        <td className="userInfoEmail"><span>{userName.u_email}</span></td>
+        <td className="userInfoCardNumber"><span>{userName.c_number}</span></td>
         <td>
           <button className="userEditButton" onClick={() => handleDeleteUser(userName)}>Delete</button>
         </td>

@@ -23,22 +23,22 @@ export default function Beverage(props) {
               <button 
                 onClick={() => openModal(index)}
                 type="button"
-                className="btnMenu"
+                className="Menu-btnMenu"
                 id="btn_b3"
               >
                 <img src={`data:img/jpeg;base64,${beverageInfo.imageBytes}`} className="img" alt={beverageInfo.name} />
               </button>
               {isModalOpen === index && (
-                <div className="containerMenu">
+                <div className="Menu-containerMenu">
                   <img src={`data:img/jpeg;base64,${beverageInfo.imageBytes}`} className="img" alt={beverageInfo.name} />
-                <p className="mini_title">{beverageInfo.name}</p>
+                <p className="Menu-mini_title">{beverageInfo.name}</p>
                 <p>
-                  <text className="text1">{beverageInfo.content}</text>
+                  <text className="Menu-text1">{beverageInfo.content}</text>
                 </p>
-                <button className="btnMenu" onClick={closeModal}>
+                <button className="Menu-btnMenu" onClick={closeModal}>
                   닫기
                 </button>
-                <button className="btnMenu">Keep</button>
+                <button className="Menu-btnMenu">Keep</button>
                 </div>
               )}
             </div>

@@ -14,10 +14,10 @@ function Cart(){
 
     return(
       
-        <div className='cart'>
-            <h1 className='cartText1'>CART</h1>
+        <div className='Menu-cart'>
+            <h1 className='Menu-cartText1'>CART</h1>
             {cartItems.length === 0 ? (
-            <p className='cartText2'>장바구니가 비어 있습니다.</p>
+            <p className='Menu-cartText2'>장바구니가 비어 있습니다.</p>
           ) : (
             <ul>
               {cartItems.map((item) => (
@@ -29,7 +29,7 @@ function Cart(){
             </ul>
           )}
     
-          <h2 className='cartText1'>상품목록</h2>
+          <h2 className='Menu-cartText1'>상품목록</h2>
           <ul>
             <li>
               상품 1 - $10

@@ -38,19 +38,19 @@ export default function Coffee(props) {
             <button
               onClick={() => openModal(index)}
               type="button"
-              className="btnMenu"
+              className="Menu-btnMenu"
               id="btn_b3"
             >
               <img src={`data:imge/jpeg;base64,${coffeeInfo.imageBytes}`} className="img" alt={coffeeInfo.name} />
             </button>
 
             {isModalOpen === index && (
-            <div className="containerMenu">
+            <div className="Menu-containerMenu">
               <img src={`data:image/jpeg;base64,${coffeeInfo.imageBytes}`} className="img" alt={coffeeInfo.name} />
-              <p className="mini_title">{coffeeInfo.name}</p>
-              <p><text className="text1">{coffeeInfo.content}</text></p>
-              <button className="btnMenu" onClick={closeModal}>닫기</button>
-              <button className="btnMenu" onClick={() => 
+              <p className="Menu-mini_title">{coffeeInfo.name}</p>
+              <p><text className="Menu-text1">{coffeeInfo.content}</text></p>
+              <button className="Menu-btnMenu" onClick={closeModal}>닫기</button>
+              <button className="Menu-btnMenu" onClick={() => 
                 Cart.addToCart(
                   { 
                     id: 'btn_c1', 

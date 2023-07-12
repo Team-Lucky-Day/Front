@@ -3,14 +3,14 @@ import "./topbar.css";
 
 export default function Topbar() {
   return (
-    <div className="topbar">
-      <div className="topbarWrapper">
-        <div className="topLeft">
+    <div className="Admin-topbar">
+      <div className="Admin-topbarWrapper">
+        <div className="Admin-topLeft">
           <a href="/">
-            <span className="logo">LuckyCafeAdmin</span>
+            <span className="Admin-logo">LuckyCafeAdmin</span>
           </a>
         </div>
-        <div className="topRight">Admin</div>
+        <div className="Admin-topRight">Admin</div>
       </div>
     </div>
   );
