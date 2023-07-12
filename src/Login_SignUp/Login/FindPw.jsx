@@ -7,7 +7,7 @@ const FindPw = (props) => {
       <div action="#" className="form" id="form1" method="post">
         <h2 className="form__title">Find Password</h2>
         <FindPwInput placeholder=" Username" />
-        <FindPwInput placeholder=" Id (Email) " />
+        <FindPwInput placeholder=" Id" />
 
         <button className="btn">Find</button>
       </div>

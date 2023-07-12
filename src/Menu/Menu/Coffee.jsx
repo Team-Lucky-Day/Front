@@ -38,7 +38,7 @@ export default function Coffee(props) {
             <button
               onClick={() => openModal(index)}
               type="button"
-              className="Menu-btnMenu"
+              className="Menu-btnMenu_Body"
               id="btn_b3"
             >
               <img src={`data:imge/jpeg;base64,${coffeeInfo.imageBytes}`} className="img" alt={coffeeInfo.name} />

@@ -45,6 +45,7 @@ const FooterContent = (props) => {
         <FooterContentGoLink link="Menu" href="/Menu" />
         <FooterContentGoLink link="Seat" href="/Seat" />
         <FooterContentGoLink link="Favorites Menu" href="/FavoritesMenu" />
+        <FooterContentGoLink link="adminLogin" href="/adminLogin" />
       </div>
     </>
   );

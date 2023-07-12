@@ -11,7 +11,7 @@ const MainMenuButton = () => {
       href: "/Menu",
       text: "Menu",
     },
-    signup: {
+    seat: {
       href: "/Seat",
       text: "Seat",
     },
@@ -69,13 +69,10 @@ const MainMenuButton = () => {
                 text={linkProps.favorites.text}
               />
               <MainMenu
-                href={linkProps.payment.href}
-                text={linkProps.payment.text}
-              />
-              <MainMenu
                 href={linkProps.mypage.href}
                 text={linkProps.mypage.text}
               />
+              <MainMenu href={linkProps.seat.href} text={linkProps.seat.text} />
             </>
           ) : (
             <>
@@ -84,6 +81,7 @@ const MainMenuButton = () => {
                 text={linkProps.login.text}
               />
               <MainMenu href={linkProps.menu.href} text={linkProps.menu.text} />
+              <MainMenu href={linkProps.seat.href} text={linkProps.seat.text} />
             </>
           )}
         </div>
