@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Topbar from "./components/topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import "./app.css";
 import UserInfo from "./components/userInfo/UserInfo";
 import SeatChange from "./components/seatChange/SeatChange";
 import EditMenu from "./components/editMenu/EditMenu";
-
+import Header from "../Header/Header";
 function App() {
   
 
@@ -21,11 +20,11 @@ function App() {
 
   return (
     <div className="App">
-      <Topbar />
+      <Header />
       <div className="containerAdmin">
         {/* sidetab 컴포넌트에서 탭클릭시 handleTabClick 함수를 호출하여 인덱스를 전달 */}
         <Sidebar activeTab={activeTab} handleTabClick={handleTabClick} />
-        <div className="tabContent">
+        <div className="Admin-tabContent">
           {/* App 컴포넌트에서 activeTab 상태를 업데이트하고, 해당하는 탭 콘텐츠가 렌더링 */}
           {activeTab === 0 && <UserInfo />}
           {activeTab === 1 && <SeatChange />}

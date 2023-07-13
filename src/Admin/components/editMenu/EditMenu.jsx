@@ -259,194 +259,238 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
 // <-----------------------< Return >------------------------>
 
     return (
-        <div className="Admin-editMenuContent">
-            <span className="Admin-menuEditTitle">메뉴 수정</span>
-            <div className="Admin-editMenu">
-                <div className="Admin-editTabButtons">
-                    <button
-                        className={editTab === 0 ? "CoffeeActive" : ""}
-                        onClick={() => editTabClick(0)}
-                    >
-                        Coffee
+      <div className="Admin-editMenuContent">
+        <h3 className="Admin-menuEditTitle">Edit Menu</h3>
+        <div className="Admin-editMenu-Body">
+          <div className="Admin-editMenu">
+            <div className="Admin-editTabButtons">
+              <button
+                className={editTab === 0 ? "CoffeeActive" : ""}
+                onClick={() => editTabClick(0)}
+              >
+                Coffee
+              </button>
+              <button
+                className={editTab === 1 ? "BeverageActive" : ""}
+                onClick={() => editTabClick(1)}
+              >
+                Beverage{" "}
+              </button>
+              <button
+                className={editTab === 2 ? "DesertaActive" : ""}
+                onClick={() => editTabClick(2)}
+              >
+                Desert{" "}
+              </button>
+            </div>
+
+            <div className="Admin-editTabContent">
+              {editTab === 0 && (
+                // Tab 1 content
+                <div>
+                  <form
+                    onSubmit={submitCoffeeMenu}
+                    className="Admin-formSubmit"
+                  >
+                    <input
+                      type="text"
+                      value={coffeeTitle}
+                      placeholder="커피명"
+                      onChange={(e) => setCoffeeTitle(e.target.value)}
+                    />
+                    <br />
+                    <input
+                      type="text"
+                      value={coffeePrice}
+                      placeholder="가격(원)"
+                      onChange={(e) => setCoffeePrice(e.target.value)}
+                    />
+                    <br />
+                    <textarea
+                      type="text"
+                      value={coffeeDetail}
+                      placeholder="상세설명"
+                      onChange={(e) => setCoffeeDetail(e.target.value)}
+                    />
+                    <br />
+                    <input
+                      type="file"
+                      onChange={(e) => setImgFile(e.target.files[0])}
+                    />
+
+                    <button className="Admin-addButton" type="submit">
+                      메뉴 추가
                     </button>
-                    <button
-                        className={editTab === 1 ? "BeverageActive" : ""}
-                        onClick={() => editTabClick(1)}
-                    >
-                        Beverage                </button>
-                    <button
-                        className={editTab === 2 ? "DesertaActive" : ""}
-                        onClick={() => editTabClick(2)}
-                    >
-                        Desert                </button>
+                  </form>
                 </div>
+              )}
 
-                <div className="Admin-editTabContent">
-                    {editTab === 0 && (
-                        // Tab 1 content
-                        <div>
-                            <form onSubmit={submitCoffeeMenu} className="Admin-formSubmit">
-                                <input type="text"
-                                    value={coffeeTitle}
-                                    placeholder="커피명"
-                                    onChange={e => setCoffeeTitle(e.target.value)} 
-                                    />
-                                <br />
-                                <input type="text"
-                                    value={coffeePrice}
-                                    placeholder="가격(원)"
-                                    onChange={e => setCoffeePrice(e.target.value)} 
-                                    />
-                                <br />
-                                <textarea type="text"
-                                    value={coffeeDetail}
-                                    placeholder="상세설명"
-                                    onChange={e => setCoffeeDetail(e.target.value)} 
-                                    />
-                                <br />
-                                <input 
-                                type="file"
-                                onChange={e => setImgFile(e.target.files[0])} />
-                            
-                                <button className="Admin-addButton" type="submit">메뉴 추가</button>
-                                    
-                            </form>
-                            
-                        </div>
-                    )}
+              {editTab === 1 && (
+                // Tab 2 content
+                <div>
+                  <form
+                    onSubmit={submitBeverageMenu}
+                    className="Admin-formSubmit"
+                  >
+                    <input
+                      type="text"
+                      value={beverageTitle}
+                      placeholder="음료명"
+                      onChange={(e) => setBeverageTitle(e.target.value)}
+                    />
+                    <br />
 
-                    {editTab === 1 && (
-                        // Tab 2 content
-                        <div>
-                            <form onSubmit={submitBeverageMenu} className="Admin-formSubmit">
-                                <input type="text"
-                                    value={beverageTitle}
-                                    placeholder="음료명"
-                                    onChange={e => setBeverageTitle(e.target.value)} />
-                                <br />
-                                
-                                <input type="text"
-                                    value={beveragePrice}
-                                    placeholder="가격(원)"
-                                    onChange={e => setBeveragePrice(e.target.value)} />
-                                <br />
-                                <textarea type="text"
-                                    value={beverageDetail}
-                                    placeholder="상세설명"
-                                    onChange={e => setBeverageDetail(e.target.value)} />
-                                <br />
-                                <button className="Admin-addButton" type="submit">메뉴 추가</button>
-                            </form>
-                        </div>
-                    )}
-                    {editTab === 2 && (
-                        // Tab 3 content
-                        <div>
-                            <form onSubmit={submitDesertMenu } className="Admin-formSubmit">
-                                <input type="text"
-                                    value={desertTitle}
-                                    placeholder="디저트명"
-                                    onChange={e => setDesertTitle(e.target.value)} />
-                                <br />
-                                
-                                <input type="text"
-                                    value={desertPrice}
-                                    placeholder="가격(원)"
-                                    onChange={e => setDesertPrice(e.target.value)} />
-                                <br />
-                                <textarea type="text"
-                                    value={desertDetail}
-                                    placeholder="상세설명"
-                                    onChange={e => setDesertDetail(e.target.value)} />
-                                <br />
-                                <button className="Admin-addButton" type="submit">메뉴 추가</button>
-                            </form>
-                        </div>
-                    )}
+                    <input
+                      type="text"
+                      value={beveragePrice}
+                      placeholder="가격(원)"
+                      onChange={(e) => setBeveragePrice(e.target.value)}
+                    />
+                    <br />
+                    <textarea
+                      type="text"
+                      value={beverageDetail}
+                      placeholder="상세설명"
+                      onChange={(e) => setBeverageDetail(e.target.value)}
+                    />
+                    <br />
+                    <input
+                      type="file"
+                      onChange={(e) => setImgFile(e.target.files[0])}
+                    />
+                    <button className="Admin-addButton" type="submit">
+                      메뉴 추가
+                    </button>
+                  </form>
                 </div>
+              )}
+              {editTab === 2 && (
+                // Tab 3 content
+                <div>
+                  <form
+                    onSubmit={submitDesertMenu}
+                    className="Admin-formSubmit"
+                  >
+                    <input
+                      type="text"
+                      value={desertTitle}
+                      placeholder="디저트명"
+                      onChange={(e) => setDesertTitle(e.target.value)}
+                    />
+                    <br />
+
+                    <input
+                      type="text"
+                      value={desertPrice}
+                      placeholder="가격(원)"
+                      onChange={(e) => setDesertPrice(e.target.value)}
+                    />
+                    <br />
+                    <textarea
+                      type="text"
+                      value={desertDetail}
+                      placeholder="상세설명"
+                      onChange={(e) => setDesertDetail(e.target.value)}
+                    />
+                    <br />
+                    <input
+                      type="file"
+                      onChange={(e) => setImgFile(e.target.files[0])}
+                    />
+                    <button className="Admin-addButton" type="submit">
+                      메뉴 추가
+                    </button>
+                  </form>
+                </div>
+              )}
             </div>
-            
-            <div className="menuList">
-                <h1>메뉴 리스트</h1>
-                <div className="Admin-menu_container">
-                {menuList.map( (menu) => (
-                    <div 
-                    key={menu.code} 
-                    onClick={() => openModal(menu)}
-                    className="list"
-                    >
-                        <p>Category : {menu.category}</p>
-                        <p>상품명: {menu.name}</p>
-                        <p>설명 : {menu.content}</p>
-                        <p>가격 : {menu.price}</p>
-                        <div className="Admin-menuImageDiv">
-                            <img 
-                            src={`data:img/jpeg;base64,${menu.imageBytes}`} 
-                            className="Admin-menuImage" 
-                            alt={menu.name}
-                            />
-                        </div>
-                        <br />
+          </div>
+          <div className="menuList">
+            <h1>메뉴 리스트</h1>
+            <div className="Admin-menu_container">
+              {menuList.map((menu) => (
+                <div
+                  key={menu.code}
+                  onClick={() => openModal(menu)}
+                  className="list"
+                >
+                  <p>Category : {menu.category}</p>
+                  <p>상품명: {menu.name}</p>
+                  <p>설명 : {menu.content}</p>
+                  <p>가격 : {menu.price}</p>
+                  <div className="Admin-menuImageDiv">
+                    <img
+                      src={`data:img/jpeg;base64,${menu.imageBytes}`}
+                      className="Admin-menuImage"
+                      alt={menu.name}
+                    />
+                  </div>
+                  <br />
+                </div>
+              ))}
+              {/* Modal */}
+              {isModalOpen && (
+                <div className="Admin-modal">
+                  <div className="Admin-modal_content">
+                    <div id="image">
+                      <img
+                        src={`data:image/jpeg;base64,${imageBytes}`}
+                        alt="example_image"
+                        className="Admin-menuImage"
+                      />
                     </div>
-                ))}
-                {/* Modal */}
-                    {isModalOpen && (
-                        <div className="Admin-modal">
-                            
-                            <div className="Admin-modal_content">
-                                <div id="image">
-                                    <img
-                                    src={`data:image/jpeg;base64,${imageBytes}`}
-                                    alt="example_image"
-                                    className="Admin-menuImage"
-                                    />
-                                </div>
-                                <hr />
-                                <div className="Admin-editContent" id="editImage">
-                                    <span> 이미지 </span>
-                                    <input 
-                                    type="file"
-                                    onChange={e => setEditImage(e.target.files[0])} />
-                                </div>
-                                <hr />
-                                <div className="Admin-editContent" id="editName">
-                                    <span>상품명 : </span>
-                                    <input 
-                                    type="text"
-                                    value={menuName} 
-                                    onChange={e => setMenuName(e.target.value)}
-                                    />
-                                </div>
-                                <hr />
-                                <div className="Admin-editContent" id="editPrice">
-                                    <span>가격 : </span>
-                                    <input 
-                                    type="text" 
-                                    value={menuPrice}
-                                    onChange={e => setMenuPrice(e.target.value)}/>
-                                </div>
-                                <hr />
-                                <div className="Admin-editContent" id="editDetail">
-                                    <span>상품 설명</span>
-                                    <textarea 
-                                    value={menuContent}
-                                    cols="30" 
-                                    rows="10"
-                                    onChange={e => setMenuContent(e.target.value)}></textarea>
-                                </div>
-                                <div id="menu_DeleteEdit">
-                                    <button onClick={editMenu}>수정하기</button>
-                                    <button onClick={deleteMenu}>메뉴 삭제</button>
-                                </div>
-                                <button 
-                                onClick={closeModal}
-                                className="Admin-closeModalBtn">닫기</button>
-                            </div>
-                        </div>
-                    )}
+                    <hr />
+                    <div className="Admin-editContent" id="editImage">
+                      <span> 이미지 </span>
+                      <input
+                        type="file"
+                        onChange={(e) => setEditImage(e.target.files[0])}
+                      />
+                    </div>
+                    <hr />
+                    <div className="Admin-editContent" id="editName">
+                      <span>상품명 : </span>
+                      <input
+                        type="text"
+                        value={menuName}
+                        onChange={(e) => setMenuName(e.target.value)}
+                      />
+                    </div>
+                    <hr />
+                    <div className="Admin-editContent" id="editPrice">
+                      <span>가격 : </span>
+                      <input
+                        type="text"
+                        value={menuPrice}
+                        onChange={(e) => setMenuPrice(e.target.value)}
+                      />
+                    </div>
+                    <hr />
+                    <div className="Admin-editContent" id="editDetail">
+                      <span>상품 설명</span>
+                      <textarea
+                        value={menuContent}
+                        cols="30"
+                        rows="10"
+                        onChange={(e) => setMenuContent(e.target.value)}
+                      ></textarea>
+                    </div>
+                    <div id="menu_DeleteEdit">
+                      <button onClick={editMenu}>수정하기</button>
+                      <button onClick={deleteMenu}>메뉴 삭제</button>
+                    </div>
+                    <button
+                      onClick={closeModal}
+                      className="Admin-closeModalBtn"
+                    >
+                      닫기
+                    </button>
+                  </div>
                 </div>
+              )}
             </div>
-
+          </div>
         </div>
+      </div>
     );
 }

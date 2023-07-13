@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 
 const AdminLogin = (props) => {
-  const inputPlaceholder = ["Admin Password"];
+  const inputPlaceholder = ["Id", "Password"];
+  const [inputs, setInputs] = useState(Array(2).fill(""));
   const [isTokenCheck, setIsTokenCheck] = useState(false);
   const navigate = useNavigate();
 
@@ -24,18 +25,16 @@ const AdminLogin = (props) => {
     newInputs[index] = value;
     setInputs(newInputs);
   };
-  const [inputs, setInputs] = useState(["", ""]);
-  const password = inputs;
-  const handleLogin = () => {
-    const password = inputs[0];
 
+  const handleLogin = () => {
     axios({
       url: "http://localhost:8080/admin/login",
       method: "post",
       data: {
-        u_pw: password,
+        u_id: inputs[0],
+        u_pw: inputs[1],
       },
-      baseURL: "http://localhost:3000/adminLogin",
+      baseURL: "http://localhost:3000/AdminLogin",
     })
       .then(function (response) {
         // 성공적인 응답 (200 OK)
@@ -53,9 +52,10 @@ const AdminLogin = (props) => {
         const data = `Bearer ${response.data}`;
         // 로그인 성공 시 localStorage에 데이터 저장
         localStorage.setItem("authorization", data);
+
         navigate("/admin");
       })
-      .catch(function (error) {
+      .catch(function (response) {
         Swal.fire({
           icon: "warning",
           title: "",
@@ -64,31 +64,34 @@ const AdminLogin = (props) => {
             confirmButton: "btn-color",
           },
         });
-        if (error.response) {
-          console.log("요청이 실패했습니다. 상태 코드:", error.response.status);
-        } else {
-          console.log("요청이 실패했습니다. 응답이 없습니다.");
-        }
+        console.log("요청이 실패했습니다. 상태 코드:", response.status);
       });
   };
 
   return (
     <div>
-      <Header/>
-    <div className="container_adminLogin">
-      <React.Fragment>
-        <input
-          type="password"
-          placeholder={inputPlaceholder[0]}
-          className="adminLogin_input"
-          value={inputs[0]}
-          onChange={(e) => handleInputChange(0, e.target.value)}
-        />
-      </React.Fragment>
-      <button className="adminLogin_btn" onClick={handleLogin}>
-        Login
-      </button>
-    </div>
+      <Header />
+      <div className="container_adminLogin">
+        <React.Fragment>
+          <input
+            type="text"
+            placeholder={inputPlaceholder[0]}
+            className="input"
+            value={inputs[0]}
+            onChange={(e) => handleInputChange(0, e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder={inputPlaceholder[1]}
+            className="input"
+            value={inputs[1]}
+            onChange={(e) => handleInputChange(1, e.target.value)}
+          />
+        </React.Fragment>
+        <button className="adminLogin_btn" onClick={handleLogin}>
+          Login
+        </button>
+      </div>
     </div>
   );
 };

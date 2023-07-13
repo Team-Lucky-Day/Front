@@ -78,8 +78,8 @@ export const Tab = () => {
   return (
     <>
       <div>
-        <div className="backGround">
-          <div className="tabMenu">
+        <div className="Menu-backGround">
+          <div className="Menu-tabMenu">
             {/* // 아래 하드코딩된 내용 대신에, map을 이용한 반복으로 코드를 수정
           // li 엘리먼트의 class명의 경우 선택된 tab 은 'submenu focused', 나머지 2개의 tab은 'submenu'  */}
             {/* <li className="submenu">{menuArr[0].name}</li>

@@ -144,6 +144,9 @@ h3 {
 .mypageMenuBarContainerMain select:hover {
   cursor: pointer;
 }
+.mypageMenuBarpersonal{
+  margin-top:1.4rem;
+}
 .mypageMenuBarpersonal h3,
 .mypageMenuBarContainerMain {
   font-family: "GmarketSansMedium";
