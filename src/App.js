@@ -7,7 +7,7 @@ import Menu from "./Menu/App";
 import FavoritesMenu from "./Favorites_Menu/FavoritesMenu";
 import Mypage from "./Mypage/Mypage";
 import Admin from "./Admin/App";
-import AdminLogin from "./Admin/AdminLogin";
+import AdminLogin from './Admin/AdminLogin'
 import Payment from "./Payment/Payment";
 import Seat from "./Seat/Seat";
 

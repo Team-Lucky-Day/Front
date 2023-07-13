@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 
 const AdminLogin = (props) => {
-  const inputPlaceholder = ["Id", "Password"];
-  const [inputs, setInputs] = useState(Array(2).fill(""));
+  const inputPlaceholder = ["AdminPassword"];
+  const [inputs, setInputs] = useState(Array(1).fill(""));
   const [isTokenCheck, setIsTokenCheck] = useState(false);
   const navigate = useNavigate();
 
@@ -31,8 +31,7 @@ const AdminLogin = (props) => {
       url: "http://localhost:8080/admin/login",
       method: "post",
       data: {
-        u_id: inputs[0],
-        u_pw: inputs[1],
+        u_pw: inputs[0],
       },
       baseURL: "http://localhost:3000/AdminLogin",
     })
@@ -74,18 +73,11 @@ const AdminLogin = (props) => {
       <div className="container_adminLogin">
         <React.Fragment>
           <input
-            type="text"
+            type="password"
             placeholder={inputPlaceholder[0]}
             className="input"
             value={inputs[0]}
             onChange={(e) => handleInputChange(0, e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder={inputPlaceholder[1]}
-            className="input"
-            value={inputs[1]}
-            onChange={(e) => handleInputChange(1, e.target.value)}
           />
         </React.Fragment>
         <button className="adminLogin_btn" onClick={handleLogin}>
