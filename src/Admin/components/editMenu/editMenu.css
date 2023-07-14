@@ -143,6 +143,7 @@
     background-color: #ccc;
     border: none;   
     cursor: pointer;
+    border-radius: 7px;
 }
 
 .Admin-editTabButtons :hover{
