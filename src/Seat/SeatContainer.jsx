@@ -66,7 +66,7 @@ const SeatContainer = () => {
         url: "http://localhost:8080/tables/change",
         method: "post",
         data: seatData,
-        baseURL: "http://localhost:3000/Admin",
+        baseURL: "http://localhost:3000/Seat",
       })
         .then(function (response) {})
         .catch(function (error) {
@@ -76,119 +76,178 @@ const SeatContainer = () => {
 
   
     return (
-      <div className="sheetChange">
-        <button className="orderTable">Order Table</button>
-        <button className="adminEntrance">Entrance</button>
-        <div className="seatContainer">
-          <button
-            className={`btnseat btnseat1${selectedSeat[1] ? " active" : ""}`}
-            onClick={() => {
-              SeatClick(1);
-            }}
-          >
-            1번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat2${selectedSeat[2] ? " active" : ""}`}
-            onClick={() => SeatClick(2)}
-          >
-            2번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat3${selectedSeat[3] ? " active" : ""}`}
-            onClick={() => SeatClick(3)}
-          >
-            3번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat4${selectedSeat[4] ? " active" : ""}`}
-            onClick={() => SeatClick(4)}
-          >
-            4번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat5${selectedSeat[5] ? " active" : ""}`}
-            onClick={() => SeatClick(5)}
-          >
-            5번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat6${selectedSeat[6] ? " active" : ""}`}
-            onClick={() => SeatClick(6)}
-          >
-            6번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat7${selectedSeat[7] ? " active" : ""}`}
-            onClick={() => SeatClick(7)}
-          >
-            7번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat8${selectedSeat[8] ? " active" : ""}`}
-            onClick={() => SeatClick(8)}
-          >
-            8번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat9${selectedSeat[9] ? " active" : ""}`}
-            onClick={() => SeatClick(9)}
-          >
-            9번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat10${selectedSeat[10] ? " active" : ""}`}
-            onClick={() => SeatClick(10)}
-          >
-            10번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat11${selectedSeat[11] ? " active" : ""}`}
-            onClick={() => SeatClick(11)}
-          >
-            11번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat12${selectedSeat[12] ? " active" : ""}`}
-            onClick={() => SeatClick(12)}
-          >
-            12번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat13${selectedSeat[13] ? " active" : ""}`}
-            onClick={() => SeatClick(13)}
-          >
-            13번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat14${selectedSeat[14] ? " active" : ""}`}
-            onClick={() => SeatClick(14)}
-          >
-            14번좌석
-          </button>
-
-          <button
-            className={`btnseat btnseat15${selectedSeat[15] ? " active" : ""}`}
-            onClick={() => SeatClick(15)}
-          >
-            15번좌석
-          </button>
+      <div className="Seat-btnseat-container">
+        <div className="Seat-btnseat-container-Table-body">
+          <table className="Seat-seatContainer-Table">
+            <tbody>
+              <tr>
+                <td
+                  rowSpan={2}
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[1] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(1);
+                  }}
+                >
+                  1
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[3] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(3);
+                  }}
+                >
+                  3
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[4] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(4);
+                  }}
+                >
+                  4
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[5] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(5);
+                  }}
+                >
+                  5
+                </td>
+                <td
+                  rowSpan={4}
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[15] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(15);
+                  }}
+                >
+                  15
+                </td>
+              </tr>
+              <tr>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[6] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(6);
+                  }}
+                >
+                  6
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[7] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(7);
+                  }}
+                >
+                  7
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[8] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(8);
+                  }}
+                >
+                  8
+                </td>
+              </tr>
+              <tr>
+                <td
+                  rowSpan={2}
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[2] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(2);
+                  }}
+                >
+                  2
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[9] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(9);
+                  }}
+                >
+                  9
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[10] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(10);
+                  }}
+                >
+                  10
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[11] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(11);
+                  }}
+                >
+                  11
+                </td>
+              </tr>
+              <tr>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[12] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(12);
+                  }}
+                >
+                  12
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[13] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(13);
+                  }}
+                >
+                  13
+                </td>
+                <td
+                  className={`Seat-btnseat Seat-btnseat${
+                    selectedSeat[14] ? " active" : ""
+                  }`}
+                  onClick={() => {
+                    SeatClick(14);
+                  }}
+                >
+                  14
+                </td>
+              </tr>
+              <tr></tr>
+            </tbody>
+          </table>
         </div>
+        <SeatStatus />
       </div>
     );
-};
-
-export default SeatContainer;
+  };
+  
+  export default SeatContainer;

@@ -15,7 +15,7 @@
 
 .Admin-editMenu-Body{
     display: flex;
-    height: 450px;
+    height: 70vh;
 }
 .coffeeUl{
     position: relative;
@@ -185,10 +185,15 @@
 
 .Admin-menu_container{
     overflow-y: scroll;
-  padding: 10px;
-  height: 350px;
-  padding: 0 1rem;
-  width: 600px;
+    padding: 10px;
+    height: 350px;
+    padding: 0 1rem;
+    /* width: 600px; */
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-row-gap: 25px;
+
 }
 .Admin-menu_container::-webkit-scrollbar {
   width: 10px; /* 스크롤바의 너비 */
@@ -202,12 +207,16 @@
 .Admin-menu_container::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.1); /*스크롤바 뒷 배경 색상*/
 }
-.menuList {
+.Admin-menuList {
+    width: 100%;
     border-left: 1px solid;
     padding-left: 1.5rem;
 }
-.menuList .list{
+.Admin-menuList .Admin-list{
     cursor: pointer;
+    height: 360px;
+    /* width: 160px; */
+    padding: 0px 20px;
 }
 
 .Admin-modal{
@@ -298,4 +307,10 @@
 }
 hr{
     width: 100%;
+}
+
+.Admin-menuImageDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

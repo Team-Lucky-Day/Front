@@ -15,27 +15,6 @@ import { Details } from "@material-ui/icons";
 export default function UserInfo() {
   const [admin, setAdmin] = useState([]);
 
-  // axios 통신
-  // useEffect(() => {
-  //   const data = localStorage.getItem("authorization");
-  //   console.log(data);
-  //   axios({
-  //     url: "http://localhost:8080/admin/users",
-  //     method: "post",
-  //     baseURL: "http://localhost:3000/admin",
-  //     headers: { Authorization: data },
-  //   })
-  //     .then(function (response) {
-  //       // 성공적인 응답 (200 OK)
-  //       console.log("요청이 성공했습니다!");
-  //       console.log(response.data);
-  //       setAdmin(response.data);
-  //     })
-  //     .catch(function (response) {
-  //       console.log("요청이 실패했습니다. 상태 코드:", response.status);
-  //     });
-  // }, []);
-
   useEffect(() => {
     const data = localStorage.getItem("authorization");
     console.log(data);
@@ -54,7 +33,7 @@ export default function UserInfo() {
       .catch(function (response) {
         console.log("요청이 실패했습니다. 상태 코드:", response.status);
       });
-  });
+  },[]);
   // 유저 정보 삭제 메서드
   const handleDeleteUser = (name) => {
     Swal.fire({
@@ -92,18 +71,6 @@ export default function UserInfo() {
     <div className="Admin-userInfo">
       <h3 className="Admin-userListTitle">Cafe User Member</h3>
       <ul className="Admin-userList-Container">
-        {/* 정석원 */}
-        {/* {admin.map(item => (
-                    <li className="userListItem">
-                        <img src={swImg} alt="" className="userImg" />
-                        <div className="userName">
-                            <span className="userInfoName">UserName<ManIcon /></span>
-                            <span className="userInfoMajor" key={item}>{item}</span>
-                        </div>
-                        <button className="userEditButton" onClick={() => handleDeleteUser({item})}>Delete</button>
-                    </li>
-                ))} */}
-
         <table className="UserInfo-userTable">
           <tbody>
             <tr className="UserInfo-userTable-thead">
@@ -113,24 +80,16 @@ export default function UserInfo() {
               <td className="Admin-userInfoCardNumber">Card Number</td>
               <td>Delete</td>
             </tr>
-            {admin.map(
-              ({
-                userId,
-                userPassword,
-                userName,
-                userPhone,
-                userEmail,
-                userCardNum,
-              }) => (
-                <tr key={userId} className="UserInfo-userTable-tbody">
-                  <td className="Admin-userNameList">{userName}</td>
-                  <td className="Admin-userInfoItem">{userPassword}</td>
-                  <td className="Admin-userInfoEmail">{userEmail}</td>
-                  <td className="Admin-userInfoCardNumber">{userCardNum}</td>
+            {admin.map((userInfo) => (
+                <tr key={userInfo.u_name} className="UserInfo-userTable-tbody">
+                  <td className="Admin-userNameList">{userInfo.u_name}</td>
+                  <td className="Admin-userInfoItem">{userInfo.u_phone}</td>
+                  <td className="Admin-userInfoEmail">{userInfo.u_email}</td>
+                  <td className="Admin-userInfoCardNumber">{userInfo.c_number}</td>
                   <td>
                     <button
                       className="Admin-userEditButton"
-                      onClick={() => handleDeleteUser(userName)}
+                      onClick={() => handleDeleteUser(userInfo.u_name)}
                     >
                       Delete
                     </button>

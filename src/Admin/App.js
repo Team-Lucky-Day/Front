@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./components/sidebar/Sidebar";
 import "./app.css";
 import UserInfo from "./components/userInfo/UserInfo";
 import SeatChange from "./components/seatChange/SeatChange";
 import EditMenu from "./components/editMenu/EditMenu";
 import Header from "../Header/Header";
+
+
 function App() {
-  
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    }
+  }, []);
+
 
 
   // useState 훅을 사용하여 activeTab 상태와 setActiveTab 상태를 초기화

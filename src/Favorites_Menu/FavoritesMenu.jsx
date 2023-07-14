@@ -66,16 +66,30 @@ const FavoriteMenu = () => {
       // 세가지 카테고리에 따른 배열을 만들어 값 분류하기
 
   },[]);
-
-
   
-  const settings = {
+  const settings1 = {
+    arrows: false,
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  const settings2={
+    arrows: false,
+    dots: true,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+  }
+
+  const settings3={
     arrows: false,
     dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
-  };
+  }
 
   return (
     <>
@@ -94,7 +108,10 @@ const FavoriteMenu = () => {
         <FavoritesCategory favoritesCategory="Coffee" />
       </div>
       <div className="favorites-Menu-container">
-        <Slider {...settings}>
+        <Slider {...(
+          favCoffeeList.length === 1 ? settings1 
+          :favCoffeeList.length === 2 ? settings2
+          : settings3)}>
           {favCoffeeList.map( (menu) =>(
             <FavoritesComponent {...menu} cardclass="coffee"/>
           ))}
@@ -105,7 +122,10 @@ const FavoriteMenu = () => {
         <FavoritesCategory favoritesCategory="Beverage" />
       </div>
       <div className="favorites-Menu-container">
-        <Slider {...settings}>
+        <Slider {...(
+          favBeverageList.length === 1 ? settings1 
+          :favBeverageList.length === 2 ? settings2
+          : settings3)}>
           {favBeverageList.map( (menu) => (
             <FavoritesComponent {...menu} cardclass="Beverage"/>
           ))}
@@ -116,7 +136,10 @@ const FavoriteMenu = () => {
         <FavoritesCategory favoritesCategory="Dessert" />
       </div>
       <div className="favorites-Menu-container">
-        <Slider {...settings}>
+        <Slider {...(
+          favDesertList.length === 1 ? settings1 
+          :favDesertList.length === 2 ? settings2
+          : settings3)}>
           {favDesertList.map((menu) =>(
             <FavoritesComponent {...menu} cardclass="Desert"/>
           ))}
