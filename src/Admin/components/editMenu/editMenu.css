@@ -1,7 +1,6 @@
 .Admin-menuEditTitle{
-    font-size:40px;
-    font-weight: 800;
-    margin: 15px 20px;
+  font-weight: 600;
+  position: relative;
 }
 
 .Admin-editMenuContent{
@@ -10,11 +9,14 @@
 
 .Admin-editMenu{
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
 }
 
-
+.Admin-editMenu-Body{
+    display: flex;
+    height: 450px;
+}
 .coffeeUl{
     position: relative;
     top: 20px;
@@ -141,10 +143,11 @@
     background-color: #ccc;
     border: none;   
     cursor: pointer;
+    border-radius: 7px;
 }
 
 .Admin-editTabButtons :hover{
-    background-color: #F3C5C5;
+    background-color: #8f8479b4;
 }
 .Admin-editTabContent{
     margin-left: 15px;
@@ -167,7 +170,7 @@
 }
 
 .Admin-addButton:hover{
-    background-color:#f3c5c5;
+    background-color:#8f8479b4;
 }
 
 .Admin-menuImageDiv{
@@ -181,11 +184,28 @@
 }
 
 .Admin-menu_container{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 25px;
+    overflow-y: scroll;
+  padding: 10px;
+  height: 350px;
+  padding: 0 1rem;
+  width: 600px;
+}
+.Admin-menu_container::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
 }
 
+.Admin-menu_container::-webkit-scrollbar-thumb {
+  background: #e9e7e7; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.Admin-menu_container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /*스크롤바 뒷 배경 색상*/
+}
+.menuList {
+    border-left: 1px solid;
+    padding-left: 1.5rem;
+}
 .menuList .list{
     cursor: pointer;
 }

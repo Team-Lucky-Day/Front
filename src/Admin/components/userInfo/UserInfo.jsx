@@ -16,6 +16,26 @@ export default function UserInfo() {
   const [admin, setAdmin] = useState([]);
 
   // axios 통신
+  // useEffect(() => {
+  //   const data = localStorage.getItem("authorization");
+  //   console.log(data);
+  //   axios({
+  //     url: "http://localhost:8080/admin/users",
+  //     method: "post",
+  //     baseURL: "http://localhost:3000/admin",
+  //     headers: { Authorization: data },
+  //   })
+  //     .then(function (response) {
+  //       // 성공적인 응답 (200 OK)
+  //       console.log("요청이 성공했습니다!");
+  //       console.log(response.data);
+  //       setAdmin(response.data);
+  //     })
+  //     .catch(function (response) {
+  //       console.log("요청이 실패했습니다. 상태 코드:", response.status);
+  //     });
+  // }, []);
+
   useEffect(() => {
     const data = localStorage.getItem("authorization");
     console.log(data);
@@ -34,8 +54,7 @@ export default function UserInfo() {
       .catch(function (response) {
         console.log("요청이 실패했습니다. 상태 코드:", response.status);
       });
-  }, []);
-
+  });
   // 유저 정보 삭제 메서드
   const handleDeleteUser = (name) => {
     Swal.fire({
@@ -71,8 +90,8 @@ export default function UserInfo() {
 
   return (
     <div className="Admin-userInfo">
-      <span className="Admin-userListTitle">Cafe User Member</span>
-      <ul className="Admin-userList">
+      <h3 className="Admin-userListTitle">Cafe User Member</h3>
+      <ul className="Admin-userList-Container">
         {/* 정석원 */}
         {/* {admin.map(item => (
                     <li className="userListItem">
@@ -85,33 +104,40 @@ export default function UserInfo() {
                     </li>
                 ))} */}
 
-        <table className="Admin-UserTable">
-          <thead>
-            <tr>
-              <th className="Admin-userName">Name</th>
-              <th className="Admin-userInfoItem">Phone</th>
-              <th className="Admin-userInfoEmail">Email</th>
-              <th className="Admin-userInfoCardNumber">Card Number</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
+        <table className="UserInfo-userTable">
           <tbody>
-            {admin.map((userName, index) => (
-              <tr key={userName}>
-                <td className="Admin-userNameList">{userName}</td>
-                <td className="Admin-userInfoItem">01055555555d</td>
-                <td className="Admin-userInfoEmail">hanahahn@gmail.com</td>
-                <td className="Admin-userInfoCardNumber">123456789456126545</td>
-                <td>
-                  <button
-                    className="Admin-userEditButton"
-                    onClick={() => handleDeleteUser(userName)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            <tr className="UserInfo-userTable-thead">
+              <td className="Admin-userName">Name</td>
+              <td className="Admin-userInfoItem">Phone</td>
+              <td className="Admin-userInfoEmail">Email</td>
+              <td className="Admin-userInfoCardNumber">Card Number</td>
+              <td>Delete</td>
+            </tr>
+            {admin.map(
+              ({
+                userId,
+                userPassword,
+                userName,
+                userPhone,
+                userEmail,
+                userCardNum,
+              }) => (
+                <tr key={userId} className="UserInfo-userTable-tbody">
+                  <td className="Admin-userNameList">{userName}</td>
+                  <td className="Admin-userInfoItem">{userPassword}</td>
+                  <td className="Admin-userInfoEmail">{userEmail}</td>
+                  <td className="Admin-userInfoCardNumber">{userCardNum}</td>
+                  <td>
+                    <button
+                      className="Admin-userEditButton"
+                      onClick={() => handleDeleteUser(userName)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </ul>

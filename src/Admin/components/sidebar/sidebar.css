@@ -1,8 +1,9 @@
 .Admin-sidebaradmin {
-  justify-content: space-between;
-  flex: 1;
-  height: calc(100vh-50px);
-  background-color: #fff7e8;
+  background-color: #e9d5bc;
+  border-radius: 0 3rem 0 0;
+  padding: 2rem;
+  width: 250px;
+  height: 508px;
 }
 
 .Admin-sidebarWrapper {
@@ -11,18 +12,12 @@
 }
 
 .Admin-tabContent {
-  flex: 3;
-  background-color: #f5ebe0;
+  margin-top: 2rem;
+  margin-left: 1.4rem;
 }
 
 .Admin-sidebarMenu {
   margin-bottom: 2rem;
-}
-
-.Admin-sidebarTitle {
-  padding: 20px;
-  color: #dba39a;
-  font-size: 20px;
 }
 
 .Admin-sidebarList {
@@ -31,16 +26,13 @@
 }
 
 .Admin-sidebarListItem {
-  padding: 70px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  font-size: 20px;
+      margin: 2rem 1rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid gray;
 }
 
 .Admin-sidebarListItem.active,
 .Admin-sidebarListItem:hover {
-  background-color: #f3c5c5;
-  /* E4CDB2 */
+  font-weight: bold;
+  cursor: pointer;
 }
