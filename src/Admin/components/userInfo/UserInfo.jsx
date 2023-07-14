@@ -16,25 +16,6 @@ export default function UserInfo() {
   const [admin, setAdmin] = useState([]);
 
   // axios 통신
-  // useEffect(() => {
-  //   const data = localStorage.getItem("authorization");
-  //   console.log(data);
-  //   axios({
-  //     url: "http://localhost:8080/admin/users",
-  //     method: "post",
-  //     baseURL: "http://localhost:3000/admin",
-  //     headers: { Authorization: data },
-  //   })
-  //     .then(function (response) {
-  //       // 성공적인 응답 (200 OK)
-  //       console.log("요청이 성공했습니다!");
-  //       console.log(response.data);
-  //       setAdmin(response.data);
-  //     })
-  //     .catch(function (response) {
-  //       console.log("요청이 실패했습니다. 상태 코드:", response.status);
-  //     });
-  // }, []);
 
   useEffect(() => {
     const data = localStorage.getItem("authorization");

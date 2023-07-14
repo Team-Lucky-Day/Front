@@ -331,19 +331,28 @@
     display: flex;
     flex-direction: column;
 }
+.container_adminLogin input{
+  background-color: #fff;
+    border: none;
+    padding: 0.9rem 0.9rem;
+    margin: 0.5rem auto;
+    width: 25%;
+    border-radius: 10px;
+    font-size: 0.881rem;
+}
 .adminLogin_input{
   background-color: #fff;
   border: none;
   padding: 0.9rem 0.9rem;
   margin: 0.5rem 0;
-  width: 27%;
+  width: 25%;
   border-radius: 10px;
   font-size: 0.881rem;
   margin: 1rem auto;
 }
 .adminLogin_btn {
   margin: 2rem auto;
-  width: 30%;
+  width: 25%;
   height: 2.5rem;
   font-weight: bold;
   font-size: 0.9rem;
