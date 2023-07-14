@@ -15,6 +15,8 @@ import { Details } from "@material-ui/icons";
 export default function UserInfo() {
   const [admin, setAdmin] = useState([]);
 
+  // axios 통신
+
   useEffect(() => {
     const data = localStorage.getItem("authorization");
     console.log(data);
