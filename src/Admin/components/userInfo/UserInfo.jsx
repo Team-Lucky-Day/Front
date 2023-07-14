@@ -70,9 +70,9 @@ export default function UserInfo() {
   };
 
   return (
-    <div className="userInfo">
-      <span className="userListTitle">Cafe User Member</span>
-      <ul className="userList">
+    <div className="Admin-userInfo">
+      <span className="Admin-userListTitle">Cafe User Member</span>
+      <ul className="Admin-userList">
         {/* 정석원 */}
         {/* {admin.map(item => (
                     <li className="userListItem">
@@ -85,26 +85,26 @@ export default function UserInfo() {
                     </li>
                 ))} */}
 
-        <table className="UserTable">
+        <table className="Admin-UserTable">
           <thead>
             <tr>
-              <th className="userName">Name</th>
-              <th className="userInfoItem">Phone</th>
-              <th className="userInfoEmail">Email</th>
-              <th className="userInfoCardNumber">Card Number</th>
+              <th className="Admin-userName">Name</th>
+              <th className="Admin-userInfoItem">Phone</th>
+              <th className="Admin-userInfoEmail">Email</th>
+              <th className="Admin-userInfoCardNumber">Card Number</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             {admin.map((userName, index) => (
               <tr key={userName}>
-                <td className="userNameList">{userName}</td>
-                <td className="userInfoItem">01055555555d</td>
-                <td className="userInfoEmail">hanahahn@gmail.com</td>
-                <td className="userInfoCardNumber">123456789456126545</td>
+                <td className="Admin-userNameList">{userName}</td>
+                <td className="Admin-userInfoItem">01055555555d</td>
+                <td className="Admin-userInfoEmail">hanahahn@gmail.com</td>
+                <td className="Admin-userInfoCardNumber">123456789456126545</td>
                 <td>
                   <button
-                    className="userEditButton"
+                    className="Admin-userEditButton"
                     onClick={() => handleDeleteUser(userName)}
                   >
                     Delete
