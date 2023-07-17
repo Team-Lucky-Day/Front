@@ -32,7 +32,7 @@ export default function Coffee(props) {
 
     <>
     <div>
-      <div className="b_div">
+      <div className="Menu-b_div">
         {props.coffeeInfo.map( (coffeeInfo, index) => (
           <div>
             <button
