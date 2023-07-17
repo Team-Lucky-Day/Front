@@ -17,7 +17,7 @@ export default function Beverage(props) {
     <>
       <div>
       
-        <div className="b_div">
+        <div className="Menu-b_div">
           {props.beverageInfo.map( (beverageInfo, index) => (
             <div>
               <button 

@@ -93,37 +93,70 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
     const submitBeverageMenu = (event) =>{
         event.preventDefault();
 
-        axios.post('http://localhost:8080/admin/menu',
-        {
-            category : "beverage",
-            name : beverageTitle,
-            content : beverageDetail,
-            price : beveragePrice
-        })
+        const formData = new FormData();
+        
+        formData.append("category", "beverage");
+        formData.append("name", beverageTitle);
+        formData.append("content", beverageDetail);
+        formData.append("price", beveragePrice);
+        formData.append("image", imgFile);
+
+        console.log("음료 이름 : "+beverageTitle)
+        console.log("음료 설명 : "+beverageDetail)
+        console.log("음료 설명 : "+beveragePrice)
+
+        const token = localStorage.getItem("authorization");
+        console.log("토큰 : ", token)
+        //Post 요청
+        axios.post('http://localhost:8080/admin/menu', 
+        formData, {
+            headers : {
+                "Content-Type": "multipart/form-data",
+                Authorization : token
+
+            },
+        }
+        )
             .then( response => {
                 alert("메뉴 추가 성공");
-                console.log('메뉴추가 성공', response.data);
+                console.log(response.data);
             })
             .catch( error => {
                 alert("메뉴 추가 실패");
                 console.log('메뉴 추가 실패', error);
             })
-        
     }
 // << Desert Menu Post Request >>
     const submitDesertMenu = (event) =>{
         event.preventDefault();
 
-        axios.post('http://localhost:8080/admin/menu',
-        {
-            category : "Desert",
-            name : desertTitle,
-            content : desertDetail,
-            price : desertPrice
-        })
+        const formData = new FormData();
+        
+        formData.append("category", "dessert");
+        formData.append("name", desertTitle);
+        formData.append("content", desertDetail);
+        formData.append("price", desertPrice);
+        formData.append("image", imgFile);
+
+        console.log("음료 이름 : "+desertTitle)
+        console.log("음료 설명 : "+desertDetail)
+        console.log("음료 설명 : "+desertPrice)
+
+        const token = localStorage.getItem("authorization");
+        console.log("토큰 : ", token)
+        //Post 요청
+        axios.post('http://localhost:8080/admin/menu', 
+        formData, {
+            headers : {
+                "Content-Type": "multipart/form-data",
+                Authorization : token
+
+            },
+        }
+        )
             .then( response => {
                 alert("메뉴 추가 성공");
-                console.log('메뉴추가 성공', response.data);
+                console.log(response.data);
             })
             .catch( error => {
                 alert("메뉴 추가 실패");
@@ -405,14 +438,14 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
               )}
             </div>
           </div>
-          <div className="menuList">
+          <div className="Admin-menuList">
             <h1>메뉴 리스트</h1>
             <div className="Admin-menu_container">
               {menuList.map((menu) => (
                 <div
                   key={menu.code}
                   onClick={() => openModal(menu)}
-                  className="list"
+                  className="Admin-list"
                 >
                   <p>Category : {menu.category}</p>
                   <p>상품명: {menu.name}</p>

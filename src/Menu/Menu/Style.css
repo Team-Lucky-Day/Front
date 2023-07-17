@@ -49,7 +49,7 @@
   margin: 0 10px;
   width: 75%;
 }
-.submenu {
+.Menu-submenu {
   /* //   기본 Tabmenu 에 대한 CSS를 구현 */
   background-color: rgba(77, 74, 77, 0.1);
   margin: 0 10px;
@@ -59,10 +59,10 @@
   transition: 0.9s;
   border-radius: 10px 10px 0px 0px;
 }
-.submenu:hover {
+.Menu-submenu:hover {
   cursor: pointer;
 }
-.focused {
+.Menu-focused {
   /* 선택된 Tabmenu 에만 적용되는 CSS를 구현 */
   color: rgb(21, 20, 20);
   background-image: url(/public/img/main_img2.jpg);
@@ -147,7 +147,7 @@
 
 /* 모달창 내부 X버튼 */
 
-.btnMenu {
+.Menu-btnMenu {
   border: 0px solid;
   border-radius: 7px;
   color: #1a120b;

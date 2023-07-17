@@ -27,12 +27,8 @@ const customStyles = {
 
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
-const FavoritesComponent = ({
-  favoritesImg,
-  favoritesAlt,
-  favoritesTitle,
-  favoritesTitleEng,
-}) => {
+
+const FavoritesComponent = (props) => {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -69,13 +65,13 @@ const FavoritesComponent = ({
     <div className="favorites-component">
       <img
         className="favorites-img"
-        src={`/img/${favoritesImg}`}
-        alt={favoritesAlt}
+        src={`data:image/jpeg;base64,${props.imageBytes}`}
+        alt={props.menuName}
         onClick={openModal}
       />
-      <div className="favorites-title">{favoritesTitle}</div>
+      <div className="favorites-title">{props.menuName}</div>
       <hr />
-      <div className="favorites-titleEng">{favoritesTitleEng}</div>
+      <div className="favorites-titleEng">{props.menuPrice}</div>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

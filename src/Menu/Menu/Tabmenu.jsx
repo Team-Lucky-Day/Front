@@ -87,7 +87,7 @@ export const Tab = () => {
             <li className="submenu">{menuArr[2].name}</li> */}
             {menuArr.map((el, index) => (
               <li
-                className={index === currentTab ? "submenu focused" : "submenu"}
+                className={index === currentTab ? "Menu-submenu Menu-focused" : "Menu-submenu"}
                 onClick={() => selectMenuHandler(index)}
               >
                 {el.name}

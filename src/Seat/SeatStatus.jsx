@@ -39,3 +39,4 @@ const SeatStatus = () => {
 };
 
 export default SeatStatus;
+

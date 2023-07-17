@@ -1,9 +1,10 @@
+
 .Admin-sidebaradmin {
   background-color: #e9d5bc;
   border-radius: 0 3rem 0 0;
   padding: 2rem;
   width: 250px;
-  height: 508px;
+  height: 79vh;
 }
 
 .Admin-sidebarWrapper {

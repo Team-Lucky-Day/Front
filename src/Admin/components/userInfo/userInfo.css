@@ -1,19 +1,13 @@
-.userInfo {
+.Admin-userInfo {
   margin: 0 10px;
 }
-.userListTitle {
+.Admin-userListTitle {
   font-weight: 600;
   position:relative;
 }
 
-.userImg {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  object-fit: cover;
-}
 
-.userList {
+.Admin-userList-Container {
   display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,16 +20,16 @@
 }
 
 
-.userName {
+.Admin-userName {
   /* display: flex;
   flex-direction: column; */
 }
 
-.userInfoName {
+.Admin-userInfoName {
   font-weight: 600;
 }
 
-.userInfoMajor {
+.Admin-userInfoMajor {
   font-weight: 300;
 }
 
@@ -59,7 +53,7 @@
 .UserInfo-userTable{
   width: 1000px;
 }
-.userEditButton {
+.Admin-userEditButton {
     width: 100%;
     height: 2.5rem;
     font-weight: bold;
@@ -68,7 +62,7 @@
     border: 0px;
     border-radius: 10px;
 }
-.userEditButton:hover{
+.Admin-userEditButton:hover{
   color: #3c3c3c;
   background: #8f8479b4;
   font-weight: bold;
