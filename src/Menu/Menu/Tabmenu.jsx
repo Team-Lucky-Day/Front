@@ -20,7 +20,7 @@ export const Tab = () => {
 
   useEffect( () => {
     const getMenuImg = async () => {
-      const response = await axios.get('http://localhost:8080/admin/menuList')
+      const response = await axios.get('http://localhost:8080/menu/menuList')
       console.log("응답 데이터 : ", response.data)
       setMenuImgList(response.data);
 
