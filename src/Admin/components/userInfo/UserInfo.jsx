@@ -36,6 +36,7 @@ export default function UserInfo() {
         console.log("요청이 실패했습니다. 상태 코드:", response.status);
       });
   },[]);
+  
   // 유저 정보 삭제 메서드
   const handleDeleteUser = (name) => {
     Swal.fire({

@@ -29,20 +29,38 @@ export default function EditMenu() {//훅은 함수형 컴포넌트에서 다양
 // <-------------------------------------------------->
     useEffect(() => {// 리액트 컴포넌트가 렌더링 될 때마다 특정 작업을 실행할 수 있도록 하는 Hook
         console.log('render');
+        const data = localStorage.getItem("authorization");
+        console.log(data);
         
-        const getMenuList = async () => {
-            try{
-                const response = await axios.get('http://localhost:8080/admin/menuList');
-                setMenuList(response.data);
-                // console.log(response);
-            }catch(error){
-                console.error("에러메세지 : " + error);
-            }
-        };
+        axios({
+          url: "http://localhost:8080/admin/menuList",
+          method: "post",
+          baseURL: "http://localhost:3000/admin",
+          headers: { Authorization: data },
+        })
+          .then(function (response) {
+            // 성공적인 응답 (200 OK)
+            console.log("요청이 성공했습니다!");
+            console.log(response.data);
+            setMenuList(response.data);
+          })
+          .catch(function (response) {
+            console.log("요청이 실패했습니다. 상태 코드:", response.status);
+          });
+
+        // const getMenuList = async () => {
+        //     try{
+        //         const response = await axios.get('http://localhost:8080/admin/menuList');
+        //         setMenuList(response.data);
+        //         // console.log(response);
+        //     }catch(error){
+        //         console.error("에러메세지 : " + error);
+        //     }
+        // };
         
 
 
-        getMenuList();
+        // getMenuList();
      }, []);
 
      
