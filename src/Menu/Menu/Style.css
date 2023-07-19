@@ -9,6 +9,11 @@
   border: 0px solid;
   border-radius: 7px;
 }
+.Menu-btnMenu_menuName{
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: bold;
+}
 
 .img {
   width: 175px;
@@ -16,13 +21,35 @@
   border-radius: 7px;
 }
 
-.Menu-b_div {
-  display: flex;
-  align-items: center;
-  width: 100%;
+.Menu-b_div-wrapper {
   margin: 2.5rem;
+}
+
+.Menu-b_div {
+  overflow-y: scroll;
+  padding: 0 5vh;
+  width: 116vh;
+  height: 74vh;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 25px;
+}
+
+.Menu-b_div::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Menu-b_div::-webkit-scrollbar-thumb {
+  background: #e9e7e7;
+  border-radius: 10px;
+  margin: 3rem;
+}
+
+.Menu-b_div::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 3rem;
 }
 
 .Menu-backGround {
@@ -38,16 +65,15 @@
 }
 
 .Menu-tabMenu {
-  background-color: rgba(250, 250, 250, 0.1);
-  color: black;
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  list-style: none;
-  margin-top: 10px;
-  margin: 0 10px;
-  width: 75%;
+    background-color: rgba(250, 250, 250, 0.1);
+    color: black;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin-left: 10vh;
+    width: 152vh;
 }
 .Menu-submenu {
   /* //   기본 Tabmenu 에 대한 CSS를 구현 */
@@ -76,10 +102,10 @@
 
 .Menu-content {
   background-color: rgba(77, 74, 77, 0.1);
-  height: 33.7rem;
-  margin: 0 20px;
+  height: 82vh;
+  margin-left: 11.5vh;
   display: flex;
-  width: 73.7%;
+  width: 149vh;
 }
 .Menu-content-Body {
   display: flex;
@@ -89,14 +115,14 @@
   background-color: rgba(77, 74, 77, 0.1);
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
-  width: 300px;
-  height: 85.8%;
-  right: 1rem;
+  width: 30vh;
+  height: 83vh;
   font-family: "Ubuntu";
   font-size: small;
   position: absolute;
-  top: 5.9rem;
-  right: 2rem;
+  top: 12vh;
+  right: 5rem;
+  padding: 1rem;
 }
 .Menu-cartText1 {
   margin-top: 10px;
@@ -104,6 +130,9 @@
   font-family: "Ubuntu";
   font-size: "large";
   margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+  padding: 1rem;
+  letter-spacing: 0.5rem;
 }
 .Menu-cartText2 {
   text-align: center;
@@ -111,34 +140,33 @@
   font-size: "small";
   margin-bottom: 10px;
 }
-
+.Menu-cart-container li{
+  margin: 2vh;
+  font-size: 1rem;
+  font-weight: 700;
+  list-style: none;
+}
+.Menu-cart-Menu-close{
+  border: 0px solid;
+  background-color: rgba(77, 74, 77, 0.1);
+  margin-left: 2rem;
+  font-weight: bold;
+}
+/* 모달 */
 .Menu-containerMenu {
-  /* 글자폰트 */
-
-  /* 모달창 크기 */
-  width: 300px;
-  height: 250px;
+  width: 100vh;
+  height: 300px;
   text-align: center;
-
-  /* 최상단 위치 */
-  z-index: 500;
-
-  /* 중앙 배치 */
-  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
-  /* translate는 본인의 크기 기준으로 작동한다. */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  /* 모달창 디자인 */
   background-color: white;
-  border-style: solid;
-  border-color: gray;
-
-  /* border: 1px solid black; */
   border-radius: 8px;
+  z-index: 500;
+  overflow: hidden;
 }
+
 
 .Menu-mini_title {
   font-weight: bold;
@@ -147,6 +175,20 @@
 
 /* 모달창 내부 X버튼 */
 
+.Menu-btnMenu-close{
+  
+  border: 0px solid;
+  background-Color:white;
+  font-size: 2rem;
+  font-weight:bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.Menu-btnMenu-close:hover{
+  cursor:pointer;
+  color:gray
+}
 .Menu-btnMenu {
   border: 0px solid;
   border-radius: 7px;
@@ -163,6 +205,6 @@
 .Menu-text1 {
   /* 글자폰트 */
   font-family: "Ubuntu";
-  font-size: small;
+  font-size: middle;
   color: #000000;
 }
