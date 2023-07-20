@@ -43,6 +43,7 @@ export const Tab = () => {
 
     getMenuImg();
   }, []);
+  
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
@@ -89,7 +90,6 @@ export const Tab = () => {
             <div className="Menu-content">
               <div>{menuArr[currentTab].content}</div>
             </div>
-            <Cart cartItems={cartItems} />
           </div>
         </div>
       </div>

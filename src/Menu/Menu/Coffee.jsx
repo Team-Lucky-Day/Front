@@ -22,15 +22,21 @@ export default function Coffee(props) {
     }, 1000);
   };
 
-  const removeFromCart = (product) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== product.id);
-    setCartItems(updatedCartItems);
+  const removeFromCart = (itemToRemove) => {
+    // Filter out the item to remove from the cartItems array
+    console.log(cartItems);
+    for (let i = 0; i <= cartItems.length; i++) {
+      console.log(i, itemToRemove);
+      const updatedCartItems = cartItems.filter((i) => i === itemToRemove);
+      setCartItems(updatedCartItems);
+      
+    }
+    
   };
 
   const openModal = (coffeeInfo) => {
     setSelectedMenu(coffeeInfo);
     setIsModalOpen(true);
-     
   };
 
   const closeModal = () => {
@@ -40,18 +46,18 @@ export default function Coffee(props) {
   const addToFavorites = (coffeeInfo) => {
     swal("Success", "Added to Favorites!", "success");
   };
-
   return (
     <>
       <div className="Menu-b_div-wrapper">
         <div className="Menu-b_div">
           {props.coffeeInfo.map((coffeeInfo, index) => (
-            <div key={index}>
+            <div>
               <button
                 onClick={() => openModal(coffeeInfo)}
                 type="button"
                 className="Menu-btnMenu_Body"
-                id="btn_b3"
+                id={index}
+                key={index}
               >
                 <img
                   src={`data:imge/jpeg;base64,${coffeeInfo.imageBytes}`}
@@ -78,7 +84,7 @@ export default function Coffee(props) {
                     <text className="Menu-text1">{coffeeInfo.content}</text>
                   </p>
                   <button
-                    className="Menu-btnMenu"
+                    className="Menu-btnMenu-favorite"
                     onClick={() => addToFavorites(coffeeInfo)}
                   >
                     즐겨찾기
@@ -95,7 +101,11 @@ export default function Coffee(props) {
           ))}
         </div>
       </div>
-      <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+      <Cart
+        cartItems={cartItems}
+        removeFromCart={removeFromCart}
+        setCartItems={setCartItems}
+      />
     </>
   );
 }
