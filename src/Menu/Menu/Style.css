@@ -113,18 +113,18 @@
 
 .Menu-cart {
   background-color: rgba(77, 74, 77, 0.1);
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
-    width: 35vh;
-    height: 83vh;
-    font-family: "Ubuntu";
-    font-size: small;
-    position: absolute;
-    top: 12vh;
-    right: 5rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  width: 30vh;
+  height: 83vh;
+  font-family: "Ubuntu";
+  font-size: small;
+  position: absolute;
+  top: 12vh;
+  right: 5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .Menu-cartText1 {
@@ -144,25 +144,27 @@
   margin-bottom: 10px;
 }
 .Menu-cart-container {
-      margin-top: 10px;
-    text-align: center;
-    font-family: "Ubuntu";
-    font-size: "large";
-    flex: 1;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: "large";
+  flex: 1;
 }
 .Menu-cart-container-MenuList {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  margin: 1rem 0;
 }
 .Menu-cart-container-MenuList-itemName {
   margin: 0 1.5vh;
   font-weight: bold;
   font-size: 1rem;
 }
-.Menu-cart-Menu-close-container{
+.Menu-cart-Menu-close-container {
   border-top: 1px solid gray;
+  margin: 1rem 0;
 }
 .Menu-cart-Menu-close {
   border: 0px solid;
@@ -170,19 +172,21 @@
   font-weight: bold;
   font-size: large;
   border-radius: 7px;
-  bottom: 0; margin-top: 10px;
+  bottom: 0;
+  margin-top: 10px;
 }
 .Menu-cart-Menu-close:hover {
   cursor: pointer;
 }
 .Menu-plusBtn-container {
-      display: flex;
-    align-items: center;
-    margin-left: 10px;
-    font-size: 1rem;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 1rem;
+  flex-direction: row;
 }
-.Menu-plusBtn, .Menu-minusBtn {
+.Menu-plusBtn,
+.Menu-minusBtn {
   border-radius: 20px;
   font-weight: bold;
   border: 0px solid;
@@ -194,7 +198,7 @@
   text-align: center;
   margin: 0 0.7rem;
   border: none;
-  background-color: rgba(207, 202, 154, 0.733);
+  background-color: #b6abab;
 }
 .Menu-plusBtn:hover {
   cursor: pointer;

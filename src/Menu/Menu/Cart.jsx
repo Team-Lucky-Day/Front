@@ -1,6 +1,28 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 export default function Cart({ cartItems, removeFromCart, setCartItems }) {
+  useEffect(() => {
+    console.log("render");
+    const data = localStorage.getItem("authorization");
+    console.log(data);
+    axios({
+      url: "http://localhost:8080/menu/menuList",
+      method: "post",
+      baseURL: "http://localhost:3000/Menu",
+      headers: { Authorization: data },
+    })
+      .then(function (response) {
+        // 성공적인 응답 (200 OK)
+        console.log("요청이 성공했습니다!");
+        console.log(response.data);
+      })
+      .catch(function (response) {
+        console.log("요청이 실패했습니다. 상태 코드:", response.status);
+      });
+
+    // getMenuList();
+  }, []);
   const handleRemove = () => {
     setCartItems([]);
   };
@@ -49,6 +71,11 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
       <div className="Menu-cart-Menu-close-container">
         <button className="Menu-cart-Menu-close" onClick={handleRemove}>
           Reset the menu
+        </button>
+      </div>
+      <div className="Menu-cart-Menu-close-container">
+        <button className="Menu-cart-Menu-close">
+          결제하기
         </button>
       </div>
     </div>
