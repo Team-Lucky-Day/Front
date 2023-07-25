@@ -9,6 +9,11 @@
   border: 0px solid;
   border-radius: 7px;
 }
+.Menu-btnMenu_menuName {
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: bold;
+}
 
 .img {
   width: 175px;
@@ -16,13 +21,35 @@
   border-radius: 7px;
 }
 
-.Menu-b_div {
-  display: flex;
-  align-items: center;
-  width: 100%;
+.Menu-b_div-wrapper {
   margin: 2.5rem;
+}
+
+.Menu-b_div {
+  overflow-y: scroll;
+  padding: 0 5vh;
+  width: 116vh;
+  height: 74vh;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 25px;
+}
+
+.Menu-b_div::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Menu-b_div::-webkit-scrollbar-thumb {
+  background: #928383;
+  border-radius: 10px;
+  margin: 3rem;
+}
+
+.Menu-b_div::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 3rem;
 }
 
 .Menu-backGround {
@@ -45,9 +72,8 @@
   flex-direction: row;
   align-items: center;
   list-style: none;
-  margin-top: 10px;
-  margin: 0 10px;
-  width: 75%;
+  margin-left: 10vh;
+  width: 152vh;
 }
 .Menu-submenu {
   /* //   기본 Tabmenu 에 대한 CSS를 구현 */
@@ -76,10 +102,10 @@
 
 .Menu-content {
   background-color: rgba(77, 74, 77, 0.1);
-  height: 33.7rem;
-  margin: 0 20px;
+  height: 82vh;
+  margin-left: 11.5vh;
   display: flex;
-  width: 73.7%;
+  width: 149vh;
 }
 .Menu-content-Body {
   display: flex;
@@ -89,14 +115,17 @@
   background-color: rgba(77, 74, 77, 0.1);
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
-  width: 300px;
-  height: 85.8%;
-  right: 1rem;
+  width: 30vh;
+  height: 83vh;
   font-family: "Ubuntu";
   font-size: small;
   position: absolute;
-  top: 5.9rem;
-  right: 2rem;
+  top: 12vh;
+  right: 5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .Menu-cartText1 {
   margin-top: 10px;
@@ -104,6 +133,9 @@
   font-family: "Ubuntu";
   font-size: "large";
   margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+  padding: 1rem;
+  letter-spacing: 0.5rem;
 }
 .Menu-cartText2 {
   text-align: center;
@@ -111,33 +143,79 @@
   font-size: "small";
   margin-bottom: 10px;
 }
-
-.Menu-containerMenu {
-  /* 글자폰트 */
-
-  /* 모달창 크기 */
-  width: 300px;
-  height: 250px;
+.Menu-cart-container {
+  margin-top: 10px;
   text-align: center;
-
-  /* 최상단 위치 */
-  z-index: 500;
-
-  /* 중앙 배치 */
-  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
-  /* translate는 본인의 크기 기준으로 작동한다. */
+  font-family: "Ubuntu";
+  font-size: "large";
+  flex: 1;
+}
+.Menu-cart-container-MenuList {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+.Menu-cart-container-MenuList-itemName {
+  margin: 0 1.5vh;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.Menu-cart-Menu-close-container {
+  border-top: 1px solid gray;
+  margin: 1rem 0;
+}
+.Menu-cart-Menu-close {
+  border: 0px solid;
+  background-color: rgba(77, 74, 77, 0.1);
+  font-weight: bold;
+  font-size: large;
+  border-radius: 7px;
+  bottom: 0;
+  margin-top: 10px;
+}
+.Menu-cart-Menu-close:hover {
+  cursor: pointer;
+}
+.Menu-plusBtn-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 1rem;
+  flex-direction: row;
+}
+.Menu-plusBtn,
+.Menu-minusBtn {
+  border-radius: 20px;
+  font-weight: bold;
+  border: 0px solid;
+  font-size: 1.3rem;
+  padding: 5px;
+  width: 33px;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  margin: 0 0.7rem;
+  border: none;
+  background-color: #b6abab;
+}
+.Menu-plusBtn:hover {
+  cursor: pointer;
+}
+/* 모달 */
+.Menu-containerMenu {
+  width: 100vh;
+  height: 300px;
+  text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  /* 모달창 디자인 */
   background-color: white;
-  border-style: solid;
-  border-color: gray;
-
-  /* border: 1px solid black; */
   border-radius: 8px;
+  z-index: 500;
+  overflow: hidden;
 }
 
 .Menu-mini_title {
@@ -147,22 +225,54 @@
 
 /* 모달창 내부 X버튼 */
 
+.Menu-btnMenu-close {
+  border: 0px solid;
+  background-color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.Menu-btnMenu-close:hover {
+  cursor: pointer;
+  color: gray;
+}
 .Menu-btnMenu {
   border: 0px solid;
   border-radius: 7px;
   color: #1a120b;
   cursor: pointer;
   font-size: 0.88rem;
-  font-weight: bold;
+  font-weight: 500;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   margin: 2px;
+  padding: 0.4rem;
 }
-
+.Menu-btnMenu-favorite {
+  border: 0px solid;
+  border-radius: 7px;
+  color: #1a120b;
+  background-color: #f2ee9d;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  margin: 2px;
+  padding: 0.4rem;
+}
+.Menu-btnMenu:hover,
+.Menu-btnMenu-favorite:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
 .Menu-text1 {
   /* 글자폰트 */
   font-family: "Ubuntu";
-  font-size: small;
+  font-size: middle;
   color: #000000;
 }

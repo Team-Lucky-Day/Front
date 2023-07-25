@@ -1,54 +1,83 @@
-import React,{useState} from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+export default function Cart({ cartItems, removeFromCart, setCartItems }) {
+  useEffect(() => {
+    console.log("render");
+    const data = localStorage.getItem("authorization");
+    console.log(data);
+    axios({
+      url: "http://localhost:8080/menu/menuList",
+      method: "post",
+      baseURL: "http://localhost:3000/Menu",
+      headers: { Authorization: data },
+    })
+      .then(function (response) {
+        // 성공적인 응답 (200 OK)
+        console.log("요청이 성공했습니다!");
+        console.log(response.data);
+      })
+      .catch(function (response) {
+        console.log("요청이 실패했습니다. 상태 코드:", response.status);
+      });
 
-function Cart(){
-    const[cartItems,setCartItems]=useState([]);
+    // getMenuList();
+  }, []);
+  const handleRemove = () => {
+    setCartItems([]);
+  };
 
-    const addToCart=(product)=>{
-        setCartItems([...cartItems,product]);
-    };
+  const count = (type, index) => {
+    const updatedCartItems = [...cartItems];
+    const itemToUpdate = updatedCartItems[index];
 
-    const removeFromCart=(product)=>{
-        const updateCartItems=cartItems.filter((item)=>item.id!==product.id)
-        setCartItems(updateCartItems);
+    if (type === "plus") {
+      itemToUpdate.quantity = (itemToUpdate.quantity || 0) + 1;
+    } else if (type === "minus") {
+      itemToUpdate.quantity = Math.max((itemToUpdate.quantity || 0) - 1, 0);
     }
 
-    return(
-      
-        <div className='Menu-cart'>
-            <h1 className='Menu-cartText1'>CART</h1>
-            {cartItems.length === 0 ? (
-            <p className='Menu-cartText2'>장바구니가 비어 있습니다.</p>
-          ) : (
-            <ul>
-              {cartItems.map((item) => (
-                <li key={item.id}>
-                  {item.name} - {item.price}
-                  <button onClick={() => removeFromCart(item)}>제거</button>
-                </li>
-              ))}
-            </ul>
-          )}
-    
-          <h2 className='Menu-cartText1'>상품목록</h2>
-          <ul>
-            <li>
-              상품 1 - $10
-              <button onClick={() => addToCart({ id: 1, name: '상품 1', price: 10 })}>장바구니에 추가</button>
-            </li>
-            <li>
-              상품 2 - $20
-              <button onClick={() => addToCart({ id: 2, name: '상품 2', price: 20 })}>장바구니에 추가</button>
-            </li>
-            <li>
-              상품 3 - $30
-              <button onClick={() => addToCart({ id: 3, name: '상품 3', price: 30 })}>장바구니에 추가</button>
-            </li>
-          </ul>
-        </div>
-    );
+    setCartItems(updatedCartItems);
+  };
+
+  return (
+    <div className="Menu-cart">
+      <h2 className="Menu-cartText1">장바구니</h2>
+
+      <ul className="Menu-cart-container">
+        {cartItems.map((item, index) => (
+          <li key={item.id} className="Menu-cart-container-MenuList">
+            <div className="Menu-cart-container-MenuList-itemName">
+              {item.name}
+            </div>
+            <div className="Menu-plusBtn-container">
+              <input
+                type="button"
+                className="Menu-plusBtn"
+                onClick={() => count("minus", index)}
+                value="-"
+              />
+              <div id="result">{item.quantity || 0}</div>
+              <input
+                type="button"
+                className="Menu-minusBtn"
+                onClick={() => count("plus", index)}
+                value="+"
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="Menu-cart-Menu-close-container">
+        <button className="Menu-cart-Menu-close" onClick={handleRemove}>
+          Reset the menu
+        </button>
+      </div>
+      <div className="Menu-cart-Menu-close-container">
+        <button className="Menu-cart-Menu-close">
+          결제하기
+        </button>
+      </div>
+    </div>
+  );
 }
-
-
-          
-export default Cart;
-
