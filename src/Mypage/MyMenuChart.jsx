@@ -1,21 +1,56 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const MyMenuChart = () => {
-  const [series] = useState([
-    {
-      name: "Coffee",
-      data: [28, 29, 33, 36, 32, 32, 33],
-    },
-    {
-      name: "Beverage",
-      data: [12, 11, 14, 18, 17, 13, 13],
-    },
-    {
-      name: "Desert",
-      data: [20, 22, 27, 38, 37, 25, 37],
-    },
-  ]);
+
+  const [coffeeData, setCoffeeData] = useState([]);
+  const [beverageData, setBeverageData] = useState([]);
+  const [dessertData, setDessertData] = useState([]);
+
+  useEffect( () => {
+    const data = localStorage.getItem("authorization");
+    axios({
+      url : "http://localhost:8080/user/orderChart",
+      method : "post",
+      baseURL : "http://localhost:3000/Mypage",
+      headers : { Authorization : data},
+    }).then( response => {
+      console.log("차트정보 요청 성공!!");
+      console.log("Response Data >>> " + response.data);
+    
+
+      var coffeeArray = new Array(12).fill(0);
+      var beverageArray = new Array(12).fill(0);
+      var dessertArray = new Array(12).fill(0);
+    
+      for( const [month, items] of Object.entries(response.data)){
+        
+        for(const [category, count] of Object.entries(items)){
+          console.log(category + " : " + count);
+          if(category === "coffee") {
+            coffeeArray[month - 1] = count;
+          }else if(category === "beverage"){
+            beverageArray[month - 1] = count;
+          }else{
+            dessertArray[month - 1] = count;
+          }
+        }
+      }
+console.log("커피 배열 데이터 타입"+typeof(coffeeArray));
+      setCoffeeData(Object.values(coffeeArray));
+      setBeverageData(beverageArray);
+      setDessertData(dessertArray);
+      
+
+      // setResponseSucess(true);
+    }).catch( error => {
+      console.log("ERROR >>> " + error);
+    })
+
+  
+  },[])
+
 
   const [options] = useState({
     chart: {
@@ -55,7 +90,7 @@ const MyMenuChart = () => {
       size: 1,
     },
     xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      categories: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
       title: {
         text: "Month",
       },
@@ -64,8 +99,8 @@ const MyMenuChart = () => {
       title: {
         text: "Number of orders",
       },
-      min: 5,
-      max: 40,
+      min: 0,
+      max: 20,
     },
     legend: {
       position: "top",
@@ -76,12 +111,27 @@ const MyMenuChart = () => {
     },
   });
 
+
+  
   return (
     <div id="chart">
       {/* <div>이 곳에서 메뉴 현황을 체크해보세요!</div> */}
       <ReactApexChart
         options={options}
-        series={series}
+        series={[
+          {
+            name : "Coffee",
+            data : coffeeData,
+          },
+          {
+            name: " Beverage",
+            data : beverageData,
+          },
+          {
+            name : "Dessert",
+            data : dessertData,
+          },
+        ]}
         type="line"
         width={1000}
         height={450}

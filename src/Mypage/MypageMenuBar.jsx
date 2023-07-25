@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MypageMenuBarContainer from "./MypageMenuBarContainer";
 import SignUpInput from "../Login_SignUp/SignUp/SignUpInput";
 import MyMenuChart from "./MyMenuChart";
@@ -6,6 +6,7 @@ import MyMenuElectronicReceipt from "./MypageElectronicReceipt";
 import MypageCustomerCenter from "./MypageCustomerCenter";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MypageMenuBar = () => {
   const data = [
@@ -298,6 +299,7 @@ const MypageMenuBar = () => {
     " Validity (유효기간)",
   ];
   const [inputs, setInputs] = React.useState(Array(9).fill(""));
+  const [pw_inputs, setPw_inputs] = useState(Array(2).fill(""));
   const navigate = useNavigate();
   const handleClick = (menu) => {
     switch (menu) {
@@ -340,18 +342,82 @@ const MypageMenuBar = () => {
         break;
     }
   };
+  const [reason, setReason] = useState("");
   const handleButtonClick = () => {
+
     Swal.fire({
-      icon: "success",
-      title: "",
-      text: "회원 탈퇴되었습니다.",
+      icons: "question",
+      title : "",
+      text : "정말 회원 탈퇴를 하시겠습니까?",
+      denyButtonText : "취소",
       customClass: {
-        confirmButton: "btn-color",
+        confirmButton : "btn-color",
       },
-    });
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
+    }).then( response =>{
+      if ( response.isConfirmed){
+        console.log(pw_inputs);
+        console.log(pw_inputs[0]);
+        console.log(pw_inputs[1]);
+
+        if (pw_inputs[0] === pw_inputs[1]){
+
+          const data = localStorage.getItem("authorization");
+  
+          axios({
+            url: "http://localhost:8080/user/withdrawal",
+            method: "post",
+            baseURL : "http://localhost:3000/Mypage",
+            headers : { Authorization : data},
+            data : {
+              reason : reason,
+              password : pw_inputs[0],
+            },
+          }).then(response => {
+            console.log(response.data);
+            if (response.data === true){
+              Swal.fire({
+                icon: "success",
+                title: "",
+                text: "회원 탈퇴되었습니다.",
+                customClass: {
+                  confirmButton: "btn-color",
+                },
+              }).then( response => {
+                localStorage.removeItem("authorization");
+                navigate("/");
+              });
+    
+              setTimeout(() => {
+                navigate("/");
+              }, 1000);
+            }else{
+              Swal.fire({
+                icon: "error",
+                title: "Server Error",
+                text: "탈퇴 처리중 문제가발생했습니다. 다시 시도해주세요.",
+                customClass: {
+                  confirmButton: "btn-color",
+                },
+              });
+            }
+            
+  
+          }).catch( error => {
+            console.log("ERROR >>> " + error);
+          });
+  
+        }else{
+          Swal.fire({
+            icon : "error",
+            title: "비밀번호 불일치",
+            text : "두 비밀번호가 서로 일치하지 않습니다. 다시 입력해주세요.",
+          })
+        }
+      }
+      
+    })
+
+    
   };
   const withdrawalOption = {
     option1: [
@@ -360,23 +426,38 @@ const MypageMenuBar = () => {
         name: "선택해주세요.",
       },
       {
-        value: "op1",
+        value: "너무 많이 이용해요",
         name: "너무 많이 이용해요",
       },
       {
-        value: "op2",
+        value: "더 이용 하고 싶은 서비스가 없어요",
         name: "더 이용 하고 싶은 서비스가 없어요",
       },
       {
-        value: "op3",
+        value: "새 계정을 만들고 싶어요",
         name: "새 계정을 만들고 싶어요",
       },
       {
-        value: "op4",
+        value: "기타",
         name: "기타",
       },
     ],
   };
+
+  
+
+  const handleInputChange = (index, value) =>{
+    const passwordInputs = [...pw_inputs];
+    passwordInputs[index] = value;
+    setPw_inputs(passwordInputs);
+    console.log(pw_inputs[0]);
+    console.log(pw_inputs[1]);
+  }
+
+  const handleSelectChange = (e) => {
+    setReason(e.target.value);
+  }
+
   return (
     <>
       <div className="mypageMenuBar">
@@ -477,7 +558,7 @@ const MypageMenuBar = () => {
               <br />
               <br />
             </div>
-            <select className="select">
+            <select className="select" onChange={handleSelectChange}>
               {withdrawalOption.option1.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.name}
@@ -493,6 +574,7 @@ const MypageMenuBar = () => {
                       className="input"
                       value={inputs[index + 2]}
                       placeholder={inputPlaceholder[index + 2]}
+                      onChange={e => handleInputChange(index, e.target.value)}
                     />
                   </React.Fragment>
                 );
