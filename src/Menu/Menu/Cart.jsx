@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+
 export default function Cart({ cartItems, removeFromCart, setCartItems }) {
   useEffect(() => {
     console.log("render");
@@ -23,6 +24,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
 
     // getMenuList();
   }, []);
+
   const handleRemove = () => {
     setCartItems([]);
   };
@@ -40,6 +42,12 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     setCartItems(updatedCartItems);
   };
 
+  const handleRemoveItem = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(index, 1);
+    setCartItems(updatedCartItems);
+  };
+
   return (
     <div className="Menu-cart">
       <h2 className="Menu-cartText1">장바구니</h2>
@@ -50,7 +58,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
             <div className="Menu-cart-container-MenuList-itemName">
               {item.name}
             </div>
-            <div className="Menu-plusBtn-container">
+            <div className="Menu-cart-container-MenuList-quantity">
               <input
                 type="button"
                 className="Menu-plusBtn"
@@ -65,18 +73,17 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
                 value="+"
               />
             </div>
+            <button
+              className="Menu-cart-Menu-removeBtn"
+              onClick={() => handleRemoveItem(index)}
+            >
+              X
+            </button>
           </li>
         ))}
       </ul>
       <div className="Menu-cart-Menu-close-container">
-        <button className="Menu-cart-Menu-close" onClick={handleRemove}>
-          Reset the menu
-        </button>
-      </div>
-      <div className="Menu-cart-Menu-close-container">
-        <button className="Menu-cart-Menu-close">
-          결제하기
-        </button>
+        <button className="Menu-cart-Menu-close">결제하기</button>
       </div>
     </div>
   );

@@ -75,8 +75,8 @@
   flex-direction: row;
   align-items: center;
   list-style: none;
-  margin-left: 10vh;
-  width: 152vh;
+  margin-left: 11vh;
+  width: 150vh;
 }
 .Menu-submenu {
   /* //   기본 Tabmenu 에 대한 CSS를 구현 */
@@ -147,23 +147,27 @@
   margin-bottom: 10px;
 }
 .Menu-cart-container {
-  margin-top: 10px;
-  text-align: center;
-  font-family: "Ubuntu";
-  font-size: "large";
-  flex: 1;
+  list-style: none;
+  padding: 0;
+  flex: 1 1;
 }
 .Menu-cart-container-MenuList {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  margin: 1rem 0;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
 }
 .Menu-cart-container-MenuList-itemName {
-  margin: 0 1.5vh;
-  font-weight: bold;
+  width: 50%; 
+  font-weight: 500;
   font-size: 1rem;
+}
+.Menu-cart-container-MenuList-quantity {
+  width: 30%; /* Adjust the width as needed */
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
 .Menu-cart-Menu-close-container {
   border-top: 1px solid gray;
@@ -190,21 +194,36 @@
 }
 .Menu-plusBtn,
 .Menu-minusBtn {
-  border-radius: 20px;
-  font-weight: bold;
-  border: 0px solid;
-  font-size: 1.3rem;
-  padding: 5px;
-  width: 33px;
   cursor: pointer;
-  align-items: center;
-  text-align: center;
-  margin: 0 0.7rem;
+  font-size: 16px;
+  font-weight: bold;
+  width: 32px;
+  height: 25px;
   border: none;
-  background-color: #b6abab;
+  background-color: #babab4c2; /* Light gray background color */
+  border-radius: 7px; /* Rounded shape */
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Menu-plusBtn:hover {
   cursor: pointer;
+}
+
+#result {
+  margin: 0 10px;
+}
+
+.Menu-cart-Menu-removeBtn {
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #727272;
+  color: #fff;
+  border: none;
+  padding: 0.5vh 1vh;
+  border-radius: 4px;
+  outline: none;
 }
 /* 모달 */
 .Menu-containerMenu {
