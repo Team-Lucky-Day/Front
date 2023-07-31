@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import "./Style.css";
-import Coffee from "./Coffee";
-import Beverage from "./Beverage";
-import Dessert from "./Dessert";
-import Cart from "./Cart";
 import axios from "axios";
+import MenuContainer from "./MenuContainer";
 
 export const Tab = () => {
   const [menuImgList, setMenuImgList] = useState([]);
@@ -43,7 +40,6 @@ export const Tab = () => {
 
     getMenuImg();
   }, []);
-  
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
@@ -52,23 +48,22 @@ export const Tab = () => {
   const menuArr = [
     {
       name: "Coffee",
-      content: <Coffee coffeeInfo={coffeeInfo} addToCart={addToCart} />,
+      content: <MenuContainer coffeeInfo={coffeeInfo} addToCart={addToCart} />,
     },
     {
       name: "Beverage",
-      content: <Beverage beverageInfo={beverageInfo} addToCart={addToCart} />,
+      content: <MenuContainer coffeeInfo={beverageInfo} addToCart={addToCart} />,
     },
     {
       name: "Dessert",
-      content: <Dessert dessertInfo={dessertInfo} addToCart={addToCart} />,
+      content: <MenuContainer coffeeInfo={dessertInfo} addToCart={addToCart} />,
     },
   ];
 
   const selectMenuHandler = (index) => {
     clickTab(index);
   };
-
-  return (
+   return (
     <>
       <div>
         <div className="Menu-backGround">
