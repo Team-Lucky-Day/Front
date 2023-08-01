@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import swal from "sweetalert";
 import Cart from './Cart';
+import axios from "axios";
 const MenuContainer = (props) => {
   const [cartItems, setCartItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState(null);
+
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
@@ -33,12 +35,10 @@ const MenuContainer = (props) => {
     swal("Success", "Added to Favorites!", "success");
   };
 
-  // Filter items based on their categories
   const coffeeItems = props.coffeeInfo.filter(item => item.category === 'coffee');
   const beverageItems = props.coffeeInfo.filter(item => item.category === 'beverage');
   const dessertItems = props.coffeeInfo.filter(item => item.category === 'dessert');
 const removeFromCart = (itemToRemove) => {
-  // Filter out the item to remove from the cartItems array
   console.log(cartItems);
   for (let i = 0; i <= cartItems.length; i++) {
     console.log(i, itemToRemove);
