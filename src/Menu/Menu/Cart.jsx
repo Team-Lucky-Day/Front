@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart({ cartItems, removeFromCart, setCartItems }) {
   // useEffect(() => {
@@ -32,6 +33,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
   const handleRemove = () => {
     setCartItems([]);
   };
+  const navigate = useNavigate();
   const [menuList, setMenuList] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -77,10 +79,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     })
       .then(function (response) {
         console.log("요청이 성공했습니다!");
-
-        const dd = `Bearer ${response.data}`;
-        // 로그인 성공 시 localStorage에 데이터 저장
-        localStorage.setItem("authorization", dd);
+        navigate("/");
       })
       .catch(function (response) {
         console.log("요청이 실패했습니다. 오류:", response);
@@ -95,11 +94,12 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     if (type === "plus") {
       itemToUpdate.quantity = (itemToUpdate.quantity || 0) + 1;
     } else if (type === "minus") {
-      itemToUpdate.quantity = Math.max((itemToUpdate.quantity || 0) - 1, 0);
+      itemToUpdate.quantity = Math.max((itemToUpdate.quantity || 1) - 1, 0);
     }
     setCartItems(updatedCartItems);
     console.log(itemToUpdate.quantity);
   };
+
 
   const handleRemoveItem = (index) => {
     const updatedCartItems = [...cartItems];
@@ -124,7 +124,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
                 onClick={() => count("minus", index)}
                 value="-"
               />
-              <div id="result">{item.quantity || 1}</div>
+              <div id="result">{item.quantity || 0}</div>
               <input
                 type="button"
                 className="Menu-minusBtn"
