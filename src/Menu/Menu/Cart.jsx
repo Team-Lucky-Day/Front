@@ -33,7 +33,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     setCartItems([]);
   };
   const [menuList, setMenuList] = useState([]);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,28 +47,40 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     fetchData();
   }, []);
   const handlePayment = async () => {
-    const itemNames = cartItems.map((item) => item.menuCode);
-    console.log(
-      "Cart Contents:",
-      cartItems.map((item) => item.menuCode)
-    );
+    // const itemNames = cartItems.map((item) => item.menuCode);
+    // console.log(
+    //   "Cart Contents:",
+    //   cartItems.map((item) => item.menuCode)
+    // );
     const data = localStorage.getItem("authorization");
+    console.log(data)
+    // const itemCount = cartItems.map((item) => item.quantity);
+    // console.log(cartItems.map((item) => item.quantity));
+
+    const cartItemsDict = cartItems.reduce((dict, item) => {
+      dict[item.menuCode] = item.quantity;
+      return dict;
+    }, {});
+
+    console.log(cartItemsDict);
+    const itemNames = Object.keys(cartItemsDict);
+    const itemCount = Object.values(cartItemsDict); 
+
+    console.log("itemNames:", itemNames);
+    console.log("itemCount:", itemCount);
+
     axios({
       url: "http://localhost:8080/card/payment",
       method: "post",
       data: {
-        m_code: itemNames,
+        orderList: cartItemsDict,
       },
       baseURL: "http://localhost:3000/Menu",
       headers: { Authorization: data },
     })
       .then(function (response) {
         console.log("요청이 성공했습니다!");
-        
 
-        const dd = `Bearer ${response.data}`;
-        // 로그인 성공 시 localStorage에 데이터 저장
-        localStorage.setItem("authorization", dd);
       })
       .catch(function (response) {
         console.log("요청이 실패했습니다. 오류:", response);
@@ -85,8 +97,8 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     } else if (type === "minus") {
       itemToUpdate.quantity = Math.max((itemToUpdate.quantity || 0) - 1, 0);
     }
-
     setCartItems(updatedCartItems);
+    console.log(itemToUpdate.quantity);
   };
 
   const handleRemoveItem = (index) => {

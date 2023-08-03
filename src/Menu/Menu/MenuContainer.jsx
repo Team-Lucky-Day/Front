@@ -46,11 +46,12 @@ const removeFromCart = (itemToRemove) => {
     setCartItems(updatedCartItems);
   }
 };
+
   return (
     <>
       <div className="Menu-b_div-wrapper">
         <div className="Menu-b_div">
-          <div className="Menu-b_div_container">
+          <div className="Menu-b_div_container"> 
             {coffeeItems.map((coffeeInfo, index) => (
               <div key={index}>
                 <button
@@ -69,6 +70,7 @@ const removeFromCart = (itemToRemove) => {
               </div>
             ))}
           </div>
+
           <div>
             {beverageItems.map((beverageInfo, index) => (
               <div key={index}>
@@ -88,6 +90,7 @@ const removeFromCart = (itemToRemove) => {
               </div>
             ))}
           </div>
+
           <div>
             {dessertItems.map((dessertInfo, index) => (
               <div key={index}>
