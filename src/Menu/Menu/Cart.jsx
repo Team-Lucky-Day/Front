@@ -46,10 +46,10 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     fetchData();
   }, []);
   const handlePayment = async () => {
-    const itemNames = cartItems.map((item) => item.name);
+    const itemNames = cartItems.map((item) => item.menuCode);
     console.log(
       "Cart Contents:",
-      cartItems.map((item) => item.name)
+      cartItems.map((item) => item.menuCode)
     );
 
     const data = localStorage.getItem("authorization");
@@ -57,13 +57,18 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
       url: "http://localhost:8080/card/payment",
       method: "post",
       data: {
-        m_code: itemNames[0],
+        m_code: itemNames,
       },
       baseURL: "http://localhost:3000/Menu",
       headers: { Authorization: data },
     })
       .then(function (response) {
         console.log("요청이 성공했습니다!");
+        
+
+        const dd = `Bearer ${response.data}`;
+        // 로그인 성공 시 localStorage에 데이터 저장
+        localStorage.setItem("authorization", dd);
       })
       .catch(function (response) {
         console.log("요청이 실패했습니다. 오류:", response);
