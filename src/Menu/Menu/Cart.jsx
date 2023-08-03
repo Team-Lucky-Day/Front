@@ -33,6 +33,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     setCartItems([]);
   };
   const [menuList, setMenuList] = useState([]);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
