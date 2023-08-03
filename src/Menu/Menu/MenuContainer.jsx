@@ -144,6 +144,7 @@ const removeFromCart = (itemToRemove) => {
         cartItems={cartItems}
         removeFromCart={removeFromCart}
         setCartItems={setCartItems}
+        
       />
     </>
   );

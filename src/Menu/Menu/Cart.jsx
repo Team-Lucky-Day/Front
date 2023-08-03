@@ -51,7 +51,6 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
       "Cart Contents:",
       cartItems.map((item) => item.menuCode)
     );
-
     const data = localStorage.getItem("authorization");
     axios({
       url: "http://localhost:8080/card/payment",
@@ -103,7 +102,7 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
         {cartItems.map((item, index) => (
           <li key={item.id} className="Menu-cart-container-MenuList">
             <div className="Menu-cart-container-MenuList-itemName">
-              {menuList[index]?.name}
+              {item.name}
             </div>
             <div className="Menu-cart-container-MenuList-quantity">
               <input
