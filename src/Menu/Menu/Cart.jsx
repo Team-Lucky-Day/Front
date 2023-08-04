@@ -4,37 +4,13 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart({ cartItems, removeFromCart, setCartItems }) {
-  // useEffect(() => {
-  //   console.log("render");
-  //   const data = localStorage.getItem("authorization");
-  //   console.log(data);
-  //   axios({
-  //     url: "http://localhost:8080/menu/menuList",
-  //     method: "post",
-  //     baseURL: "http://localhost:3000/Menu",
-  //     headers: { Authorization: data },
-  //   })
-  //     .then(function (response) {
-  //       // 성공적인 응답 (200 OK)
-  //       console.log("요청이 성공했습니다!");
-
-  //       const data = `Bearer ${response.data}`;
-  //       // 로그인 성공 시 localStorage에 데이터 저장
-  //       localStorage.setItem("authorization", data);
-  //       console.log(response.data);
-  //     })
-  //     .catch(function (response) {
-  //       console.log("요청이 실패했습니다. 상태 코드:", response.status);
-  //     });
-
-  //   // getMenuList();
-  // }, []);
 
   const handleRemove = () => {
     setCartItems([]);
   };
   const navigate = useNavigate();
   const [menuList, setMenuList] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -48,26 +24,22 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
     fetchData();
   }, []);
   const handlePayment = async () => {
-    // const itemNames = cartItems.map((item) => item.menuCode);
-    // console.log(
-    //   "Cart Contents:",
-    //   cartItems.map((item) => item.menuCode)
-    // );
+    
     const data = localStorage.getItem("authorization");
     console.log(data)
-    // const itemCount = cartItems.map((item) => item.quantity);
-    // console.log(cartItems.map((item) => item.quantity));
 
     const cartItemsDict = cartItems.reduce((dict, item) => {
       dict[item.menuCode] = item.quantity;
       return dict;
     }, {});
+
     console.log(cartItemsDict);
     const itemNames = Object.keys(cartItemsDict);
     const itemCount = Object.values(cartItemsDict); 
 
     console.log("itemNames:", itemNames);
     console.log("itemCount:", itemCount);
+
     axios({
       url: "http://localhost:8080/card/payment",
       method: "post",
@@ -82,6 +54,11 @@ export default function Cart({ cartItems, removeFromCart, setCartItems }) {
         navigate("/");
       })
       .catch(function (response) {
+        Swal.fire({
+          title : "카드정보 오류",
+          text : "마이페이지에서 카드정보를 입력해주세요!",
+          confirmButtonText : "확인"
+        })
         console.log("요청이 실패했습니다. 오류:", response);
         // Handle the error here
       });

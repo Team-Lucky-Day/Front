@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MypageMenuBarContainer from "./MypageMenuBarContainer";
 import SignUpInput from "../Login_SignUp/SignUp/SignUpInput";
 import MyMenuChart from "./MyMenuChart";
@@ -9,6 +9,32 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 const MypageMenuBar = () => {
+  const [userInfo, setUserInfo] = useState([])
+
+  useEffect( () => {
+    const data = localStorage.getItem("authorization");
+    axios({
+      url: "http://localhost:8080/user/userInfo",
+      method: "post",
+      baseURL: "http://localhost:3000/Mypage",
+      headers: { Authorization: data },
+    }).then( response => {
+      console.log("요청성공 !!");
+      console.log(response.data);
+      console.log(typeof(response.data));
+      setUserInfo(response.data);
+      setInputs(response.data)
+    }).catch( error => {
+      console.log("요청 실패..! >> " + error)
+    })
+
+    // const infoArray = [];
+
+    // infoArray.push
+  },[])
+
+  
+
   const data = [
     {
       id: "japan",
@@ -291,14 +317,14 @@ const MypageMenuBar = () => {
     " Username",
     " email",
     " Password",
-    " Password Check",
     " Phone Number",
     " Card Number",
     " Card Password",
     " CVC",
     " Validity (유효기간)",
   ];
-  const [inputs, setInputs] = React.useState(Array(9).fill(""));
+
+  const [inputs, setInputs] = React.useState(Array(8).fill(""));
   const [pw_inputs, setPw_inputs] = useState(Array(2).fill(""));
   const navigate = useNavigate();
   const handleClick = (menu) => {
@@ -444,8 +470,6 @@ const MypageMenuBar = () => {
     ],
   };
 
-  
-
   const handleInputChange = (index, value) =>{
     const passwordInputs = [...pw_inputs];
     passwordInputs[index] = value;
@@ -456,6 +480,57 @@ const MypageMenuBar = () => {
 
   const handleSelectChange = (e) => {
     setReason(e.target.value);
+  }
+
+  const handleEditInput = (index, value) => {
+    const newEditValue = [...inputs];
+    newEditValue[index] = value;
+    setInputs(newEditValue);
+    console.log(inputs);
+  }
+
+  const editUserInfo = () => {
+    Swal.fire({
+      title : "이대로 수정하시겠습니까?",
+      showDenyButton: true,
+      confirmButtonText : "수정",
+      denyButtonText : "취소",
+    }).then( (result) => { // "수정"버튼을 눌렀을 때
+      if (result.isConfirmed){
+        const userCode = localStorage.getItem("authorization");
+        axios({
+          url: "http://localhost:8080/user/updateUserInfo",
+          method: "post",
+          data: {
+            u_name: inputs[0],
+            u_email: inputs[1],
+            u_pw: inputs[2],
+            u_phone: inputs[3],
+            c_number : inputs[4],
+            cardPassword : inputs[5],
+            cardCvc : inputs[6],
+            cardDate : inputs[7]
+          },
+          baseURL: "http://localhost:3000/Mypage",
+          headers : { Authorization : userCode},
+        }).then( response => {
+          if (response.status === 200){
+            Swal.fire({
+              icon: "success",
+              title: "수정완료",
+            })
+          }else{
+            Swal.fire({
+              icon : "error",
+              title : "수정 실패..!",
+            })
+          }
+
+
+
+        })
+      }
+    })
   }
 
   return (
@@ -494,20 +569,23 @@ const MypageMenuBar = () => {
                 <img src="/img/mypageuser.png" width={70} height={70} />
               </div>
               <div className="mypageMenuBarContainerMainInput">
-                {inputs.slice(0, 9).map((value, index) => {
-                  return (
-                    <React.Fragment key={index}>
-                      <SignUpInput
-                        type="password" // 패스워드 입력 타입
-                        className="mypage-input"
-                        value={inputs[index]}
-                        placeholder={inputPlaceholder[index]}
-                      />
-                    </React.Fragment>
-                  );
-                })}
+                    {userInfo.map( (infoList, index) => (
+                      <React.Fragment key={index}>
+                        <span>{inputPlaceholder[index]}</span>
+                        <div className="input-wrapper">
+                          <input 
+                          type="text"
+                          className="mypage-input" 
+                          value={inputs[index]}
+                          onChange={ (e) => handleEditInput(index, e.target.value)}
+                          />
+                        </div>
+                      </React.Fragment>
+                    ))}
               </div>
-              <button className="mypage-personalInfo-button">
+              <button 
+              className="mypage-personalInfo-button"
+              onClick={editUserInfo}>
                 회원정보 수정
               </button>
             </div>
@@ -574,7 +652,7 @@ const MypageMenuBar = () => {
                       className="input"
                       value={inputs[index + 2]}
                       placeholder={inputPlaceholder[index + 2]}
-                      onChange={e => handleInputChange(index, e.target.value)}
+                      onChange={e => handleEditInput(index, e.target.value)}
                     />
                   </React.Fragment>
                 );
