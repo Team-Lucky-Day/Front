@@ -32,7 +32,20 @@ const MenuContainer = (props) => {
   };
 
   const addToFavorites = (coffeeInfo) => {
-    swal("Success", "Added to Favorites!", "success");
+    axios
+      .post("http://localhost:8080/fav/enrollment", {
+        menuName: coffeeInfo.name,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          swal("Success", "Added to Favorites!", "success");
+        } else {
+          swal("Error", "Failed to add to Favorites", "error");
+        }
+      })
+      .catch((error) => {
+        swal("Error", "Failed to add to Favorites", "error");
+      });
   };
 
   const coffeeItems = props.coffeeInfo.filter(item => item.category === 'coffee');
