@@ -24,7 +24,7 @@ const FavoriteMenu = () => {
     console.log(data);
 
     axios({
-      url: "http://localhost:8080/user/fav/enrollment",
+      url: "http://localhost:8080/user/favorite",
       method: "post",
       baseURL: "http://localhost:3000/FavoritesMenu",
       headers: { Authorization: data },
@@ -33,21 +33,21 @@ const FavoriteMenu = () => {
         // 성공적인 응답 (200 OK)
         console.log("요청이 성공했습니다!");
         console.log(response.data);
-
+        
         setName(response.data[0].userName);
-        console.log(response.data[0].userName);
+        console.log(response.data[0].userName)
         setFavoriteList(response.data);
-
+        
         const favCoffee = [];
         const favBeverage = [];
         const favDesert = [];
 
-        response.data.forEach((favInfo) => {
-          if (favInfo.menuCategory === "coffee") {
+        response.data.forEach( (favInfo) => {
+          if (favInfo.menuCategory === "coffee"){
             favCoffee.push(favInfo);
-          } else if (favInfo.menuCategory === "beverage") {
+          }else if (favInfo.menuCategory === "beverage"){
             favBeverage.push(favInfo);
-          } else if (favInfo.menuCategory === "dessert") {
+          }else if (favInfo.menuCategory === "dessert"){
             favDesert.push(favInfo);
           }
         });
@@ -57,6 +57,7 @@ const FavoriteMenu = () => {
         setFavDesertList(favDesert);
 
         console.log(favCoffeeList);
+
       })
       .catch(function (response) {
         console.log("요청이 실패했습니다. 상태 코드:", response.status);
