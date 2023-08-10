@@ -24,7 +24,7 @@ const FavoriteMenu = () => {
     console.log(data);
 
     axios({
-      url: "http://localhost:8080/user/fav/enrollment",
+      url: "http://localhost:8080/user/favorite",
       method: "post",
       baseURL: "http://localhost:3000/FavoritesMenu",
       headers: { Authorization: data },

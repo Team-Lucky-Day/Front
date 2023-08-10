@@ -32,10 +32,17 @@ const MenuContainer = (props) => {
   };
 
   const addToFavorites = (coffeeInfo) => {
-    axios
-      .post("http://localhost:8080/fav/enrollment", {
-        menuName: coffeeInfo.name,
-      })
+    const data = localStorage.getItem("authorization");
+    console.log(data);
+
+    axios({
+      url: "http://localhost:8080/fav/enrollment",
+      method: "post",
+      data: {
+        menuCode: coffeeInfo.menuCode,
+      },
+      headers: { Authorization: data },
+    })
       .then((response) => {
         if (response.status === 200) {
           swal("Success", "Added to Favorites!", "success");
