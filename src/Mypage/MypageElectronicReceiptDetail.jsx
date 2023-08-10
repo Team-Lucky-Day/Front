@@ -1,7 +1,7 @@
 import React, {useState, useEffect}  from "react";
 
 const MypageElectronicReceiptDetail = (props) => {
-  const [totalPrice, setTotalPrice] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect( () => {
     let price = 0;
@@ -16,6 +16,7 @@ const MypageElectronicReceiptDetail = (props) => {
     console.log(props.dateInfo);
     console.log(props.orderDate);
     console.log(props.detailInfo[0].orderCode);
+
   },[])
 
   return (

@@ -30,16 +30,30 @@ const MenuContainer = (props) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const [menuList, setMenuList] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/menu/menuList");
+        console.log(response);
+        setMenuList(response.data);
+      } catch (error) {
+        console.log("Error fetching menuList:", error);
+      }
+    };
 
+    fetchData();
+  }, []);
   const addToFavorites = (coffeeInfo) => {
     const data = localStorage.getItem("authorization");
     console.log(data);
-
+    const selectedMenuCode = coffeeInfo.menuCode;
+    console.log(selectedMenuCode);
     axios({
       url: "http://localhost:8080/fav/enrollment",
       method: "post",
       data: {
-        menuName: coffeeInfo.name,
+        menuName: selectedMenuCode,
       },
       headers: { Authorization: data },
     })
