@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import swal from "sweetalert";
-import Cart from './Cart';
+import Cart from "./Cart";
 import axios from "axios";
 const MenuContainer = (props) => {
   const [cartItems, setCartItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState(null);
-
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
@@ -30,30 +29,16 @@ const MenuContainer = (props) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  const [menuList, setMenuList] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/menu/menuList");
-        console.log(response);
-        setMenuList(response.data);
-      } catch (error) {
-        console.log("Error fetching menuList:", error);
-      }
-    };
 
-    fetchData();
-  }, []);
   const addToFavorites = (coffeeInfo) => {
     const data = localStorage.getItem("authorization");
     console.log(data);
-    const selectedMenuCode = coffeeInfo.menuCode;
-    console.log(selectedMenuCode);
+
     axios({
       url: "http://localhost:8080/fav/enrollment",
       method: "post",
       data: {
-        menuName: selectedMenuCode,
+        menuCode: coffeeInfo.menuCode,
       },
       headers: { Authorization: data },
     })
@@ -69,23 +54,29 @@ const MenuContainer = (props) => {
       });
   };
 
-  const coffeeItems = props.coffeeInfo.filter(item => item.category === 'coffee');
-  const beverageItems = props.coffeeInfo.filter(item => item.category === 'beverage');
-  const dessertItems = props.coffeeInfo.filter(item => item.category === 'dessert');
-const removeFromCart = (itemToRemove) => {
-  console.log(cartItems);
-  for (let i = 0; i <= cartItems.length; i++) {
-    console.log(i, itemToRemove);
-    const updatedCartItems = cartItems.filter((i) => i === itemToRemove);
-    setCartItems(updatedCartItems);
-  }
-};
+  const coffeeItems = props.coffeeInfo.filter(
+    (item) => item.category === "coffee"
+  );
+  const beverageItems = props.coffeeInfo.filter(
+    (item) => item.category === "beverage"
+  );
+  const dessertItems = props.coffeeInfo.filter(
+    (item) => item.category === "dessert"
+  );
+  const removeFromCart = (itemToRemove) => {
+    console.log(cartItems);
+    for (let i = 0; i <= cartItems.length; i++) {
+      console.log(i, itemToRemove);
+      const updatedCartItems = cartItems.filter((i) => i === itemToRemove);
+      setCartItems(updatedCartItems);
+    }
+  };
 
   return (
     <>
       <div className="Menu-b_div-wrapper">
         <div className="Menu-b_div">
-          <div className="Menu-b_div_container"> 
+          <div className="Menu-b_div_container">
             {coffeeItems.map((coffeeInfo, index) => (
               <div key={index}>
                 <button
@@ -181,7 +172,6 @@ const removeFromCart = (itemToRemove) => {
         cartItems={cartItems}
         removeFromCart={removeFromCart}
         setCartItems={setCartItems}
-        
       />
     </>
   );
